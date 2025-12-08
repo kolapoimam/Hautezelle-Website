@@ -143,7 +143,7 @@ const About: React.FC = () => {
         {/* Join The Team CTA - Compact Luxury Card */}
         <div className="bg-white pb-24 pt-12">
            <div className="max-w-5xl mx-auto px-6">
-             <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-teal-950 via-teal-900 to-slate-950 px-8 py-16 text-center shadow-2xl">
+             <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-teal-950 via-teal-900 to-slate-950 px-8 py-24 text-center shadow-2xl">
                {/* Background Decorative Elements */}
                <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full mix-blend-overlay opacity-20 blur-[120px] transform translate-x-1/2 -translate-y-1/2"></div>
@@ -166,7 +166,7 @@ const About: React.FC = () => {
                    href="mailto:hautezelle@gmail.com?subject=Career Inquiry - Hautezelle Studio" 
                    className="group relative inline-flex items-center gap-3 bg-white text-teal-950 px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] overflow-hidden"
                  >
-                   <span className="relative z-10">Ignite Your Potential</span>
+                   <span className="relative z-10">Send Your CV</span>
                    <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
                  </a>

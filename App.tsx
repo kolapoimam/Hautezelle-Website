@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import Analytics from './components/Analytics';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Services from './pages/Services';
@@ -15,6 +16,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
+      <Analytics />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">

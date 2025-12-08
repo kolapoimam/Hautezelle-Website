@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Heart, Leaf, Quote, ArrowRight, UserPlus, Sparkles } from 'lucide-react';
+import { Target, Heart, Leaf, Quote, ArrowRight, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const About: React.FC = () => {
@@ -140,34 +140,34 @@ const About: React.FC = () => {
            </div>
         </div>
 
-        {/* Join The Team CTA - Redesigned Luxury Card */}
+        {/* Join The Team CTA - Compact Luxury Card */}
         <div className="bg-white pb-24 pt-12">
-           <div className="max-w-6xl mx-auto px-6">
-             <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-teal-950 via-teal-900 to-slate-950 px-8 py-24 text-center shadow-2xl">
+           <div className="max-w-5xl mx-auto px-6">
+             <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-teal-950 via-teal-900 to-slate-950 px-8 py-16 text-center shadow-2xl">
                {/* Background Decorative Elements */}
                <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full mix-blend-overlay opacity-20 blur-[120px] transform translate-x-1/2 -translate-y-1/2"></div>
                <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-400 rounded-full mix-blend-overlay opacity-20 blur-[100px] transform -translate-x-1/2 translate-y-1/2"></div>
                
                <div className="relative z-10 flex flex-col items-center">
-                 <div className="inline-flex p-5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-200 mb-8 shadow-inner">
-                   <Sparkles size={32} />
+                 <div className="inline-flex p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-200 mb-6 shadow-inner">
+                   <Sparkles size={24} />
                  </div>
                  
-                 <h2 className="text-4xl md:text-6xl font-serif text-white mb-6 tracking-tight">
+                 <h2 className="text-3xl md:text-5xl font-serif text-white mb-4 tracking-tight">
                    Join Our Creative <span className="text-teal-300 italic">Legacy</span>
                  </h2>
                  
-                 <p className="text-teal-100/80 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl">
-                   Are you passionate about art, education, or business management? We are always looking for visionary individuals to help us elevate the art of resin in Nigeria and beyond.
+                 <p className="text-teal-100/80 text-base md:text-lg font-light leading-relaxed mb-8 max-w-xl">
+                   Are you passionate about art or business management? We are always looking for visionary individuals to help us elevate the art of resin.
                  </p>
                  
                  <a 
                    href="mailto:hautezelle@gmail.com?subject=Career Inquiry - Hautezelle Studio" 
-                   className="group relative inline-flex items-center gap-3 bg-white text-teal-950 px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-teal-50 transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] overflow-hidden"
+                   className="group relative inline-flex items-center gap-3 bg-white text-teal-950 px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] overflow-hidden"
                  >
-                   <span className="relative z-10">Send Your CV</span>
-                   <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                   <span className="relative z-10">Ignite Your Potential</span>
+                   <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
                  </a>
                </div>

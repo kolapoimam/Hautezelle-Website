@@ -14,8 +14,8 @@ const SEO: React.FC<SEOProps> = ({
   title, 
   description, 
   keywords = "resin art, nigeria, luxury gifts, hautezelle, art academy, epoxy resin training, ilorin", 
-  // Updated to a high-quality Abstract Gold/Teal Texture from Unsplash
-  image = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop", 
+  // High-quality Emerald/Teal & Gold Abstract Resin Texture for luxurious preview
+  image = "https://images.unsplash.com/photo-1582201943021-e8e6444112ea?q=80&w=1200&auto=format&fit=crop", 
   type = 'website', 
   schema 
 }) => {

@@ -89,7 +89,7 @@ const Academy: React.FC = () => {
             className="w-full h-full object-cover brightness-[0.4]"
           />
         </div>
-        <div className="relative z-10 text-center px-6 max-w-5xl">
+        <div className="relative z-10 text-center px-6 max-w-5xl mt-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

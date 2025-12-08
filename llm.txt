@@ -1,0 +1,83 @@
+# Hautezelle Studio Project Context
+
+## 1. Project Overview
+Hautezelle Studio is a premium web application for a leading Nigerian resin art and craft enterprise. The site serves as an e-commerce platform, an educational hub (The Academy), and a portfolio for bespoke services.
+
+**Core Objectives:**
+- Showcase luxury resin art products (Frames, Jewelry, Decor).
+- Promote educational programs (Foundation, Masterclass, Business of Art).
+- Facilitate bookings for services (Resin N Sip, Corporate Partnerships).
+- Establish a global, sophisticated brand identity.
+
+## 2. Tech Stack & Architecture
+- **Framework:** React 19 (Client-side rendering).
+- **Routing:** React Router DOM v7 (HashRouter used for compatibility).
+- **Styling:** Tailwind CSS (via CDN).
+- **Icons:** Lucide React.
+- **Animations:** Framer Motion.
+- **Build/Entry:** standard index.tsx/index.html structure.
+
+## 3. Design System (Luxury Aesthetic)
+- **Colors:**
+  - Primary: Teal Palette (50-950).
+  - Backgrounds: Slate-50, White.
+  - Accents: Gold/Bronze implications via styling (though mapped to Teal/Slate).
+- **Typography:**
+  - Headings: 'Playfair Display' (Serif) - Elegant, high-contrast.
+  - Body: 'Lato' (Sans-serif) - Clean, readable.
+- **Shapes & UI:**
+  - **Glassmorphism:** Used in navigation and overlays.
+  - **Curvature:** Heavy use of `rounded-[2.5rem]` or `rounded-3xl` for a soft, premium feel.
+  - **Spacing:** Generous whitespace (padding/margin) to convey luxury.
+  - **Interactions:** Subtle hover lifts, scale effects, and smooth transitions.
+
+## 4. Key Pages & Routes
+
+### Home (`/`)
+- **Hero:** Full-screen video/image with overlay.
+- **Mission Cards:** "Unique Design", "Community", "Global Identity".
+- **Featured Collection:** Preview of shop items.
+
+### Shop (`/shop`)
+- **Catalog:** Grid of products (Wedding Plaques, Quran Stands, Clocks, etc.).
+- **Interaction:** CTAs redirect to Instagram (`@hautezelle`) for purchase.
+- **Visuals:** High-quality card layouts with curved edges.
+
+### Academy (`/academy`)
+- **Pricing:**
+  - The Foundation: ₦150,000
+  - Business of Art: ₦250,000
+  - Masterclass: ₦500,000
+- **Features:** Curriculum breakdown, Stats (50+ Students, 15 Modules, 99% Success), Testimonials marquee.
+- **Action:** WhatsApp redirection for enrollment.
+
+### Services (`/services`)
+- **Offerings:** Resin N Sip, Training, Corporate Partnerships, Bespoke Gifting.
+- **Layout:** Zig-zag editorial layout with rich imagery.
+
+### About (`/about`)
+- **Content:** Company history, Founder (Zainab Yinusa), Strategy (Kolapo Imam).
+- **Values:** Mission, Vision, Values presented in stylized cards.
+
+### Contact (`/contact`)
+- **Info:** Ilorin location, email (`hautezelle@gmail.com`).
+- **Form:** General inquiry form.
+
+## 5. SEO Strategy
+The application uses a custom `SEO` component to inject metadata into the `<head>`:
+- **Title Tags:** Format: `Page Name | Hautezelle Studio`.
+- **Meta Description:** Unique for each page.
+- **Open Graph:** Optimized for social sharing (WhatsApp/Twitter/LinkedIn previews).
+- **Structured Data (JSON-LD):** `Organization`, `Product`, `Course`, and `LocalBusiness` schemas implemented.
+
+## 6. Business Data
+- **Phone/WhatsApp:** `09030299342`
+- **Email:** `hautezelle@gmail.com`
+- **Location:** Ilorin, Kwara State, Nigeria.
+- **Social:** Instagram `@hautezelle`.
+
+## 7. Coding Conventions
+- **Components:** Functional components with TypeScript interfaces.
+- **Responsive Design:** Mobile-first Tailwind classes (`md:`, `lg:`).
+- **Accessibility:** Semantic HTML, ARIA labels where necessary.
+- **Clean Code:** Separation of concerns (Types, Components, Pages).

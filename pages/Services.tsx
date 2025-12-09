@@ -31,7 +31,7 @@ const Services: React.FC = () => {
           <div className="md:w-1/2 order-2 md:order-1">
              <div className="relative">
                 <div className="absolute top-0 right-0 w-full h-full bg-teal-50 rounded-[2.5rem] transform translate-x-4 -translate-y-4"></div>
-                <img src="https://picsum.photos/800/600?random=60" alt="Resin N Sip" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
+                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765300330/IMG_8664_tjuign.jpg" alt="Resin N Sip" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
              </div>
           </div>
           <div className="md:w-1/2 order-1 md:order-2">
@@ -75,7 +75,7 @@ const Services: React.FC = () => {
           <div className="md:w-1/2">
              <div className="relative">
                 <div className="absolute top-0 left-0 w-full h-full bg-slate-100 rounded-[2.5rem] transform -translate-x-4 translate-y-4"></div>
-                <img src="https://picsum.photos/800/600?random=61" alt="Academy" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
+                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287641/F534EEA6-49B8-4E74-807F-3295D70B25E8_2_ukfdh7.jpg" alt="Academy" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
              </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ const Services: React.FC = () => {
           <div className="md:w-1/2 order-2 md:order-1">
              <div className="relative">
                 <div className="absolute top-0 right-0 w-full h-full bg-teal-900 rounded-[2.5rem] transform translate-x-4 -translate-y-4 opacity-10"></div>
-                <img src="https://picsum.photos/800/600?random=62" alt="Corporate" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
+                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287611/IMG_6399_iil20x.jpg" alt="Corporate" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
              </div>
           </div>
           <div className="md:w-1/2 order-1 md:order-2">
@@ -119,7 +119,7 @@ const Services: React.FC = () => {
           <div className="md:w-1/2">
              <div className="relative">
                 <div className="absolute top-0 left-0 w-full h-full bg-pink-50 rounded-[2.5rem] transform -translate-x-4 translate-y-4"></div>
-                <img src="https://picsum.photos/800/600?random=63" alt="Gifting" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
+                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287614/IMG_7587_d9ndes.jpg" alt="Gifting" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
              </div>
           </div>
         </div>

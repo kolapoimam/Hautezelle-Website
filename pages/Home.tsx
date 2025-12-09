@@ -31,7 +31,7 @@ const Home: React.FC = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img 
-            src="https://picsum.photos/1920/1080?grayscale&blur=2" 
+            src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765301651/Image_fx_3_uzalsg.jpg" 
             alt="Resin Art Texture" 
             className="w-full h-full object-cover scale-105"
           />
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
               Handmade Luxury from Nigeria
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-white mb-8 leading-tight">
-              Artistry <br className="hidden md:block"/> Beyond <span className="italic text-teal-100 font-light">Imagination</span>
+              Timeless <br className="hidden md:block"/> Luxurious <span className="italic text-teal-100 font-light">Masterpieces</span>
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
               Discover bespoke resin art pieces, jewelry, and home décor crafted to inspire passion and celebrate global identity.
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Card 1 */}
               <div className="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl">
-                 <img src="https://picsum.photos/600/800?random=88" alt="Unique Design" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287614/IMG_7587_d9ndes.jpg" alt="Unique Design" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-10">
                     <h3 className="text-3xl font-serif text-white mb-3">Unique Design</h3>
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
 
               {/* Card 2 */}
               <div className="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer md:-mt-12 shadow-2xl">
-                 <img src="https://picsum.photos/600/800?random=89" alt="Community" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287097/IMG_1023_dmxj5q.jpg" alt="Community" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-10">
                     <h3 className="text-3xl font-serif text-white mb-3">Community</h3>
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
 
               {/* Card 3 */}
               <div className="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl">
-                 <img src="https://picsum.photos/600/800?random=90" alt="Global Identity" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287690/IMG_9173_plxwee.jpg" alt="Global Identity" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-10">
                     <h3 className="text-3xl font-serif text-white mb-3">Global Identity</h3>
@@ -144,7 +144,7 @@ const Home: React.FC = () => {
             {/* Feature 1 */}
             <Link to={PageRoutes.SHOP} className="group cursor-pointer">
               <div className="relative overflow-hidden aspect-[4/5] mb-6 shadow-2xl rounded-[2.5rem]">
-                <img src="https://picsum.photos/400/500?random=1" alt="Wedding Plaque" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287772/B239FD18-E653-4E8B-96DD-BE95F70ADE78_fcwtju.jpg" alt="Wedding Plaque" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
                 <div className="absolute bottom-8 left-8">
                   <h3 className="text-2xl font-serif mb-1 group-hover:text-teal-200 transition-colors">Wedding Plaques</h3>
@@ -155,7 +155,7 @@ const Home: React.FC = () => {
             {/* Feature 2 */}
             <Link to={PageRoutes.SHOP} className="group cursor-pointer md:-mt-16">
               <div className="relative overflow-hidden aspect-[4/5] mb-6 shadow-2xl rounded-[2.5rem]">
-                <img src="https://picsum.photos/400/500?random=2" alt="Quran Stand" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287776/597F0139-85A7-4A82-8172-F88A8D7303B9_qu7klr.jpg" alt="Quran Stand" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
                  <div className="absolute bottom-8 left-8">
                   <h3 className="text-2xl font-serif mb-1 group-hover:text-teal-200 transition-colors">Quran Stands</h3>
@@ -166,7 +166,7 @@ const Home: React.FC = () => {
             {/* Feature 3 */}
             <Link to={PageRoutes.SHOP} className="group cursor-pointer">
               <div className="relative overflow-hidden aspect-[4/5] mb-6 shadow-2xl rounded-[2.5rem]">
-                <img src="https://picsum.photos/400/500?random=3" alt="Wall Clock" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287627/IMG_8758_twkz0q.jpg" alt="Wall Clock" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
                  <div className="absolute bottom-8 left-8">
                   <h3 className="text-2xl font-serif mb-1 group-hover:text-teal-200 transition-colors">Resin Clocks</h3>
@@ -193,7 +193,7 @@ const Home: React.FC = () => {
           </h2>
           <div className="flex flex-col items-center">
              <div className="w-20 h-20 rounded-full bg-slate-300 mb-4 overflow-hidden shadow-lg border-2 border-white">
-                <img src="https://picsum.photos/100/100?random=20" alt="Zainab" className="w-full h-full object-cover"/>
+                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765300601/E941D90D-1434-40E9-B27C-53ED0724EB3E_bkr8uy.jpg" alt="Zainab" className="w-full h-full object-cover"/>
              </div>
              <p className="text-slate-900 font-bold tracking-widest text-xs uppercase">Zainab Yinusa</p>
              <p className="text-slate-500 text-xs mt-1">Founder, Hautezelle Studio</p>

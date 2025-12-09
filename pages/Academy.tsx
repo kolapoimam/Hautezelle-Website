@@ -84,7 +84,7 @@ const Academy: React.FC = () => {
       <section className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0">
           <img 
-            src="https://picsum.photos/1920/1080?random=50" 
+            src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765301094/Image_fx_fttmr4.jpg" 
             alt="Art Workshop" 
             className="w-full h-full object-cover brightness-[0.4]"
           />
@@ -162,7 +162,7 @@ const Academy: React.FC = () => {
                 ))}
               </ul>
               <div className="border-t border-slate-100 pt-8">
-                 <span className="block text-3xl font-serif text-teal-900 mb-6">₦200,000</span>
+                 <span className="block text-3xl font-serif text-teal-900 mb-6">₦150,000</span>
                  <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 border border-teal-900 text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-900 hover:text-white transition-colors">
                     Register Now <ArrowUpRight size={16} className="ml-2" />
                  </a>
@@ -217,7 +217,7 @@ const Academy: React.FC = () => {
                 ))}
               </ul>
               <div className="border-t border-slate-100 pt-8">
-                 <span className="block text-3xl font-serif text-teal-900 mb-6">₦300,000</span>
+                 <span className="block text-3xl font-serif text-teal-900 mb-6">₦250,000</span>
                  <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 border border-teal-900 text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-900 hover:text-white transition-colors">
                     Register Now <ArrowUpRight size={16} className="ml-2" />
                  </a>
@@ -233,7 +233,7 @@ const Academy: React.FC = () => {
           <div className="md:w-1/2 relative">
              <div className="absolute top-0 left-0 w-full h-full border-2 border-teal-100 rounded-[2.5rem] transform -translate-x-4 -translate-y-4"></div>
             <img 
-              src="https://picsum.photos/800/800?random=52" 
+              src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287771/F96B2AB9-59F5-4B41-993B-A7B3774804DF_zlghuv.jpg" 
               alt="Online Learning" 
               className="rounded-[2.5rem] shadow-2xl relative z-10 w-full"
             />

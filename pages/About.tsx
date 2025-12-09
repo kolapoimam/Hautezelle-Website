@@ -41,7 +41,7 @@ const About: React.FC = () => {
 
         <div className="w-full h-[60vh] relative overflow-hidden mb-24">
              <img 
-              src="https://picsum.photos/1920/800?grayscale" 
+              src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765301208/Image_fx_1_j8i1hd.jpg" 
               alt="Studio Workshop" 
               className="w-full h-full object-cover attachment-fixed"
             />
@@ -116,7 +116,7 @@ const About: React.FC = () => {
                 {/* Founder */}
                 <div className="bg-white p-12 shadow-xl border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300 rounded-[2.5rem]">
                   <div className="w-48 h-48 bg-slate-200 rounded-full mx-auto mb-10 overflow-hidden border-8 border-slate-50 shadow-inner">
-                    <img src="https://picsum.photos/300/300?random=20" alt="Zainab Yinusa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765300601/E941D90D-1434-40E9-B27C-53ED0724EB3E_bkr8uy.jpg" alt="Zainab Yinusa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   </div>
                   <h3 className="text-3xl font-serif text-slate-900 mb-2">Zainab Yinusa</h3>
                   <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-8">Founder & Creative Director</p>
@@ -128,7 +128,7 @@ const About: React.FC = () => {
                  {/* Strategy */}
                  <div className="bg-white p-12 shadow-xl border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300 rounded-[2.5rem]">
                   <div className="w-48 h-48 bg-slate-200 rounded-full mx-auto mb-10 overflow-hidden border-8 border-slate-50 shadow-inner">
-                    <img src="https://picsum.photos/300/300?random=21" alt="Kolapo Imam" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1764864659/newheaderkay_ghg2vt.jpg" alt="Kolapo Imam" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   </div>
                   <h3 className="text-3xl font-serif text-slate-900 mb-2">Kolapo Imam</h3>
                   <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-8">Consultant & Strategy Officer</p>

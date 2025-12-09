@@ -10,7 +10,7 @@ const products: Product[] = [
     description: 'Personalized resin plaques perfect for commemorating special unions. Customizable with names and dates.',
     priceRange: '₦40,000 - ₦50,000',
     category: 'Decor',
-    image: 'https://picsum.photos/600/600?random=10'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287799/IMG_0978_gsa9fj.jpg'
   },
   {
     id: '2',
@@ -18,7 +18,7 @@ const products: Product[] = [
     description: 'A spiritual masterpiece. Heavy duty resin stand with gold leaf detailing and Arabic calligraphy.',
     priceRange: '₦45,000',
     category: 'Religious',
-    image: 'https://picsum.photos/600/600?random=11'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287776/597F0139-85A7-4A82-8172-F88A8D7303B9_qu7klr.jpg'
   },
   {
     id: '3',
@@ -26,7 +26,7 @@ const products: Product[] = [
     description: '15 inches+ statement piece for your living room or office. Silent mechanism and durable finish.',
     priceRange: '₦45,000+',
     category: 'Decor',
-    image: 'https://picsum.photos/600/600?random=12'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287717/IMG_1086_r2xglo.jpg'
   },
   {
     id: '4',
@@ -34,7 +34,7 @@ const products: Product[] = [
     description: 'Handmade resin-covered journal for your thoughts and dreams. Refillable pages.',
     priceRange: '₦10,000',
     category: 'Stationery',
-    image: 'https://picsum.photos/600/600?random=13'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765286883/IMG_7880_floeih.jpg'
   },
   {
     id: '5',
@@ -42,15 +42,15 @@ const products: Product[] = [
     description: 'Set of 4. Unique, functional art to protect your surfaces. Heat resistant up to 100°C.',
     priceRange: '₦15,000',
     category: 'Homeware',
-    image: 'https://picsum.photos/600/600?random=14'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287719/IMG_4525_jyey7z.jpg'
   },
   {
     id: '6',
-    name: 'Statement Jewelry',
-    description: 'Earrings and pendants that capture light and attention. Hypoallergenic findings.',
-    priceRange: '₦5,000 - ₦15,000',
+    name: 'Luxury Resin Clutch',
+    description: 'A stunning handmade clutch bag encased in resin designs. The perfect accessory for special occasions.',
+    priceRange: '₦35,000 - ₦55,000',
     category: 'Accessories',
-    image: 'https://picsum.photos/600/600?random=15'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287706/IMG_9407_znnhxv.jpg'
   },
   {
     id: '7',
@@ -58,7 +58,7 @@ const products: Product[] = [
     description: 'Personalized initials and designs with floral or gold flake inclusions. Perfect for gifts.',
     priceRange: '₦2,500 - ₦5,000',
     category: 'Accessories',
-    image: 'https://picsum.photos/600/600?random=16'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287611/IMG_6399_iil20x.jpg'
   },
   {
     id: '8',
@@ -66,16 +66,40 @@ const products: Product[] = [
     description: 'Large decorative tray with handles. Perfect for serving guests or as a centerpiece.',
     priceRange: '₦25,000 - ₦35,000',
     category: 'Homeware',
-    image: 'https://picsum.photos/600/600?random=17'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287717/IMG_4663_oidm7n.jpg'
   },
-    {
+  {
     id: '9',
     name: 'Geode Art Canvas',
     description: 'Textured wall art mimicking natural geode formations with crystals and glass.',
     priceRange: '₦60,000+',
     category: 'Decor',
-    image: 'https://picsum.photos/600/600?random=18'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287097/IMG_1023_dmxj5q.jpg'
   },
+  {
+    id: '10',
+    name: 'Floral Resin Bookmark',
+    description: 'Elegant bookmark with real pressed flowers and gold leaf. A beautiful companion for your reading.',
+    priceRange: '₦3,000 - ₦5,000',
+    category: 'Stationery',
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765286657/IMG_2454_gstsrx.jpg'
+  },
+  {
+    id: '11',
+    name: 'Custom Phone Case',
+    description: 'Protective case with a unique resin back art. Available for various phone models.',
+    priceRange: '₦12,000 - ₦18,000',
+    category: 'Accessories',
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765286842/98835547-B853-4C3D-9395-B7AA594880D4_clynng.jpg'
+  },
+  {
+    id: '12',
+    name: 'Bespoke Resin Pen',
+    description: 'Refillable ballpoint pen with custom resin barrel. Smooth writing with a touch of luxury.',
+    priceRange: '₦4,000 - ₦6,000',
+    category: 'Stationery',
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287769/E13CF2D7-66DA-417E-92D9-93EFADF1335F_mxpurw.jpg'
+  }
 ];
 
 const Shop: React.FC = () => {

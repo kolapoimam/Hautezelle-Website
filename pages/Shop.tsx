@@ -38,16 +38,16 @@ const products: Product[] = [
   },
   {
     id: '5',
-    name: 'Resin Coaster Set',
-    description: 'Set of 4. Unique, functional art to protect your surfaces. Heat resistant up to 100°C.',
+    name: 'Charcuterie Board',
+    description: 'Elegant serving board for appetizers and cheeses. Food safe and heat resistant.',
     priceRange: '₦15,000',
     category: 'Homeware',
     image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287719/IMG_4525_jyey7z.jpg'
   },
   {
     id: '6',
-    name: 'Luxury Resin Clutch',
-    description: 'A stunning handmade clutch bag encased in resin designs. The perfect accessory for special occasions.',
+    name: 'Luxury Resin Bag',
+    description: 'A stunning handmade bag encased in resin designs. The perfect accessory for special occasions.',
     priceRange: '₦35,000 - ₦55,000',
     category: 'Accessories',
     image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287706/IMG_9407_znnhxv.jpg'
@@ -78,7 +78,7 @@ const products: Product[] = [
   },
   {
     id: '10',
-    name: 'Floral Resin Bookmark',
+    name: 'Resin Bookmark',
     description: 'Elegant bookmark with real pressed flowers and gold leaf. A beautiful companion for your reading.',
     priceRange: '₦3,000 - ₦5,000',
     category: 'Stationery',
@@ -182,7 +182,7 @@ const Shop: React.FC = () => {
               <div className="flex flex-col flex-grow px-2">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-2xl font-serif text-slate-900 group-hover:text-teal-700 transition-colors">{product.name}</h3>
-                  <span className="text-lg font-serif italic text-teal-900 whitespace-nowrap ml-4">{product.priceRange}</span>
+                  {/* Price tag removed as requested */}
                 </div>
                 <p className="text-slate-500 mb-6 flex-grow leading-relaxed font-light">{product.description}</p>
                 <div className="flex justify-between items-center border-t border-slate-100 pt-4">

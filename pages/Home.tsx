@@ -86,7 +86,7 @@ const Home: React.FC = () => {
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Card 1 */}
               <div className="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl">
-                 <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287614/IMG_7587_d9ndes.jpg" alt="Unique Design" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287652/IMG_0918_iw65sc.jpg" alt="Unique Design" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-10">
                     <h3 className="text-3xl font-serif text-white mb-3">Unique Design</h3>
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
 
               {/* Card 2 */}
               <div className="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer md:-mt-12 shadow-2xl">
-                 <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287097/IMG_1023_dmxj5q.jpg" alt="Community" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765300330/IMG_8664_tjuign.jpg" alt="Community" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-10">
                     <h3 className="text-3xl font-serif text-white mb-3">Community</h3>

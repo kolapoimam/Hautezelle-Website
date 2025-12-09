@@ -62,7 +62,13 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center text-teal-100/40 text-xs">
-        <p className="order-2 md:order-1 mt-4 md:mt-0">&copy; {new Date().getFullYear()} Hautezelle Studio. All rights reserved.</p>
+        <div className="order-2 md:order-1 mt-4 md:mt-0 flex flex-col md:flex-row items-center gap-2">
+            <p>&copy; {new Date().getFullYear()} Hautezelle Studio. All rights reserved.</p>
+            <span className="hidden md:inline">•</span>
+            <a href="https://getmvps.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-teal-200 transition-colors">
+                Built by GetMVPs
+            </a>
+        </div>
         <div className="flex space-x-6 order-1 md:order-2">
           <a href="https://instagram.com/hautezelle" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
           <a href="#" className="hover:text-white transition-colors"><Twitter size={20} /></a>

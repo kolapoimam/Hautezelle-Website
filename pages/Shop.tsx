@@ -42,7 +42,7 @@ const products: Product[] = [
     description: 'Elegant serving board for appetizers and cheeses. Food safe and heat resistant.',
     priceRange: '₦15,000',
     category: 'Homeware',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287719/IMG_4525_jyey7z.jpg'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287717/IMG_4663_oidm7n.jpg'
   },
   {
     id: '6',
@@ -62,11 +62,11 @@ const products: Product[] = [
   },
   {
     id: '8',
-    name: 'Serving Tray',
+    name: 'Coaster',
     description: 'Large decorative tray with handles. Perfect for serving guests or as a centerpiece.',
     priceRange: '₦25,000 - ₦35,000',
     category: 'Homeware',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287717/IMG_4663_oidm7n.jpg'
+    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765313779/IMG_2121_e0nvzo.jpg'
   },
   {
     id: '9',

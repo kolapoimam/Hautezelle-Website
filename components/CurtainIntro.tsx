@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Volume2 } from 'lucide-react';
 import { getAudio, playCurtainOpen, unlockAudio } from './curtainSound';
 
 // Theatre curtain that greets visitors once per browser session.
-// Tap opens it with sound; if nobody taps it opens by itself after a few seconds.
+// It opens by itself shortly after load. Any early tap, scroll or key press opens it at once.
 
 const SEEN_KEY = 'hz-curtain-seen';
 const OPEN_MS = 1900; // time for the drapes to gather at the sides
-const AUTO_OPEN_MS = 5500;
+const AUTO_OPEN_MS = 1400; // brief pause on the brand, then the curtains open by themselves
 
 type Phase = 'closed' | 'opening' | 'leaving' | 'gone';
 
@@ -143,13 +142,12 @@ const CurtainIntro: React.FC = () => {
   useEffect(() => {
     if (phase !== 'closed') return;
     const t = window.setTimeout(() => open(false), AUTO_OPEN_MS);
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') open(true);
-    };
-    window.addEventListener('keydown', onKey);
+    const early = () => open(true);
+    const evts = ['keydown', 'wheel', 'touchstart', 'pointerdown'] as const;
+    evts.forEach((e) => window.addEventListener(e, early, { passive: true }));
     return () => {
       window.clearTimeout(t);
-      window.removeEventListener('keydown', onKey);
+      evts.forEach((e) => window.removeEventListener(e, early));
     };
   }, [phase, open]);
 
@@ -198,8 +196,8 @@ const CurtainIntro: React.FC = () => {
         <motion.div
           key="curtain"
           role="dialog"
-          aria-label="Welcome to Hautezelle Studio. Tap to open the curtains."
-          className="fixed inset-0 z-[200] cursor-pointer select-none"
+          aria-label="Welcome to Hautezelle Studio"
+          className="fixed inset-0 z-[200] select-none"
           style={{ height: '100dvh' }}
           onClick={() => open(true)}
           initial={{ opacity: 1 }}
@@ -266,37 +264,8 @@ const CurtainIntro: React.FC = () => {
                 <p style={{ fontFamily: "'Playfair Display', serif" }} className="font-serif text-white text-5xl md:text-7xl leading-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)]">
                   Hautezelle
                 </p>
-                <p className="text-teal-100/80 tracking-[0.3em] text-[10px] md:text-xs uppercase mt-3 mb-10">Studio</p>
+                <p className="text-teal-100/80 tracking-[0.3em] text-[10px] md:text-xs uppercase mt-3">Studio</p>
 
-                <motion.button
-                  type="button"
-                  className="pointer-events-auto group relative inline-flex items-center gap-3 rounded-full border border-[#f3d27a]/70 bg-black/25 backdrop-blur-sm px-7 py-4 text-[11px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#f6dd94] shadow-[0_0_40px_rgba(243,210,122,0.25)]"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    open(true);
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.94 }}
-                  animate={{ boxShadow: ['0 0 0px rgba(243,210,122,0.0)', '0 0 34px rgba(243,210,122,0.45)', '0 0 0px rgba(243,210,122,0.0)'] }}
-                  transition={{ duration: 2.2, repeat: Infinity }}
-                >
-                  {/* little swinging tassel */}
-                  <motion.span
-                    className="relative block w-3 h-6 origin-top"
-                    animate={{ rotate: [-14, 14, -14] }}
-                    transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-                    aria-hidden
-                  >
-                    <span className="absolute left-1/2 -translate-x-1/2 top-0 w-[2px] h-2 bg-[#f3d27a]" />
-                    <span className="absolute left-1/2 -translate-x-1/2 top-2 w-3 h-3 rounded-full bg-[#f3d27a]" />
-                    <span className="absolute left-1/2 -translate-x-1/2 top-4 w-3 h-2 bg-[repeating-linear-gradient(90deg,#f3d27a_0_1px,transparent_1px_2px)]" />
-                  </motion.span>
-                  Open the curtains
-                </motion.button>
-
-                <p className="mt-6 flex items-center gap-2 text-white/50 text-[10px] md:text-[11px] tracking-widest uppercase">
-                  <Volume2 size={14} /> Tap anywhere · sound on
-                </p>
               </motion.div>
             )}
           </AnimatePresence>

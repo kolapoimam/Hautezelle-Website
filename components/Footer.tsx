@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Mail, MapPin, Twitter } from 'lucide-react';
+import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageRoutes } from '../types';
 import { INSTAGRAM_DM, INSTAGRAM_PROFILE } from '../constants';
@@ -41,7 +41,11 @@ const Footer: React.FC = () => {
             </li>
             <li className="flex items-center">
               <Mail size={18} className="mr-3 shrink-0 hidden md:block" />
-              <span>hautezelle@gmail.com</span>
+              <a href="mailto:hautezelle@gmail.com" className="hover:text-white transition-colors">hautezelle@gmail.com</a>
+            </li>
+            <li className="flex items-center">
+              <Phone size={18} className="mr-3 shrink-0 hidden md:block" />
+              <a href="tel:+2349030799342" className="hover:text-white transition-colors">0903 079 9342</a>
             </li>
           </ul>
         </div>
@@ -70,7 +74,6 @@ const Footer: React.FC = () => {
         </div>
         <div className="flex space-x-6 order-1 md:order-2">
           <a href={INSTAGRAM_PROFILE} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
-          <a href="#" className="hover:text-white transition-colors"><Twitter size={20} /></a>
         </div>
       </div>
     </footer>

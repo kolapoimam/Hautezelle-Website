@@ -1,0 +1,371 @@
+{
+  "business": {
+    "name": "Hautezelle Studio",
+    "legalName": "Hautezelle",
+    "url": "https://hautezelle.vercel.app",
+    "logo": "/icon-512.png",
+    "image": "/images/studio-wall.jpg",
+    "tagline": "Handmade luxury resin art from Ilorin, Nigeria",
+    "description": "Hautezelle Studio is a luxury resin art studio in Ilorin, Kwara State, Nigeria. We handcraft personalised resin wedding plaques, acrylic and mini wedding plaques, resin clocks, pearl bags, clutches, journals, pens, keychains and corporate gifts, and we teach resin art through the Hautezelle Academy and Resin N Sip workshops.",
+    "telephone": "+2349030799342",
+    "telephoneDisplay": "0903 079 9342",
+    "email": "hautezelle@gmail.com",
+    "instagram": "https://instagram.com/hautezelle",
+    "instagramDM": "https://ig.me/m/hautezelle",
+    "instagramHandle": "@hautezelle",
+    "address": {
+      "locality": "Ilorin",
+      "region": "Kwara State",
+      "regionCode": "KW",
+      "country": "NG",
+      "countryName": "Nigeria"
+    },
+    "geo": {
+      "lat": 8.4966,
+      "lng": 4.5426
+    },
+    "hours": {
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00",
+      "display": "Monday to Friday, 9am to 5pm"
+    },
+    "priceRange": "₦2,000 to ₦500,000",
+    "areaServed": [
+      "Ilorin",
+      "Kwara State",
+      "Lagos",
+      "Abuja",
+      "Nigeria"
+    ],
+    "founders": [
+      {
+        "name": "Zainab Yinusa",
+        "jobTitle": "Founder & Creative Director",
+        "image": "/images/zainab-yinusa.jpg"
+      },
+      {
+        "name": "Kolapo Imam",
+        "jobTitle": "Consultant & Strategy Officer",
+        "image": "/images/kolapo-imam.jpg",
+        "url": "https://kolapo.ng"
+      }
+    ],
+    "keywords": [
+      "resin art Nigeria",
+      "resin art Ilorin",
+      "luxury resin art",
+      "resin wedding plaque",
+      "Nikkah plaque",
+      "Islamic wedding plaque",
+      "acrylic wedding plaque",
+      "personalised wedding gifts Nigeria",
+      "resin clock",
+      "resin pearl bag",
+      "resin clutch",
+      "resin journal",
+      "personalised pens",
+      "custom keychains",
+      "wedding souvenirs Nigeria",
+      "corporate gifts Nigeria",
+      "resin art classes Nigeria",
+      "resin training Ilorin",
+      "Resin N Sip",
+      "epoxy resin workshop",
+      "handmade gifts Ilorin",
+      "Hautezelle"
+    ]
+  },
+  "pages": {
+    "/": {
+      "title": "Hautezelle | Luxury Resin Art & Wedding Plaques, Ilorin Nigeria",
+      "h1": "Timeless Luxurious Masterpieces",
+      "description": "Handmade resin art from Ilorin, Nigeria. Personalised wedding plaques, clocks, bags and gifts from ₦2,000, plus resin art classes. Order via Instagram DM.",
+      "keywords": "resin art Nigeria, resin art Ilorin, resin wedding plaque, Nikkah plaque, personalised wedding gifts Nigeria, resin clock, resin gifts, Hautezelle",
+      "lead": "Handmade resin art from Ilorin, Nigeria. Discover bespoke resin art pieces, jewelry, and home décor crafted to inspire passion and celebrate global identity."
+    },
+    "/shop": {
+      "title": "Shop Resin Wedding Plaques, Clocks, Bags & Gifts | Hautezelle",
+      "h1": "Curated Collections",
+      "description": "Personalised resin wedding plaques from ₦35,000, resin clocks, pearl bags, clutches, journals, pens and keychains. Handmade in Ilorin, Nigeria.",
+      "keywords": "buy resin art Nigeria, resin wedding plaque price, acrylic wedding plaque, resin clock Nigeria, resin pearl bag, resin clutch, resin journal, custom keychains, wedding souvenirs",
+      "lead": "Each piece is unique, crafted with passion and precision in our Ilorin studio. Prices start from the amounts shown and vary with size and personalisation."
+    },
+    "/academy": {
+      "title": "Resin Art Classes in Ilorin, Nigeria | Hautezelle Academy",
+      "h1": "Master the Art of Resin",
+      "description": "Learn resin art online or in our Ilorin studio. The Foundation from ₦150,000, Business of Art from ₦250,000 and Masterclass from ₦500,000, with certification.",
+      "keywords": "resin art classes Nigeria, resin training Ilorin, epoxy resin course, resin masterclass, learn resin art online Nigeria, resin business training",
+      "lead": "Join the premier resin art educational program in Nigeria. From foundational techniques to the business of art, we mold enthusiasts into professionals."
+    },
+    "/services": {
+      "title": "Resin N Sip, Corporate Gifts & Custom Resin Art | Hautezelle",
+      "h1": "Our Services",
+      "description": "Book Resin N Sip workshops, resin training, corporate gift partnerships and bespoke personalised gifts from Hautezelle Studio in Ilorin, Nigeria.",
+      "keywords": "Resin N Sip, paint and sip Ilorin, corporate gifts Nigeria, branded gifts, bespoke gifts Nigeria, team bonding Ilorin, bridal shower activity",
+      "lead": "Beyond creating beautiful art, we cultivate creativity through education, strategic partnerships, and immersive experiences."
+    },
+    "/about": {
+      "title": "About Hautezelle Studio | Handmade Resin Art from Ilorin",
+      "h1": "Crafting Elegance, Defining Artistry",
+      "description": "Hautezelle Studio is a luxury resin art studio in Ilorin, Nigeria, founded by Zainab Yinusa. Our mission, vision, values and the people behind the art.",
+      "keywords": "Hautezelle Studio, Zainab Yinusa, resin artist Nigeria, resin art studio Ilorin",
+      "lead": "Born from a desire to blend creativity with global identity, Hautezelle Studio has grown into Nigeria's premier provider of luxury resin decor and artistic education."
+    },
+    "/contact": {
+      "title": "Contact Hautezelle Studio | Order Custom Resin Art in Ilorin",
+      "h1": "Visit Our Studio",
+      "description": "Order custom resin art or book a class. Send a DM to @hautezelle on Instagram, call 0903 079 9342 or email hautezelle@gmail.com. Studio in Ilorin, Kwara State.",
+      "keywords": "contact Hautezelle, order resin art Ilorin, resin artist near me, custom resin order Nigeria",
+      "lead": "Order custom resin art, book a class or plan a Resin N Sip. The quickest way to reach us is a DM on Instagram."
+    }
+  },
+  "products": [
+    {
+      "id": "resin-wedding-plaque",
+      "name": "Resin Wedding Plaque",
+      "description": "A keepsake for your union, finished with pressed flowers, pearls and gold flakes. Personalised with your names, date and a verse of your choice.",
+      "priceRange": "From ₦65,000",
+      "category": "Weddings",
+      "image": "/images/wedding-plaque.jpg",
+      "price": 65000
+    },
+    {
+      "id": "acrylic-wedding-plaque",
+      "name": "Acrylic Wedding Plaque",
+      "description": "A clear arched plaque framed with pearls, crystals and floral sprays. Printed with your names, wedding date and Arabic calligraphy.",
+      "priceRange": "From ₦45,000",
+      "category": "Weddings",
+      "image": "/images/acrylic-wedding-plaque.jpg",
+      "price": 45000
+    },
+    {
+      "id": "mini-wedding-plaque",
+      "name": "Mini Wedding Plaque",
+      "description": "A glowing resin disc hung in a floral ring stand, with gold leaf and soft fairy lights. A lovely gift for the couple.",
+      "priceRange": "From ₦35,000",
+      "category": "Weddings",
+      "image": "/images/mini-wedding-plaque.jpg",
+      "price": 35000
+    },
+    {
+      "id": "resin-wedding-platter",
+      "name": "Resin Wedding Platter",
+      "description": "A full wedding set with a floral moon plaque and a matching resin platter, finished with gold edging and crystal clusters.",
+      "priceRange": "From ₦130,000",
+      "category": "Weddings",
+      "image": "/images/wedding-platter.jpg",
+      "price": 130000
+    },
+    {
+      "id": "resin-clock",
+      "name": "Table Top / Wall Clock",
+      "description": "A handmade resin clock with Roman numerals and silver flakes. Add a message to mark a promotion, a graduation or a new home.",
+      "priceRange": "From ₦60,000",
+      "category": "Home Decor",
+      "image": "/images/resin-clock.jpg",
+      "price": 60000
+    },
+    {
+      "id": "tabletop-plaque",
+      "name": "Table Top Plaque",
+      "description": "A standing resin plaque with gold leaf, made for graduations, awards and special thank yous.",
+      "priceRange": "From ₦12,000",
+      "category": "Home Decor",
+      "image": "/images/tabletop-plaque.jpg",
+      "price": 12000
+    },
+    {
+      "id": "luxury-pearl-bag",
+      "name": "Luxury Pearl Bag",
+      "description": "A statement bag of pearl filled resin swirls with a satin pouch inside. Made for weddings and evening events.",
+      "priceRange": "From ₦120,000",
+      "category": "Accessories",
+      "image": "/images/pearl-bag.jpg",
+      "price": 120000
+    },
+    {
+      "id": "resin-clutch",
+      "name": "Resin Clutch",
+      "description": "A round glitter resin clutch with gold marbling, a bangle handle and a gold chain strap.",
+      "priceRange": "From ₦70,000",
+      "category": "Accessories",
+      "image": "/images/resin-clutch.jpg",
+      "price": 70000
+    },
+    {
+      "id": "journal-gift-set",
+      "name": "Journal Gift Set",
+      "description": "A matching set of journal, keychain, pen and bookmark, all personalised with a name or a word you love.",
+      "priceRange": "From ₦30,000",
+      "category": "Stationery",
+      "image": "/images/journal-gift-set.jpg",
+      "price": 30000
+    },
+    {
+      "id": "resin-journal",
+      "name": "Resin Journal",
+      "description": "A refillable ring journal with a hand poured resin cover, glitter edges and your custom text.",
+      "priceRange": "From ₦16,000",
+      "category": "Stationery",
+      "image": "/images/journal.jpg",
+      "price": 16000
+    },
+    {
+      "id": "resin-pen",
+      "name": "Personalised Resin Pen",
+      "description": "A refillable pen with a resin barrel, silver flakes and a printed name. Great for doctors, teams and graduates.",
+      "priceRange": "From ₦2,500",
+      "category": "Stationery",
+      "image": "/images/resin-pens.jpg",
+      "price": 2500
+    },
+    {
+      "id": "resin-bookmark",
+      "name": "Resin Bookmark",
+      "description": "A glitter resin bookmark with a butterfly topper and your custom text. ₦1,500 each for orders above 10.",
+      "priceRange": "From ₦2,000",
+      "category": "Stationery",
+      "image": "/images/bookmark.jpg",
+      "price": 2000
+    },
+    {
+      "id": "couples-keychain-box",
+      "name": "Couples Keychain Box",
+      "description": "A two piece heart keychain that fits together, presented in a gift box. Personalised for the two of you.",
+      "priceRange": "From ₦10,000",
+      "category": "Gifts",
+      "image": "/images/couples-keychain-box.jpg",
+      "price": 10000
+    },
+    {
+      "id": "keychain-pen-gift-box",
+      "name": "Keychain & Pen Gift Box",
+      "description": "A named keychain and matching pen in a window gift box. A neat choice for staff and corporate gifts.",
+      "priceRange": "From ₦7,500",
+      "category": "Gifts",
+      "image": "/images/keychain-pen-gift-box.jpg",
+      "price": 7500
+    },
+    {
+      "id": "custom-keychain",
+      "name": "Custom Keychain",
+      "description": "A resin keychain with a pressed flower charm and your name or initials. ₦1,700 each for orders above 50.",
+      "priceRange": "From ₦2,500",
+      "category": "Gifts",
+      "image": "/images/keychain.jpg",
+      "price": 2500
+    }
+  ],
+  "courses": [
+    {
+      "name": "The Foundation",
+      "price": 150000,
+      "level": "Beginner",
+      "description": "Perfect for complete beginners. Learn safety protocols, mixing ratios, and fundamental pouring techniques to create your first coaster set and tray.",
+      "topics": [
+        "Material Safety",
+        "Mixing & Pouring",
+        "Color Theory",
+        "Finishing Touches"
+      ]
+    },
+    {
+      "name": "Business of Art",
+      "price": 250000,
+      "level": "Intermediate",
+      "description": "Turn your passion into profit. Learn how to price your work, market on social media, packaging, and handling shipping logistics.",
+      "topics": [
+        "Pricing Strategy",
+        "Social Media Marketing",
+        "Photography",
+        "Client Management"
+      ]
+    },
+    {
+      "name": "Masterclass",
+      "price": 500000,
+      "level": "Advanced",
+      "description": "Elevate your craft. Deep dive into geode art, ocean waves, preservation techniques, and working with complex 3D molds and layers.",
+      "topics": [
+        "Geode Techniques",
+        "Ocean Effects",
+        "Flower Preservation",
+        "Large Scale Art"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "name": "Resin N Sip",
+      "description": "Our signature outdoor event designed to introduce the public to resin art. Enjoy a relaxed atmosphere with drinks while learning to create your own masterpiece. Perfect for team bonding, bridal showers, or a creative weekend out."
+    },
+    {
+      "name": "Training Academy",
+      "description": "Comprehensive online and offline courses for aspiring resin artists. We cover everything from safety and materials to advanced techniques and business strategies for selling your art."
+    },
+    {
+      "name": "Corporate Partnerships",
+      "description": "We collaborate with brands, associations, and organizations to create custom resin souvenirs and promotional items. Elevate your corporate gifting with handmade, branded excellence."
+    },
+    {
+      "name": "Bespoke Gifting",
+      "description": "From wedding souvenirs to personalized home decor, we bring your specific ideas to life. Our custom order process ensures your vision is perfectly translated into resin."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is Hautezelle Studio?",
+      "a": "Hautezelle Studio is a luxury resin art studio in Ilorin, Kwara State, Nigeria, founded by Zainab Yinusa. We handcraft personalised resin wedding plaques, clocks, bags, stationery and gifts, and we teach resin art through the Hautezelle Academy and Resin N Sip workshops."
+    },
+    {
+      "q": "How do I order from Hautezelle?",
+      "a": "Send a DM to @hautezelle on Instagram with the piece you want, your names or text, colours and date. Every piece is handmade to order. You can also call 0903 079 9342 or email hautezelle@gmail.com."
+    },
+    {
+      "q": "How much does a resin wedding plaque cost in Nigeria?",
+      "a": "At Hautezelle, mini wedding plaques start from ₦35,000, acrylic wedding plaques from ₦45,000, resin wedding plaques from ₦65,000 and full resin wedding platter sets from ₦130,000. The final price depends on size and personalisation."
+    },
+    {
+      "q": "Can you add names, dates, Arabic calligraphy or Quran verses?",
+      "a": "Yes. Our wedding plaques are personalised with the couple's names, wedding date and a verse or message of your choice, including Arabic calligraphy such as Quran 30:21."
+    },
+    {
+      "q": "Do you take bulk and corporate orders?",
+      "a": "Yes. We make wedding souvenirs, staff gifts and branded items in bulk. Keychains are ₦1,700 each for orders above 50 and bookmarks are ₦1,500 each for orders above 10. Named resin pens start from ₦2,500 and keychain and pen gift boxes from ₦7,500."
+    },
+    {
+      "q": "Can I learn resin art at Hautezelle?",
+      "a": "Yes. The Hautezelle Academy offers online courses and in studio workshops in Ilorin. The Foundation starts from ₦150,000, Business of Art from ₦250,000 and the Masterclass from ₦500,000, with certification included."
+    },
+    {
+      "q": "What is Resin N Sip?",
+      "a": "Resin N Sip is our relaxed resin art event where you enjoy drinks while making your own resin piece with guidance. All materials are provided and you take your art home. It works well for team bonding, bridal showers and birthdays."
+    },
+    {
+      "q": "Where is Hautezelle Studio and when is it open?",
+      "a": "Our studio is in Ilorin, Kwara State, Nigeria, and is open Monday to Friday, 9am to 5pm. Send us a DM on Instagram to arrange a visit."
+    }
+  ],
+  "learningModes": [
+    {
+      "name": "Online Academy",
+      "description": "Access high-definition video tutorials from anywhere in the world. Learn at your own pace with lifetime access to course materials and our private community group."
+    },
+    {
+      "name": "In-Studio Workshops",
+      "description": "Experience the magic firsthand in our Ilorin studio. Benefit from direct guidance, immediate feedback, and the inspiring company of fellow artists."
+    }
+  ],
+  "about": {
+    "mission": "To create captivating and distinctive art and craft pieces that inspire passion, love, and global identity. We strive to push the boundaries of what is possible with resin.",
+    "vision": "To become the premier provider of resin art pieces and educational programs in Nigeria, while cultivating a vibrant community of artists and enthusiasts.",
+    "values": "Creativity, Quality, Passion, Community, Sustainability. These core values guide every pour, every design, and every workshop we host."
+  }
+}

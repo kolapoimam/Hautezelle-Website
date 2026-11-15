@@ -1,94 +1,62 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import site from '../data/site.json';
+import { buildSchema } from '../seo/schema.js';
+
+// Keeps the <head> in step with the current page when visitors navigate inside the app.
+// The same values are written into static HTML at build time by scripts/prerender.mjs,
+// so crawlers that do not run JavaScript still get them.
+
+type PagePath = keyof typeof site.pages;
 
 interface SEOProps {
-  title: string;
-  description: string;
-  keywords?: string;
-  image?: string;
-  type?: string;
-  schema?: object;
+  page: PagePath;
 }
 
-const SEO: React.FC<SEOProps> = ({ 
-  title, 
-  description, 
-  keywords = "resin art, nigeria, luxury gifts, hautezelle, art academy, epoxy resin training, ilorin", 
-  // High-quality Emerald/Teal & Gold Abstract Resin Texture for luxurious preview
-  image = "https://hautezelle.com/images/studio-wall.jpg", 
-  type = 'website', 
-  schema 
-}) => {
-  const location = useLocation();
-  const canonicalUrl = `${window.location.origin}${location.pathname}`;
-  const siteName = "Hautezelle Studio";
+const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
+  let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+};
 
+const SEO: React.FC<SEOProps> = ({ page }) => {
   useEffect(() => {
-    // Update Title
-    document.title = title;
+    const meta = site.pages[page];
+    const base = site.business.url;
+    const url = page === '/' ? `${base}/` : `${base}${page}`;
+    const image = `${base}${site.business.image}`;
 
-    // Update Meta Tags
-    const setMeta = (name: string, content: string) => {
-      let element = document.querySelector(`meta[name="${name}"]`);
-      if (!element) {
-        element = document.createElement('meta');
-        element.setAttribute('name', name);
-        document.head.appendChild(element);
-      }
-      element.setAttribute('content', content);
-    };
+    document.title = meta.title;
+    setMeta('name', 'description', meta.description);
+    setMeta('name', 'keywords', meta.keywords);
+    setMeta('property', 'og:title', meta.title);
+    setMeta('property', 'og:description', meta.description);
+    setMeta('property', 'og:url', url);
+    setMeta('property', 'og:image', image);
+    setMeta('name', 'twitter:title', meta.title);
+    setMeta('name', 'twitter:description', meta.description);
+    setMeta('name', 'twitter:image', image);
 
-    const setOgMeta = (property: string, content: string) => {
-      let element = document.querySelector(`meta[property="${property}"]`);
-      if (!element) {
-        element = document.createElement('meta');
-        element.setAttribute('property', property);
-        document.head.appendChild(element);
-      }
-      element.setAttribute('content', content);
-    };
-
-    // Standard Meta
-    setMeta('description', description);
-    setMeta('keywords', keywords);
-
-    // Open Graph
-    setOgMeta('og:site_name', siteName);
-    setOgMeta('og:title', title);
-    setOgMeta('og:description', description);
-    setOgMeta('og:url', canonicalUrl);
-    setOgMeta('og:type', type);
-    setOgMeta('og:image', image);
-
-    // Twitter Card
-    setMeta('twitter:card', 'summary_large_image');
-    setMeta('twitter:title', title);
-    setMeta('twitter:description', description);
-    setMeta('twitter:image', image);
-
-    // Canonical Link
-    let link = document.querySelector('link[rel="canonical"]');
+    let link = document.head.querySelector('link[rel="canonical"]');
     if (!link) {
       link = document.createElement('link');
       link.setAttribute('rel', 'canonical');
       document.head.appendChild(link);
     }
-    link.setAttribute('href', canonicalUrl);
+    link.setAttribute('href', url);
 
-    // Structured Data (JSON-LD)
-    if (schema) {
-      const scriptId = 'structured-data';
-      let script = document.getElementById(scriptId);
-      if (!script) {
-        script = document.createElement('script');
-        script.setAttribute('id', scriptId);
-        script.setAttribute('type', 'application/ld+json');
-        document.head.appendChild(script);
-      }
-      script.textContent = JSON.stringify(schema);
+    let script = document.getElementById('structured-data');
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'structured-data';
+      script.setAttribute('type', 'application/ld+json');
+      document.head.appendChild(script);
     }
-
-  }, [title, description, keywords, image, type, canonicalUrl, schema]);
+    script.textContent = JSON.stringify(buildSchema(site, page));
+  }, [page]);
 
   return null;
 };

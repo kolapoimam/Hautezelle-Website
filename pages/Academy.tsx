@@ -41,31 +41,10 @@ const stats = [
 
 
 const Academy: React.FC = () => {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Hautezelle Resin Art Academy",
-    "description": "Learn professional resin art techniques from beginner to masterclass levels in Nigeria.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Hautezelle Studio",
-      "sameAs": "https://hautezelle.com"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "NGN",
-      "lowPrice": "150000",
-      "highPrice": "500000"
-    }
-  };
 
   return (
     <div className="w-full bg-slate-50">
-      <SEO 
-        title="Resin Art Academy & Workshops | Hautezelle Studio" 
-        description="Join the best resin art school in Nigeria. Online and offline courses available. Master resin pouring, safety, and business."
-        schema={schema}
-      />
+      <SEO page="/academy" />
 
        <style>{`
         @keyframes marquee {

@@ -9,10 +9,7 @@ const Services: React.FC = () => {
 
   return (
     <div className="w-full bg-white">
-      <SEO 
-        title="Our Services | Hautezelle Studio" 
-        description="From Resin N Sip events to Corporate Gifting and Art Training. Explore the premium services offered by Hautezelle Studio."
-      />
+      <SEO page="/services" />
 
       {/* Services Hero */}
        <div className="pt-48 pb-24 px-6 max-w-7xl mx-auto text-center">

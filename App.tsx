@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -29,6 +29,7 @@ const App: React.FC = () => {
             <Route path={PageRoutes.ABOUT} element={<About />} />
             <Route path={PageRoutes.CONTACT} element={<Contact />} />
             <Route path={PageRoutes.ACADEMY} element={<Academy />} />
+            <Route path="*" element={<Navigate to={PageRoutes.HOME} replace />} />
           </Routes>
         </main>
         <Footer />

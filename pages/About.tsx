@@ -117,7 +117,7 @@ const About: React.FC = () => {
                 {/* Founder */}
                 <div className="bg-white p-12 shadow-xl border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300 rounded-[2.5rem]">
                   <div className="w-48 h-48 bg-slate-200 rounded-full mx-auto mb-10 overflow-hidden border-8 border-slate-50 shadow-inner">
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-teal-800 to-teal-950" role="img" aria-label="Zainab Yinusa"><span className="font-serif text-6xl text-white">ZY</span></div>
+                    <img src="/images/zainab-yinusa.jpg" alt="Zainab Yinusa" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   </div>
                   <h3 className="text-3xl font-serif text-slate-900 mb-2">Zainab Yinusa</h3>
                   <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-8">Founder & Creative Director</p>
@@ -129,7 +129,7 @@ const About: React.FC = () => {
                  {/* Strategy */}
                  <div className="bg-white p-12 shadow-xl border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300 rounded-[2.5rem]">
                   <div className="w-48 h-48 bg-slate-200 rounded-full mx-auto mb-10 overflow-hidden border-8 border-slate-50 shadow-inner">
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-teal-800 to-teal-950" role="img" aria-label="Kolapo Imam"><span className="font-serif text-6xl text-white">KI</span></div>
+                    <img src="/images/kolapo-imam.jpg" alt="Kolapo Imam" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   </div>
                   <h3 className="text-3xl font-serif text-slate-900 mb-2">Kolapo Imam</h3>
                   <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-8">Consultant & Strategy Officer</p>

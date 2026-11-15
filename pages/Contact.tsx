@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
                </div>
                <div>
                  <h3 className="font-bold text-slate-900 mb-1">Phone</h3>
-                 <p className="text-slate-600">+234 800 123 4567</p>
+                 <p className="text-slate-600"><a href="tel:+2349030799342" className="hover:text-teal-700">0903 079 9342</a></p>
                  <p className="text-sm text-slate-400 mt-1">Available for WhatsApp Support</p>
                </div>
              </div>

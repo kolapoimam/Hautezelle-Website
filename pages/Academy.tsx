@@ -1,297 +1,185 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Award, Users, Video, Star, CheckCircle, Quote, ArrowUpRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { INSTAGRAM_DM } from '../constants';
 
 const testimonials = [
-  {
-    name: "Amina B.",
-    role: "Foundation Graduate",
-    text: "The Foundation course changed my life. I went from admiring resin art to creating my own business in just 4 weeks."
-  },
-  {
-    name: "Chioma O.",
-    role: "Masterclass Student",
-    text: "Hautezelle's techniques are unmatched. The geode art module alone is worth the investment. Truly world-class standard."
-  },
-  {
-    name: "Sarah T.",
-    role: "Business of Art",
-    text: "I knew how to pour, but I didn't know how to sell. This academy gave me the roadmap to 7-figure sales."
-  },
-  {
-    name: "Zainab A.",
-    role: "Workshop Attendee",
-    text: "The energy at the physical studio is electric. Learning directly from the team was an unforgettable experience."
-  },
-  {
-    name: "Tunde K.",
-    role: "Corporate Client",
-    text: "We booked a private session for our team and it was the highlight of our year. Professional and so much fun."
-  }
+  { name: 'Amina B.', role: 'Foundation graduate', text: 'The Foundation course changed my life. I went from admiring resin art to creating my own business in just 4 weeks.' },
+  { name: 'Chioma O.', role: 'Masterclass student', text: "Hautezelle's techniques are unmatched. The geode art module alone is worth the investment. Truly world-class standard." },
+  { name: 'Sarah T.', role: 'Business of Art', text: "I knew how to pour, but I didn't know how to sell. This academy gave me the roadmap to 7-figure sales." },
+  { name: 'Zainab A.', role: 'Workshop attendee', text: 'The energy at the physical studio is electric. Learning directly from the team was an unforgettable experience.' },
+  { name: 'Tunde K.', role: 'Corporate client', text: 'We booked a private session for our team and it was the highlight of our year. Professional and so much fun.' },
 ];
 
 const stats = [
-  { label: 'Students Trained', value: '50+' },
-  { label: 'Curriculum Modules', value: '15' },
-  { label: 'Success Rate', value: '99%' },
-  { label: 'Community', value: 'Active' },
+  { value: '50+', label: 'Students trained' },
+  { value: '15', label: 'Curriculum modules' },
+  { value: '99%', label: 'Success rate' },
+  { value: 'Active', label: 'Alumni community' },
 ];
 
+const programmes = [
+  {
+    level: 'Beginner',
+    title: 'The Foundation',
+    text: 'For complete beginners. Learn safety, mixing ratios and core pouring as you make your first coaster set and tray.',
+    items: ['Material safety', 'Mixing and pouring', 'Colour theory', 'Finishing touches'],
+    price: '₦150,000',
+  },
+  {
+    level: 'Advanced · Most popular',
+    title: 'Masterclass',
+    text: 'Elevate your craft with geode art, ocean waves, flower preservation and complex layered 3D moulds.',
+    items: ['Geode techniques', 'Ocean effects', 'Flower preservation', 'Large scale art'],
+    price: '₦500,000',
+    featured: true,
+  },
+  {
+    level: 'Professional',
+    title: 'Business of Art',
+    text: 'Turn passion into profit. Price your work, market it online, package it well and handle shipping with ease.',
+    items: ['Pricing strategy', 'Social media marketing', 'Product photography', 'Client management'],
+    price: '₦250,000',
+  },
+];
 
 const Academy: React.FC = () => {
-
   return (
-    <div className="w-full bg-slate-50">
+    <div className="w-full bg-ivory text-ink">
       <SEO page="/academy" />
 
-       <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-      
       {/* Hero */}
-      <section className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0">
-          <img 
-            src="/images/resin-pens-hand.jpg" 
-            alt="Art Workshop" 
-            className="w-full h-full object-cover brightness-[0.4]"
-          />
-        </div>
-        <div className="relative z-10 text-center px-6 max-w-5xl mt-24">
+      <section className="pt-28 sm:pt-32 lg:pt-36">
+        <div className="wrap grid items-center gap-12 pb-20 lg:grid-cols-2 lg:gap-16 lg:pb-24">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col gap-7 text-center lg:text-left"
           >
-            <span className="text-teal-400 tracking-[0.3em] text-xs md:text-sm uppercase font-bold mb-4 block">
-              Hautezelle Academy
-            </span>
-            <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-white mb-8">
-              Master the Art <br/> of <span className="text-teal-200 italic">Resin</span>
+            <span className="eyebrow">Hautezelle Academy</span>
+            <h1 className="display text-[3.1rem] sm:text-7xl xl:text-[6rem]">
+              Master the art of <em className="text-teal-700">resin</em>
             </h1>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-              Join the premier resin art educational program in Nigeria. From foundational techniques to the business of art, we mold enthusiasts into professionals.
+            <p className="lead mx-auto max-w-[30em] lg:mx-0">
+              Join the leading resin art programme in Nigeria. From core technique to the business of art, we shape enthusiasts into professionals.
             </p>
-            <a 
-              href={INSTAGRAM_DM}
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block bg-teal-500 text-teal-950 px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-colors rounded-full shadow-[0_0_20px_rgba(20,184,166,0.5)]"
-            >
-              Enroll Now
-            </a>
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="btn-solid w-full sm:w-auto">Enrol now</a>
+              <a href="#curriculum" className="btn-line w-full sm:w-auto">See the curriculum</a>
+            </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Intro Stats - Redesigned */}
-      <section className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-6">
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
-            {stats.map((stat, i) => (
-              <div key={i} className="group relative p-8 rounded-[2.5rem] bg-slate-50 hover:bg-teal-950 transition-all duration-500 text-center border border-slate-100 hover:border-teal-800 hover:shadow-2xl hover:-translate-y-2">
-                <div className="absolute top-4 right-4 text-teal-200 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Star size={16} fill="currentColor" />
-                </div>
-                <h3 className="text-4xl md:text-6xl font-serif text-teal-900 group-hover:text-white mb-2 transition-colors">{stat.value}</h3>
-                <p className="text-xs uppercase tracking-widest text-slate-500 group-hover:text-teal-400 transition-colors font-bold">{stat.label}</p>
-              </div>
-            ))}
+          <div className="mx-auto aspect-[4/5] w-full max-w-[460px] overflow-hidden rounded-b-[999px] bg-mist">
+            <img src="/images/journal-gift-set.jpg" alt="Teal resin journal, keychain, pen and bookmark set" className="h-full w-full object-cover" />
           </div>
         </div>
       </section>
 
-      {/* Programs */}
-      <section className="py-32 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-6xl font-serif text-slate-900 mb-6">Our Curriculum</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-light">Designed for all skill levels, our programs offer a blend of technical mastery and creative exploration.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            {/* Beginner */}
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white p-10 shadow-xl rounded-[2.5rem] border border-slate-100"
-            >
-              <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 mb-8">
-                <BookOpen size={32} strokeWidth={1.5} />
-              </div>
-              <h3 className="text-3xl font-serif text-slate-900 mb-4">The Foundation</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-8">
-                Perfect for complete beginners. Learn safety protocols, mixing ratios, and fundamental pouring techniques to create your first coaster set and tray.
-              </p>
-              <ul className="space-y-4 mb-10">
-                {['Material Safety', 'Mixing & Pouring', 'Color Theory', 'Finishing Touches'].map(item => (
-                  <li key={item} className="flex items-center text-sm text-slate-700">
-                    <CheckCircle size={18} className="text-teal-500 mr-3 shrink-0" /> {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t border-slate-100 pt-8">
-                 <span className="block text-3xl font-serif text-teal-900 mb-6"><span className="text-sm font-sans uppercase tracking-widest opacity-60 mr-2">From</span>₦150,000</span>
-                 <a href={INSTAGRAM_DM} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 border border-teal-900 text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-900 hover:text-white transition-colors">
-                    Register Now <ArrowUpRight size={16} className="ml-2" />
-                 </a>
-              </div>
-            </motion.div>
-
-             {/* Advanced */}
-             <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-teal-900 text-white p-10 shadow-2xl rounded-[2.5rem] relative overflow-hidden transform md:-translate-y-8 ring-4 ring-teal-100/50"
-            >
-               <div className="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-teal-800 rounded-full blur-3xl opacity-50"></div>
-              <div className="w-16 h-16 bg-teal-800 rounded-2xl flex items-center justify-center text-teal-200 mb-8 relative z-10">
-                <Star size={32} strokeWidth={1.5} />
-              </div>
-              <h3 className="text-3xl font-serif text-white mb-4 relative z-10">Masterclass</h3>
-              <p className="text-teal-100/70 text-sm leading-relaxed mb-8 relative z-10">
-                Elevate your craft. Deep dive into geode art, ocean waves, preservation techniques, and working with complex 3D molds and layers.
-              </p>
-              <ul className="space-y-4 mb-10 relative z-10">
-                {['Geode Techniques', 'Ocean Effects', 'Flower Preservation', 'Large Scale Art'].map(item => (
-                  <li key={item} className="flex items-center text-sm text-teal-100">
-                    <CheckCircle size={18} className="text-teal-400 mr-3 shrink-0" /> {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t border-teal-800 pt-8 relative z-10">
-                 <span className="block text-3xl font-serif text-white mb-6"><span className="text-sm font-sans uppercase tracking-widest opacity-60 mr-2">From</span>₦500,000</span>
-                 <a href={INSTAGRAM_DM} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 bg-white text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-colors">
-                    Register Now <ArrowUpRight size={16} className="ml-2" />
-                 </a>
-              </div>
-            </motion.div>
-
-             {/* Business */}
-             <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white p-10 shadow-xl rounded-[2.5rem] border border-slate-100"
-            >
-              <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-700 mb-8">
-                <Award size={32} strokeWidth={1.5} />
-              </div>
-              <h3 className="text-3xl font-serif text-slate-900 mb-4">Business of Art</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-8">
-                Turn your passion into profit. Learn how to price your work, market on social media, packaging, and handling shipping logistics.
-              </p>
-              <ul className="space-y-4 mb-10">
-                {['Pricing Strategy', 'Social Media Marketing', 'Photography', 'Client Management'].map(item => (
-                  <li key={item} className="flex items-center text-sm text-slate-700">
-                    <CheckCircle size={18} className="text-teal-500 mr-3 shrink-0" /> {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t border-slate-100 pt-8">
-                 <span className="block text-3xl font-serif text-teal-900 mb-6"><span className="text-sm font-sans uppercase tracking-widest opacity-60 mr-2">From</span>₦250,000</span>
-                 <a href={INSTAGRAM_DM} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 border border-teal-900 text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-900 hover:text-white transition-colors">
-                    Register Now <ArrowUpRight size={16} className="ml-2" />
-                 </a>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Online vs Offline */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-20">
-          <div className="md:w-1/2 relative">
-             <div className="absolute top-0 left-0 w-full h-full border-2 border-teal-100 rounded-[2.5rem] transform -translate-x-4 -translate-y-4"></div>
-            <img 
-              src="/images/journal.jpg" 
-              alt="Online Learning" 
-              className="rounded-[2.5rem] shadow-2xl relative z-10 w-full"
-            />
-          </div>
-          <div className="md:w-1/2">
-            <span className="text-teal-600 tracking-widest text-xs uppercase font-bold mb-3 block">Flexible Learning</span>
-            <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8">Learn Your Way</h2>
-            <div className="space-y-10">
-              <div className="flex group">
-                <div className="mr-8">
-                  <div className="bg-teal-50 p-5 rounded-2xl shadow-sm text-teal-700 group-hover:bg-teal-900 group-hover:text-white transition-colors duration-300"><Video size={28} /></div>
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-slate-900 mb-3 font-serif">Online Academy</h4>
-                  <p className="text-slate-600 leading-relaxed font-light">
-                    Access high-definition video tutorials from anywhere in the world. Learn at your own pace with lifetime access to course materials and our private community group.
-                  </p>
-                </div>
-              </div>
-              <div className="flex group">
-                <div className="mr-8">
-                  <div className="bg-teal-50 p-5 rounded-2xl shadow-sm text-teal-700 group-hover:bg-teal-900 group-hover:text-white transition-colors duration-300"><Users size={28} /></div>
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-slate-900 mb-3 font-serif">In-Studio Workshops</h4>
-                  <p className="text-slate-600 leading-relaxed font-light">
-                    Experience the magic firsthand in our Ilorin studio. Benefit from direct guidance, immediate feedback, and the inspiring company of fellow artists.
-                  </p>
-                </div>
-              </div>
+      {/* Stats */}
+      <section className="border-y border-mist">
+        <div className="wrap grid grid-cols-2 gap-x-6 gap-y-10 py-12 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <div key={s.label} className="flex flex-col gap-2">
+              <span className={`text-5xl leading-none ${i === 3 ? 'italic text-teal-700' : ''}`}>{s.value}</span>
+              <span className="text-sm text-[#5b6563]">{s.label}</span>
             </div>
-            <div className="mt-12">
-                <a 
-                  href={INSTAGRAM_DM}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-teal-900 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-teal-800 transition-colors rounded-full shadow-lg inline-flex items-center gap-2"
-                >
-                  Start Your Journey <ArrowUpRight size={16} />
-                </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Curriculum */}
+      <section id="curriculum" className="wrap scroll-mt-28 py-24 lg:py-32">
+        <div className="mb-14 flex flex-col items-center gap-5 text-center lg:mb-20">
+          <span className="eyebrow">Our curriculum</span>
+          <h2 className="h2">Three paths to mastery</h2>
+          <p className="lead max-w-[34em]">Each programme blends technical skill with creative exploration, for every level of experience.</p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {programmes.map((p) => (
+            <article
+              key={p.title}
+              className={`flex flex-col gap-6 p-8 sm:p-10 ${p.featured ? 'bg-teal-700 text-white md:order-first md:col-span-2 lg:order-none lg:col-span-1' : 'border border-mist bg-white'}`}
+            >
+              <span className={`text-xs uppercase tracking-[0.24em] ${p.featured ? 'text-teal-100' : 'text-teal-700'}`}>{p.level}</span>
+              <h3 className="text-[32px]">{p.title}</h3>
+              <p className={`text-base leading-[1.75] ${p.featured ? 'text-teal-50' : 'text-[#4a5553]'}`}>{p.text}</p>
+              <ul className={`flex flex-col gap-3 border-t pt-6 text-[15px] ${p.featured ? 'border-teal-600' : 'border-mist'}`}>
+                {p.items.map((it) => (
+                  <li key={it} className="flex items-center gap-3">
+                    <span aria-hidden="true" className={`h-1.5 w-1.5 rounded-full ${p.featured ? 'bg-teal-200' : 'bg-teal-500'}`} />
+                    {it}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto flex flex-col gap-5 pt-2">
+                <span className="text-4xl">
+                  <span className={`mr-2 text-xs uppercase tracking-[0.2em] ${p.featured ? 'text-teal-100' : 'text-[#5b6563]'}`}>From</span>
+                  {p.price}
+                </span>
+                <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className={p.featured ? 'btn-light' : 'btn-line'}>Register</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Learn your way */}
+      <section className="bg-teal-50">
+        <div className="wrap py-24 lg:py-28">
+          <div className="mb-12 flex flex-col gap-5 lg:mb-16">
+            <span className="eyebrow">Flexible learning</span>
+            <h2 className="h2">Learn your way</h2>
+          </div>
+          <div className="grid gap-12 md:grid-cols-2 lg:gap-12">
+            <div className="flex flex-col gap-5">
+              <div className="w-full aspect-[4/3] overflow-hidden">
+                <img src="/images/bookmark.jpg" alt="Teal glitter resin bookmark with a butterfly topper" loading="lazy" className="h-full w-full object-cover" />
+              </div>
+              <h3 className="text-[30px]">Online academy</h3>
+              <p className="text-base leading-[1.75] text-[#4a5553]">
+                High definition video lessons you can follow from anywhere, at your own pace, with lifetime access and a private community group.
+              </p>
+            </div>
+            <div className="flex flex-col gap-5">
+              <div className="w-full aspect-[4/3] overflow-hidden">
+                <img src="/images/studio-wall.jpg" alt="The Hautezelle Studio wall in Ilorin" loading="lazy" className="h-full w-full object-cover" />
+              </div>
+              <h3 className="text-[30px]">In studio workshops</h3>
+              <p className="text-base leading-[1.75] text-[#4a5553]">
+                Learn in person at our Ilorin studio, with direct guidance, instant feedback and the company of fellow artists.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Distinct Testimonials Section */}
-      <section className="py-24 bg-gradient-to-br from-teal-50 to-white overflow-hidden relative border-t border-slate-200">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-200 via-teal-500 to-teal-200 opacity-30"></div>
-        <div className="text-center mb-16 relative z-10">
-          <Quote size={40} className="mx-auto text-teal-200 mb-6" />
-          <h2 className="text-4xl md:text-5xl font-serif text-slate-900">Student Success Stories</h2>
-          <p className="text-slate-500 mt-4 text-sm uppercase tracking-widest">Hear from our community</p>
+      {/* Student stories */}
+      <section className="wrap py-24 lg:py-32">
+        <div className="mb-14 flex flex-col items-center gap-5 text-center lg:mb-20">
+          <span className="eyebrow">Student stories</span>
+          <h2 className="h2">Words from our community</h2>
         </div>
-        
-        <div className="relative w-full overflow-hidden">
-           {/* Gradient Masks */}
-           <div className="absolute top-0 left-0 h-full w-20 md:w-60 bg-gradient-to-r from-white to-transparent z-20"></div>
-           <div className="absolute top-0 right-0 h-full w-20 md:w-60 bg-gradient-to-l from-white to-transparent z-20"></div>
+        <div className="grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <figure key={t.name} className="rule-card m-0">
+              <blockquote className="text-[19px] italic leading-[1.55] sm:text-xl">{t.text}</blockquote>
+              <figcaption className="text-sm text-[#5b6563]">
+                <span className="block text-xs uppercase tracking-[0.16em] text-ink">{t.name}</span>
+                {t.role}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
 
-           <div className="flex space-x-8 animate-marquee whitespace-nowrap px-4 py-8 w-fit">
-              {/* Duplicate the array to ensure seamless loop */}
-              {[...testimonials, ...testimonials].map((t, i) => (
-                <div key={i} className="inline-block bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100 w-[350px] md:w-[450px] flex-shrink-0 whitespace-normal hover:border-teal-300 transition-colors duration-300 group">
-                   <div className="flex mb-4">
-                     {[1,2,3,4,5].map(s => <Star key={s} size={14} className="text-yellow-400 fill-current mr-1" />)}
-                   </div>
-                   <p className="text-slate-600 text-lg italic font-serif leading-relaxed mb-6 group-hover:text-teal-900 transition-colors">"{t.text}"</p>
-                   <div className="flex items-center">
-                     <div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-800 font-bold mr-3 font-serif">
-                        {t.name.charAt(0)}
-                     </div>
-                     <div>
-                       <p className="text-slate-900 font-bold text-sm">{t.name}</p>
-                       <p className="text-teal-500 text-[10px] uppercase tracking-widest mt-0.5">{t.role}</p>
-                     </div>
-                   </div>
-                </div>
-              ))}
-           </div>
+      {/* CTA */}
+      <section className="bg-teal-500 text-teal-950">
+        <div className="wrap flex flex-col items-center gap-6 py-20 text-center lg:py-24">
+          <h2 className="h2 max-w-[14em]">Begin your journey in resin</h2>
+          <p className="max-w-[32em] text-[17px] leading-[1.75] sm:text-lg">
+            Send us a DM on Instagram to choose a programme and reserve your place in the next class.
+          </p>
+          <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="btn bg-teal-950 text-white hover:bg-ink">Start your journey</a>
         </div>
       </section>
     </div>

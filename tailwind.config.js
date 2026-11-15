@@ -4,14 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Hautezelle brand teal. 500 is the brand colour; 700 and darker carry text and buttons.
         teal: {
-          50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6',
-          600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a', 950: '#042f2e',
+          50: '#effbf9', 100: '#d5f4f0', 200: '#abe8e1', 300: '#74d6cc', 400: '#3cc2b6', 500: '#12b5a9',
+          600: '#0e978e', 700: '#0d7a74', 800: '#0e615e', 900: '#0f4f4e', 950: '#073233',
         },
+        ivory: '#f7faf9',
+        ink: '#13201f',
+        mist: '#e3eeec',
       },
       fontFamily: {
-        sans: ['Lato', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Gambetta', 'Georgia', '"Times New Roman"', 'serif'],
+        serif: ['Gambetta', 'Georgia', '"Times New Roman"', 'serif'],
       },
     },
   },

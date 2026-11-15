@@ -1,126 +1,114 @@
 import React from 'react';
-import { Brush, Briefcase, Gift, Wine } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageRoutes } from '../types';
 import SEO from '../components/SEO';
 import { INSTAGRAM_DM } from '../constants';
 
-const Services: React.FC = () => {
+type ServiceBlock = {
+  num: string;
+  tag: string;
+  title: string;
+  text: string;
+  points?: string[];
+  cta: string;
+  href: string;
+  internal?: boolean;
+  img: string;
+  alt: string;
+  tone: 'light' | 'tint' | 'dark';
+};
 
+const blocks: ServiceBlock[] = [
+  {
+    num: '01', tag: 'Signature event', title: 'Resin N Sip',
+    text: 'Our outdoor gathering that introduces the public to resin art. Relax with drinks as you learn to create a piece of your own. A lovely choice for team bonding, bridal showers or a creative weekend.',
+    points: ['Hands on demonstration', 'All materials provided', 'Take your art home'],
+    cta: 'Book a session', href: INSTAGRAM_DM,
+    img: '/images/wedding-favour-keychains.jpg', alt: 'Rows of personalised resin keychains', tone: 'light',
+  },
+  {
+    num: '02', tag: 'Education', title: 'Training academy',
+    text: 'Complete online and in studio courses for aspiring resin artists, covering safety and materials through to advanced technique and selling your work.',
+    points: ['Beginner to advanced levels', 'Business of Art modules', 'Certification included'],
+    cta: 'View the curriculum', href: PageRoutes.ACADEMY, internal: true,
+    img: '/images/resin-pens-hand.jpg', alt: 'Personalised resin pens held in a gloved hand', tone: 'tint',
+  },
+  {
+    num: '03', tag: 'For organisations', title: 'Corporate partnerships',
+    text: 'We work with brands, associations and organisations to create custom resin souvenirs and promotional pieces. Corporate gifting, handmade and beautifully branded.',
+    cta: 'Make an inquiry', href: INSTAGRAM_DM,
+    img: '/images/keychain-pen-gift-box.jpg', alt: 'Named keychain and pen in a window gift box', tone: 'light',
+  },
+  {
+    num: '04', tag: 'Made to order', title: 'Bespoke gifting',
+    text: 'From wedding souvenirs to personal home décor, we bring your idea to life. Our custom process makes sure your vision is translated perfectly into resin.',
+    cta: 'Start a project', href: INSTAGRAM_DM,
+    img: '/images/couples-keychain-box.jpg', alt: 'Couples heart keychain in a gift box', tone: 'dark',
+  },
+  {
+    num: '05', tag: 'For your space', title: 'Custom interior décor',
+    text: 'We design and create resin pieces for your home, office or event space. Wall art, clocks, plaques and statement décor, shaped around your colours, your style and your room.',
+    points: ['Colours matched to your interior', 'Pieces made to your measurements', 'Homes, offices and event spaces'],
+    cta: 'Book a consultation', href: INSTAGRAM_DM,
+    img: '/images/mini-wedding-plaque-2.jpg', alt: 'Resin plaque with gold flakes and pearls styled with a mirror', tone: 'light',
+  },
+];
+
+const toneClass = {
+  light: 'bg-ivory text-ink',
+  tint: 'bg-teal-50 text-ink',
+  dark: 'bg-teal-700 text-white',
+};
+
+const Services: React.FC = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-ivory text-ink">
       <SEO page="/services" />
 
-      {/* Services Hero */}
-       <div className="pt-48 pb-24 px-6 max-w-7xl mx-auto text-center">
-          <span className="text-teal-600 tracking-widest text-xs uppercase font-bold mb-4 block">What We Do</span>
-          <h1 className="text-5xl md:text-7xl font-serif text-slate-900 mb-8 leading-tight">
-            Our Services
-          </h1>
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-light">
-             Beyond creating beautiful art, we cultivate creativity through education, strategic partnerships, and immersive experiences.
-          </p>
-        </div>
+      <section className="wrap flex flex-col items-center gap-6 pb-20 pt-32 text-center sm:pt-40 lg:pb-24">
+        <span className="eyebrow">What we do</span>
+        <h1 className="display text-[3rem] sm:text-7xl lg:text-[5.5rem]">
+          Our <em className="text-teal-700">services</em>
+        </h1>
+        <p className="lead max-w-[36em]">
+          Beyond creating beautiful art, we cultivate creativity through education, partnerships and immersive experiences.
+        </p>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-6 pb-32 space-y-32">
-        {/* Resin N Sip */}
-        <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="md:w-1/2 order-2 md:order-1">
-             <div className="relative">
-                <div className="absolute top-0 right-0 w-full h-full bg-teal-50 rounded-[2.5rem] transform translate-x-4 -translate-y-4"></div>
-                <img src="/images/keychain.jpg" alt="Resin N Sip" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
-             </div>
-          </div>
-          <div className="md:w-1/2 order-1 md:order-2">
-            <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center text-teal-800 mb-8">
-              <Wine size={32} />
+      {blocks.map((b, i) => {
+        const dark = b.tone === 'dark';
+        const flip = i % 2 === 1;
+        const Cta = b.internal ? (
+          <Link to={b.href} className={dark ? 'btn-light' : 'btn-solid'}>{b.cta}</Link>
+        ) : (
+          <a href={b.href} target="_blank" rel="noopener noreferrer" className={dark ? 'btn-light' : 'btn-solid'}>{b.cta}</a>
+        );
+        return (
+          <section key={b.num} className={`${toneClass[b.tone]} ${b.tone === 'light' ? 'border-t border-mist' : ''}`}>
+            <div className="wrap grid items-center gap-10 py-20 lg:grid-cols-2 lg:gap-16 lg:py-24">
+              <div className={`w-full aspect-[4/5] overflow-hidden sm:aspect-[16/11] lg:aspect-[4/5] ${flip ? 'lg:order-2' : ''}`}>
+                <img src={b.img} alt={b.alt} loading="lazy" className="h-full w-full object-cover" />
+              </div>
+              <div className="flex flex-col gap-6">
+                <span className={`text-sm tracking-[0.1em] ${dark ? 'text-teal-100' : 'text-teal-700'}`}>{b.num} · {b.tag}</span>
+                <h2 className="text-[2.25rem] leading-[1.1] sm:text-5xl lg:text-[3.4rem]">{b.title}</h2>
+                <p className={`text-[17px] leading-[1.75] ${dark ? 'text-teal-50' : 'text-[#4a5553]'}`}>{b.text}</p>
+                {b.points && (
+                  <ul className={`flex flex-col gap-3 border-t pt-6 text-[15px] ${dark ? 'border-teal-600' : b.tone === 'tint' ? 'border-teal-200' : 'border-mist'}`}>
+                    {b.points.map((p) => (
+                      <li key={p} className="flex items-center gap-3">
+                        <span aria-hidden="true" className={`h-1.5 w-1.5 rounded-full ${dark ? 'bg-teal-200' : 'bg-teal-500'}`} />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div>{Cta}</div>
+              </div>
             </div>
-            <h2 className="text-4xl font-serif text-slate-900 mb-6">Resin N Sip</h2>
-            <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
-              Our signature outdoor event designed to introduce the public to resin art. Enjoy a relaxed atmosphere with drinks while learning to create your own masterpiece. Perfect for team bonding, bridal showers, or a creative weekend out.
-            </p>
-            <ul className="space-y-3 mb-10 text-sm text-slate-500 font-bold uppercase tracking-widest">
-              <li className="flex items-center"><span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span> Hands-on demonstration</li>
-              <li className="flex items-center"><span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span> All materials provided</li>
-              <li className="flex items-center"><span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span> Take home your art</li>
-            </ul>
-             <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
-              Book a Session
-            </a>
-          </div>
-        </div>
-
-         {/* Training Programs */}
-         <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="md:w-1/2">
-             <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center text-teal-800 mb-8">
-              <Brush size={32} />
-            </div>
-            <h2 className="text-4xl font-serif text-slate-900 mb-6">Training Academy</h2>
-            <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
-              Comprehensive online and offline courses for aspiring resin artists. We cover everything from safety and materials to advanced techniques and business strategies for selling your art.
-            </p>
-             <ul className="space-y-3 mb-10 text-sm text-slate-500 font-bold uppercase tracking-widest">
-              <li className="flex items-center"><span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span> Beginner to Advanced levels</li>
-              <li className="flex items-center"><span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span> Business of Art modules</li>
-              <li className="flex items-center"><span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span> Certification Included</li>
-            </ul>
-            <Link to={PageRoutes.ACADEMY} className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
-              View Curriculum
-            </Link>
-          </div>
-          <div className="md:w-1/2">
-             <div className="relative">
-                <div className="absolute top-0 left-0 w-full h-full bg-slate-100 rounded-[2.5rem] transform -translate-x-4 translate-y-4"></div>
-                <img src="/images/bookmark.jpg" alt="Academy" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
-             </div>
-          </div>
-        </div>
-
-         {/* Corporate */}
-        <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="md:w-1/2 order-2 md:order-1">
-             <div className="relative">
-                <div className="absolute top-0 right-0 w-full h-full bg-teal-900 rounded-[2.5rem] transform translate-x-4 -translate-y-4 opacity-10"></div>
-                <img src="/images/resin-pens.jpg" alt="Corporate" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
-             </div>
-          </div>
-          <div className="md:w-1/2 order-1 md:order-2">
-             <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center text-teal-800 mb-8">
-              <Briefcase size={32} />
-            </div>
-            <h2 className="text-4xl font-serif text-slate-900 mb-6">Corporate Partnerships</h2>
-            <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
-              We collaborate with brands, associations, and organizations to create custom resin souvenirs and promotional items. Elevate your corporate gifting with handmade, branded excellence.
-            </p>
-            <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
-              Contact for Inquiry
-            </a>
-          </div>
-        </div>
-
-         {/* Custom Gifts */}
-         <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="md:w-1/2">
-             <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center text-teal-800 mb-8">
-              <Gift size={32} />
-            </div>
-            <h2 className="text-4xl font-serif text-slate-900 mb-6">Bespoke Gifting</h2>
-            <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
-              From wedding souvenirs to personalized home decor, we bring your specific ideas to life. Our custom order process ensures your vision is perfectly translated into resin.
-            </p>
-            <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
-              Start a Project
-            </a>
-          </div>
-          <div className="md:w-1/2">
-             <div className="relative">
-                <div className="absolute top-0 left-0 w-full h-full bg-pink-50 rounded-[2.5rem] transform -translate-x-4 translate-y-4"></div>
-                <img src="/images/couples-keychain-box.jpg" alt="Gifting" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
-             </div>
-          </div>
-        </div>
-      </div>
+          </section>
+        );
+      })}
     </div>
   );
 };

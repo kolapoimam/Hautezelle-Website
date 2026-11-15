@@ -9,8 +9,8 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // Pages that have a dark hero image at the top (White Text)
-  const isDarkHeroPage = location.pathname === PageRoutes.HOME || location.pathname === PageRoutes.ACADEMY;
+  // Every page now opens on a light hero, so the menu always uses its dark text styling.
+  const isDarkHeroPage = false;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
   const pillTextClass = (path: string) => {
     const isActive = location.pathname === path;
     if (isActive) {
-        return isScrolled || !isDarkHeroPage ? 'bg-teal-900 text-white' : 'bg-white text-teal-900';
+        return isScrolled || !isDarkHeroPage ? 'bg-teal-700 text-white' : 'bg-white text-teal-900';
     }
     return isScrolled || !isDarkHeroPage ? 'text-slate-600 hover:text-teal-900 hover:bg-teal-50' : 'text-white hover:bg-white/20';
   };
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
            </a>
            <Link 
             to={PageRoutes.SHOP} 
-            className="bg-teal-900 backdrop-blur-md px-6 py-3 rounded-full shadow-xl border border-teal-800 text-white text-xs font-bold uppercase tracking-widest hover:bg-teal-800 transition-colors flex items-center gap-2 hover:-translate-y-0.5 transform duration-300"
+            className="bg-teal-700 backdrop-blur-md px-6 py-3 rounded-full shadow-xl border border-teal-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-teal-900 transition-colors flex items-center gap-2 hover:-translate-y-0.5 transform duration-300"
            >
             <ShoppingBag size={16} />
             <span>Shop</span>
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
          
          <div className="flex gap-6 mt-8">
             <a href={INSTAGRAM_PROFILE} target="_blank" rel="noreferrer" className="p-3 bg-white rounded-full text-teal-900 shadow-md"><Instagram size={24} /></a>
-            <Link to={PageRoutes.SHOP} onClick={() => setIsOpen(false)} className="p-3 bg-teal-900 rounded-full text-white shadow-md"><ShoppingBag size={24} /></Link>
+            <Link to={PageRoutes.SHOP} onClick={() => setIsOpen(false)} className="p-3 bg-teal-700 rounded-full text-white shadow-md"><ShoppingBag size={24} /></Link>
          </div>
       </div>
     </>

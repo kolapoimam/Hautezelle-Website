@@ -261,7 +261,7 @@ const CurtainIntro: React.FC = () => {
                   <Diamond className="w-14 h-16 md:w-20 md:h-24 mx-auto mb-4 drop-shadow-[0_6px_14px_rgba(0,0,0,0.5)]" />
                 </motion.div>
                 <p className="text-[#f3d27a] tracking-[0.45em] text-[10px] md:text-xs uppercase mb-3">Welcome to</p>
-                <p style={{ fontFamily: "'Playfair Display', serif" }} className="font-serif text-white text-5xl md:text-7xl leading-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)]">
+                <p style={{ fontFamily: "Gambetta, Georgia, serif" }} className="font-serif text-white text-5xl md:text-7xl leading-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)]">
                   Hautezelle
                 </p>
                 <p className="text-teal-100/80 tracking-[0.3em] text-[10px] md:text-xs uppercase mt-3">Studio</p>

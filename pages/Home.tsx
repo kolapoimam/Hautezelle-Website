@@ -1,32 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play, Quote } from 'lucide-react';
+import { ArrowRight, Play, Quote, Plus } from 'lucide-react';
 import { PageRoutes } from '../types';
 import SEO from '../components/SEO';
+import site from '../data/site.json';
+import { INSTAGRAM_DM } from '../constants';
 import { useCurtainOpened } from '../components/CurtainIntro';
 
 const Home: React.FC = () => {
   const curtainOpen = useCurtainOpened();
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Hautezelle Studio",
-    "url": "https://hautezelle.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://hautezelle.com/shop?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  };
 
   return (
     <div className="w-full">
-      <SEO 
-        title="Hautezelle Studio | Luxury Resin Art & Education in Nigeria" 
-        description="Discover bespoke resin art, wedding plaques, and jewelry. Join Nigeria's premier resin art academy. Handmade luxury crafted to inspire passion."
-        schema={schema}
-      />
+      <SEO page="/" />
       
       {/* Hero Section */}
       <section className="relative h-screen min-h-[600px] w-full overflow-hidden">
@@ -49,7 +36,7 @@ const Home: React.FC = () => {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="text-teal-200 tracking-[0.4em] text-xs md:text-sm uppercase font-medium mb-6 block border border-teal-200/30 inline-block px-4 py-2 rounded-full backdrop-blur-sm">
-              Handmade Luxury from Nigeria
+              Handmade Resin Art · Ilorin, Nigeria
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-white mb-8 leading-tight">
               Timeless <br className="hidden md:block"/> Luxurious <span className="italic text-teal-100 font-light">Masterpieces</span>
@@ -199,6 +186,37 @@ const Home: React.FC = () => {
              </div>
              <p className="text-slate-900 font-bold tracking-widest text-xs uppercase">Zainab Yinusa</p>
              <p className="text-slate-500 text-xs mt-1">Founder, Hautezelle Studio</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Frequently asked questions */}
+      <section className="py-28 bg-white" aria-labelledby="faq-heading">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <span className="text-teal-600 tracking-widest text-xs uppercase font-bold mb-4 block">Good to know</span>
+            <h2 id="faq-heading" className="text-4xl md:text-5xl font-serif text-slate-900">Frequently Asked Questions</h2>
+          </div>
+          <div className="divide-y divide-slate-200 border-y border-slate-200">
+            {site.faqs.map((f) => (
+              <details key={f.q} className="group py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left">
+                  <h3 className="text-lg md:text-xl font-serif text-slate-900 group-open:text-teal-700 transition-colors">{f.q}</h3>
+                  <Plus size={20} className="shrink-0 text-teal-600 transition-transform duration-300 group-open:rotate-45" />
+                </summary>
+                <p className="mt-4 text-slate-600 leading-relaxed font-light">{f.a}</p>
+              </details>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <a
+              href={INSTAGRAM_DM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-teal-900 text-white px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-teal-700 transition-colors"
+            >
+              Ask us on Instagram
+            </a>
           </div>
         </div>
       </section>

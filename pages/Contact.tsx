@@ -6,10 +6,7 @@ import { INSTAGRAM_DM } from '../constants';
 const Contact: React.FC = () => {
   return (
     <div className="pt-32 pb-24 bg-white min-h-screen">
-      <SEO 
-        title="Contact Us | Hautezelle Studio" 
-        description="Visit our studio in Ilorin or contact us for custom orders and training inquiries. WhatsApp and Email support available."
-      />
+      <SEO page="/contact" />
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
         

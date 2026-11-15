@@ -11,8 +11,8 @@ Hautezelle Studio is a premium web application for a leading Nigerian resin art 
 
 ## 2. Tech Stack & Architecture
 - **Framework:** React 19 (Client-side rendering).
-- **Routing:** React Router DOM v7 (HashRouter used for compatibility).
-- **Styling:** Tailwind CSS (via CDN).
+- **Routing:** React Router DOM v7 with BrowserRouter (clean URLs such as /shop). Old /#/ links are redirected in index.tsx.
+- **Styling:** Tailwind CSS 3 compiled at build time (tailwind.config.js, index.css).
 - **Icons:** Lucide React.
 - **Animations:** Framer Motion.
 - **Build/Entry:** standard index.tsx/index.html structure.
@@ -63,15 +63,16 @@ Hautezelle Studio is a premium web application for a leading Nigerian resin art 
 - **Info:** Ilorin location, email (`hautezelle@gmail.com`).
 - **Form:** General inquiry form.
 
-## 5. SEO Strategy
-The application uses a custom `SEO` component to inject metadata into the `<head>`:
-- **Title Tags:** Format: `Page Name | Hautezelle Studio`.
-- **Meta Description:** Unique for each page.
-- **Open Graph:** Optimized for social sharing (WhatsApp/Twitter/LinkedIn previews).
-- **Structured Data (JSON-LD):** `Organization`, `Product`, `Course`, and `LocalBusiness` schemas implemented.
+## 5. SEO and GEO
+- **Single source of truth:** `data/site.json` holds business facts, page titles and descriptions, products and prices, courses, services and FAQs. Edit it there and every output updates.
+- **Live address:** `business.url` in `data/site.json` (currently https://hautezelle.vercel.app). Change it when a custom domain is connected.
+- **Structured data:** `seo/schema.js` builds the JSON-LD graph per page (Store/LocalBusiness, WebSite, FAQPage, ItemList of Products, Course, Service, BreadcrumbList).
+- **Prerendering:** `npm run build` runs `vite build` then `scripts/prerender.mjs`, which writes a full HTML page per route (shop.html, academy.html and so on) with head tags, JSON-LD and readable content, plus 404.html, sitemap.xml, robots.txt, llms.txt, llm.txt and llms-full.txt.
+- **In-app:** `components/SEO.tsx` takes `page="/shop"` and keeps the head in sync during client-side navigation.
+- **Vercel:** `vercel.json` uses cleanUrls, so /shop serves shop.html.
 
 ## 6. Business Data
-- **Phone/WhatsApp:** `09030299342`
+- **Phone:** `0903 079 9342` (+2349030799342). All CTAs open an Instagram DM (ig.me/m/hautezelle).
 - **Email:** `hautezelle@gmail.com`
 - **Location:** Ilorin, Kwara State, Nigeria.
 - **Social:** Instagram `@hautezelle`.

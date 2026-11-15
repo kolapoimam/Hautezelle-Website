@@ -1,33 +1,13 @@
 import React from 'react';
 import { Target, Heart, Leaf, Quote, ArrowRight, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
-import { INSTAGRAM_DM, SITE_URL } from '../constants';
+import { INSTAGRAM_DM } from '../constants';
 
 const About: React.FC = () => {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Hautezelle Studio",
-    "url": "https://hautezelle.com", // Placeholder URL
-    "logo": `${SITE_URL}/images/studio-wall.jpg`,
-    "founder": {
-      "@type": "Person",
-      "name": "Zainab Yinusa"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "hautezelle@gmail.com",
-      "contactType": "customer service"
-    }
-  };
 
   return (
     <div className="w-full bg-white">
-      <SEO 
-        title="Our Story | Hautezelle Studio" 
-        description="Learn about Hautezelle Studio's journey, our mission to redefine resin art in Nigeria, and the passionate team behind the brand."
-        schema={schema}
-      />
+      <SEO page="/about" />
 
        {/* Hero Section */}
        <div className="pt-40 pb-20 px-6 max-w-7xl mx-auto text-center">

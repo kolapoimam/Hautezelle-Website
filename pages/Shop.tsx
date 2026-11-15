@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
-import { Instagram } from 'lucide-react';
+import { ShoppingCart, Check } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 import SEO from '../components/SEO';
 import { INSTAGRAM_DM } from '../constants';
 import site from '../data/site.json';
@@ -11,6 +12,8 @@ const categories = ['All', 'Weddings', 'Home Decor', 'Accessories', 'Stationery'
 
 const Shop: React.FC = () => {
   const [active, setActive] = useState('All');
+  const [justAdded, setJustAdded] = useState<string | null>(null);
+  const { add } = useCart();
   const visible = active === 'All' ? products : products.filter((p) => p.category === active);
 
   return (
@@ -24,7 +27,7 @@ const Shop: React.FC = () => {
           Curated <em className="text-teal-700">collections</em>
         </h1>
         <p className="lead max-w-[36em]">
-          A selection of handmade resin pieces, each one unique and finished with care in our Ilorin studio. Prices start from the amounts shown and vary with size and personalisation. Orders are placed by Instagram DM.
+          A selection of handmade resin pieces, each one unique and finished with care in our Ilorin studio. Prices start from the amounts shown and vary with size and personalisation. Add your favourites to the cart and check out through Instagram.
         </p>
       </section>
 
@@ -55,26 +58,29 @@ const Shop: React.FC = () => {
         <div className="grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
           {visible.map((product) => (
             <article key={product.id} id={product.id} className="group flex flex-col gap-4">
-              <a
-                href={INSTAGRAM_DM}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Order ${product.name} on Instagram`}
-                className="relative block aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-mist"
-              >
+              <div className="relative block aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-mist">
                 <img src={product.image} alt={product.name} loading="lazy" className="ph-zoom h-full w-full object-cover" />
                 <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.2em] text-teal-800">
                   {product.category}
                 </span>
-              </a>
+              </div>
               <div className="flex items-baseline justify-between gap-4">
                 <h2 className="text-2xl leading-tight">{product.name}</h2>
                 <span className="whitespace-nowrap text-[15px] text-teal-700">{product.priceRange}</span>
               </div>
               <p className="flex-grow text-[15px] leading-[1.7] text-[#4a5553]">{product.description}</p>
-              <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="text-link self-start text-teal-700 hover:text-teal-900">
-                <Instagram size={14} /> Order via DM
-              </a>
+              <button
+                type="button"
+                onClick={() => {
+                  add(product.id);
+                  setJustAdded(product.id);
+                  window.setTimeout(() => setJustAdded((cur) => (cur === product.id ? null : cur)), 1600);
+                }}
+                className="btn-solid w-full sm:w-auto sm:self-start"
+              >
+                {justAdded === product.id ? <Check size={16} /> : <ShoppingCart size={16} />}
+                {justAdded === product.id ? 'Added to cart' : 'Add to cart'}
+              </button>
             </article>
           ))}
         </div>

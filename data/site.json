@@ -8,8 +8,6 @@
     "ogImage": "/og-image.jpg",
     "tagline": "Handmade luxury resin art from Ilorin, Nigeria",
     "description": "Hautezelle Studio is a luxury resin art studio in Ilorin, Kwara State, Nigeria. We handcraft personalised resin wedding plaques, acrylic and mini wedding plaques, resin clocks, pearl bags, clutches, journals, pens, keychains and corporate gifts, and we teach resin art through the Hautezelle Academy and Resin N Sip workshops.",
-    "telephone": "+2349030799342",
-    "telephoneDisplay": "0903 079 9342",
     "email": "hautezelle@gmail.com",
     "instagram": "https://instagram.com/hautezelle",
     "instagramDM": "https://ig.me/m/hautezelle",
@@ -53,12 +51,6 @@
         "name": "Zainab Yinusa",
         "jobTitle": "Founder & Creative Director",
         "image": "/images/zainab-yinusa.jpg"
-      },
-      {
-        "name": "Kolapo Imam",
-        "jobTitle": "Consultant & Strategy Officer",
-        "image": "/images/kolapo-imam.jpg",
-        "url": "https://kolapo.ng"
       }
     ],
     "keywords": [
@@ -84,7 +76,8 @@
       "epoxy resin workshop",
       "handmade gifts Ilorin",
       "Hautezelle"
-    ]
+    ],
+    "whatsappLabel": "Chat on WhatsApp"
   },
   "pages": {
     "/": {
@@ -125,7 +118,7 @@
     "/contact": {
       "title": "Contact Hautezelle Studio | Order Custom Resin Art in Ilorin",
       "h1": "Visit Our Studio",
-      "description": "Order custom resin art or book a class. Send a DM to @hautezelle on Instagram, call 0903 079 9342 or email hautezelle@gmail.com. Studio in Ilorin, Kwara State.",
+      "description": "Order custom resin art or book a class. Send a DM to @hautezelle on Instagram, chat with us on WhatsApp or email hautezelle@gmail.com. Studio in Ilorin, Kwara State.",
       "keywords": "contact Hautezelle, order resin art Ilorin, resin artist near me, custom resin order Nigeria",
       "lead": "Order custom resin art, book a class or plan a Resin N Sip. The quickest way to reach us is a DM on Instagram."
     }
@@ -330,7 +323,7 @@
     },
     {
       "q": "How do I order from Hautezelle?",
-      "a": "Send a DM to @hautezelle on Instagram with the piece you want, your names or text, colours and date. Every piece is handmade to order. You can also call 0903 079 9342 or email hautezelle@gmail.com."
+      "a": "Send a DM to @hautezelle on Instagram with the piece you want, your names or text, colours and date. Every piece is handmade to order. You can also chat with us on WhatsApp or email hautezelle@gmail.com."
     },
     {
       "q": "How much does a resin wedding plaque cost in Nigeria?",

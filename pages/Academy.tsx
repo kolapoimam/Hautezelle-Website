@@ -3,14 +3,6 @@ import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 import { INSTAGRAM_DM } from '../constants';
 
-const testimonials = [
-  { name: 'Amina B.', role: 'Foundation graduate', text: 'The Foundation course changed my life. I went from admiring resin art to creating my own business in just 4 weeks.' },
-  { name: 'Chioma O.', role: 'Masterclass student', text: "Hautezelle's techniques are unmatched. The geode art module alone is worth the investment. Truly world-class standard." },
-  { name: 'Sarah T.', role: 'Business of Art', text: "I knew how to pour, but I didn't know how to sell. This academy gave me the roadmap to 7-figure sales." },
-  { name: 'Zainab A.', role: 'Workshop attendee', text: 'The energy at the physical studio is electric. Learning directly from the team was an unforgettable experience.' },
-  { name: 'Tunde K.', role: 'Corporate client', text: 'We booked a private session for our team and it was the highlight of our year. Professional and so much fun.' },
-];
-
 const stats = [
   { value: '50+', label: 'Students trained' },
   { value: '15', label: 'Curriculum modules' },
@@ -150,25 +142,6 @@ const Academy: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Student stories */}
-      <section className="wrap py-24 lg:py-32">
-        <div className="mb-14 flex flex-col items-center gap-5 text-center lg:mb-20">
-          <span className="eyebrow">Student stories</span>
-          <h2 className="h2">Words from our community</h2>
-        </div>
-        <div className="grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t) => (
-            <figure key={t.name} className="rule-card m-0">
-              <blockquote className="text-[19px] italic leading-[1.55] sm:text-xl">{t.text}</blockquote>
-              <figcaption className="text-sm text-[#5b6563]">
-                <span className="block text-xs uppercase tracking-[0.16em] text-ink">{t.name}</span>
-                {t.role}
-              </figcaption>
-            </figure>
-          ))}
         </div>
       </section>
 

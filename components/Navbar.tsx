@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Instagram } from 'lucide-react';
+import { Menu, X, ShoppingBag, ShoppingCart, Instagram } from 'lucide-react';
 import { PageRoutes } from '../types';
 import { INSTAGRAM_PROFILE, TIKTOK_PROFILE, WHATSAPP_CHAT } from '../constants';
 import { TikTokIcon, WhatsAppIcon } from './SocialIcons';
+import { useCart } from '../context/CartContext';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const cart = useCart();
 
   // Every page now opens on a light hero, so the menu always uses its dark text styling.
   const isDarkHeroPage = false;
@@ -62,7 +64,7 @@ const Navbar: React.FC = () => {
         className={`fixed w-full z-50 transition-all duration-500 pt-6 px-4 md:px-12 flex justify-between items-center pointer-events-none`}
       >
         {/* Brand Logo - Left (Standalone) */}
-        <Link to={PageRoutes.HOME} className="pointer-events-auto z-50 group" onClick={() => setIsOpen(false)}>
+        <Link to={PageRoutes.HOME} aria-label="Hautezelle Studio home" className="pointer-events-auto z-50 group" onClick={() => setIsOpen(false)}>
           <div className={`transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-2 px-4 rounded-xl shadow-sm' : ''}`}>
             <div className="flex flex-col items-start">
               <span className={`text-xl font-bold font-serif tracking-tighter transition-colors duration-300 ${textColorClass} drop-shadow-sm`}>
@@ -102,10 +104,24 @@ const Navbar: React.FC = () => {
             href={INSTAGRAM_PROFILE} 
             target="_blank" 
             rel="noopener noreferrer"
+            aria-label="Hautezelle on Instagram"
             className={`p-3 rounded-full transition-all duration-300 ${isScrolled || !isDarkHeroPage ? 'bg-white/90 text-teal-900 shadow-md hover:text-teal-600 border border-slate-100' : 'bg-black/20 text-white hover:bg-white/20 backdrop-blur-sm'}`}
            >
             <Instagram size={20} />
            </a>
+<button
+            type="button"
+            onClick={cart.open}
+            aria-label={`Open cart, ${cart.count} ${cart.count === 1 ? 'item' : 'items'}`}
+            className="relative p-3 rounded-full bg-white/90 text-teal-900 shadow-md border border-slate-100 hover:text-teal-600 transition-colors"
+           >
+            <ShoppingCart size={20} />
+            {cart.count > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-teal-500 px-1 text-[11px] font-bold text-white">
+                {cart.count}
+              </span>
+            )}
+           </button>
            <Link 
             to={PageRoutes.SHOP} 
             className="bg-teal-700 backdrop-blur-md px-6 py-3 rounded-full shadow-xl border border-teal-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-teal-900 transition-colors flex items-center gap-2 hover:-translate-y-0.5 transform duration-300"
@@ -115,13 +131,29 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button 
+        {/* Mobile cart and menu buttons */}
+        <div className="md:hidden pointer-events-auto z-50 flex items-center gap-3">
+           <button
+            type="button"
+            onClick={cart.open}
+            aria-label={`Open cart, ${cart.count} ${cart.count === 1 ? 'item' : 'items'}`}
+            className="relative p-3 rounded-full bg-white/90 text-teal-900 shadow-md border border-slate-100 hover:text-teal-600 transition-colors"
+           >
+            <ShoppingCart size={24} />
+            {cart.count > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-teal-500 px-1 text-[11px] font-bold text-white">
+                {cart.count}
+              </span>
+            )}
+           </button>
+           <button 
           onClick={() => setIsOpen(!isOpen)} 
-          className={`md:hidden pointer-events-auto z-50 backdrop-blur-md p-3 rounded-full shadow-lg transition-colors duration-300 ${useDarkNav ? 'bg-white text-teal-900 shadow-md border border-slate-100' : 'bg-white/20 text-white'}`}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          className={`backdrop-blur-md p-3 rounded-full shadow-lg transition-colors duration-300 ${useDarkNav ? 'bg-white text-teal-900 shadow-md border border-slate-100' : 'bg-white/20 text-white'}`}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+        </div>
       </nav>
 
       {/* Mobile Menu Overlay */}

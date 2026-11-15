@@ -24,12 +24,6 @@ const team = [
     img: '/images/zainab-yinusa.jpg',
     bio: 'With deep experience in resin art and a strong passion for enterprise, Zainab leads the creative direction of the studio. Her vision blends traditional Nigerian aesthetics with modern resin technique.',
   },
-  {
-    name: 'Kolapo Imam',
-    role: 'Consultant and Strategy Officer',
-    img: '/images/kolapo-imam.jpg',
-    bio: 'Bringing nearly a decade of experience in marketing, business development and operations, Kolapo drives the strategic growth and global positioning of Hautezelle.',
-  },
 ];
 
 const About: React.FC = () => {
@@ -77,11 +71,11 @@ const About: React.FC = () => {
       <section className="wrap py-24 lg:py-32">
         <div className="mb-14 flex flex-col items-center gap-5 text-center lg:mb-20">
           <span className="eyebrow">Leadership</span>
-          <h2 className="h2">The minds behind the art</h2>
+          <h2 className="h2">The mind behind the art</h2>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-16 md:grid-cols-2 md:gap-12 lg:gap-16">
+        <div className="mx-auto flex max-w-xl justify-center">
           {team.map((m) => (
-            <article key={m.name} className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
+            <article key={m.name} className="flex flex-col items-center gap-5 text-center">
               <div className="w-full aspect-[4/5] max-w-[360px] overflow-hidden rounded-t-[999px] rounded-b-[1.75rem] bg-mist">
                 <img src={m.img} alt={m.name} loading="lazy" className="h-full w-full object-cover object-top" />
               </div>

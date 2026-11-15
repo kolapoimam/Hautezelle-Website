@@ -35,7 +35,7 @@ const contactBlock = () => `
   <h2>Order or ask a question</h2>
   <p><strong>${esc(b.name)}</strong>, ${esc(b.address.locality)}, ${esc(b.address.region)}, ${esc(b.address.countryName)}.
   Open ${esc(b.hours.display)}.</p>
-  <p>Instagram DM: <a href="${b.instagramDM}" target="_blank" rel="noopener noreferrer">${esc(b.instagramHandle)}</a> · TikTok: <a href="${b.tiktok}" target="_blank" rel="noopener noreferrer">${esc(b.tiktokHandle)}</a> · WhatsApp: <a href="${b.whatsapp}" target="_blank" rel="noopener noreferrer">${esc(b.telephoneDisplay)}</a> · Phone: <a href="tel:${b.telephone}">${esc(b.telephoneDisplay)}</a> · Email: <a href="mailto:${b.email}">${esc(b.email)}</a></p>
+  <p>Instagram DM: <a href="${b.instagramDM}" target="_blank" rel="noopener noreferrer">${esc(b.instagramHandle)}</a> · TikTok: <a href="${b.tiktok}" target="_blank" rel="noopener noreferrer">${esc(b.tiktokHandle)}</a> · <a href="${b.whatsapp}" target="_blank" rel="noopener noreferrer">${esc(b.whatsappLabel)}</a> · Email: <a href="mailto:${b.email}">${esc(b.email)}</a></p>
 </section>`;
 
 const productItems = (list) =>
@@ -208,7 +208,7 @@ const llms = `# ${b.name}
 > ${b.description}
 
 Location: ${b.address.locality}, ${b.address.region}, ${b.address.countryName}. Open ${b.hours.display}.
-Orders and enquiries: Instagram DM ${b.instagramHandle} (${b.instagramDM}), phone ${b.telephoneDisplay} (${b.telephone}), email ${b.email}.
+Orders and enquiries: Instagram DM ${b.instagramHandle} (${b.instagramDM}), WhatsApp chat (${b.whatsapp}), email ${b.email}.
 Founder: ${b.founders[0].name}, ${b.founders[0].jobTitle}.
 Prices are in Nigerian naira and start from the amounts listed. Every piece is handmade to order and can be personalised.
 
@@ -248,7 +248,7 @@ const llmsFull = `# ${b.name}: full details
 - Areas served: ${b.areaServed.join(', ')}
 - Price range: ${b.priceRange}
 - How to order: send a DM to ${b.instagramHandle} on Instagram (${b.instagramDM})
-- Phone: ${b.telephoneDisplay} (${b.telephone})
+- WhatsApp: ${b.whatsapp}
 - Email: ${b.email}
 - Website: ${BASE}
 - Team: ${b.founders.map((f) => `${f.name} (${f.jobTitle})`).join('; ')}

@@ -12,9 +12,12 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Academy from './pages/Academy';
 import { PageRoutes } from './types';
+import { CartProvider } from './context/CartContext';
+import CartDrawer from './components/CartDrawer';
 
 const App: React.FC = () => {
   return (
+    <CartProvider>
     <Router>
       <ScrollToTop />
       <Analytics />
@@ -34,7 +37,9 @@ const App: React.FC = () => {
         </main>
         <Footer />
       </div>
+      <CartDrawer />
     </Router>
+    </CartProvider>
   );
 };
 

@@ -38,7 +38,7 @@
       "closes": "17:00",
       "display": "Monday to Friday, 9am to 5pm"
     },
-    "priceRange": "₦2,000 to ₦500,000",
+    "priceRange": "₦2,500 to ₦500,000",
     "areaServed": [
       "Ilorin",
       "Kwara State",
@@ -83,7 +83,7 @@
     "/": {
       "title": "Hautezelle | Luxury Resin Art & Wedding Plaques, Ilorin Nigeria",
       "h1": "Timeless Luxurious Masterpieces",
-      "description": "Handmade resin art from Ilorin, Nigeria. Personalised wedding plaques, clocks, bags and gifts from ₦2,000, plus resin art classes. Order via Instagram DM.",
+      "description": "Handmade resin art from Ilorin, Nigeria. Personalised wedding plaques, clocks, bags and gifts from ₦2,500, plus resin art classes. Order via Instagram DM.",
       "keywords": "resin art Nigeria, resin art Ilorin, resin wedding plaque, Nikkah plaque, personalised wedding gifts Nigeria, resin clock, resin gifts, Hautezelle",
       "lead": "Handmade resin art from Ilorin, Nigeria. Discover bespoke resin art pieces, jewelry, and home décor crafted to inspire passion and celebrate global identity."
     },
@@ -226,11 +226,21 @@
     {
       "id": "resin-bookmark",
       "name": "Resin Bookmark",
-      "description": "A glitter resin bookmark with a butterfly topper and your custom text. ₦1,500 each for orders above 10.",
-      "priceRange": "From ₦2,000",
+      "description": "A glitter resin bookmark with a butterfly topper and your custom text.",
+      "priceRange": "₦6,000 each",
       "category": "Stationery",
       "image": "/images/bookmark.jpg",
-      "price": 2000
+      "price": 6000,
+      "bulkPricing": [
+        {
+          "minQty": 51,
+          "price": 5000
+        },
+        {
+          "minQty": 100,
+          "price": 4000
+        }
+      ]
     },
     {
       "id": "couples-keychain-box",
@@ -253,11 +263,21 @@
     {
       "id": "custom-keychain",
       "name": "Custom Keychain",
-      "description": "A resin keychain with a pressed flower charm and your name or initials. ₦1,700 each for orders above 50.",
-      "priceRange": "From ₦2,500",
+      "description": "A resin keychain with a pressed flower charm and your name or initials.",
+      "priceRange": "₦6,000 each",
       "category": "Gifts",
       "image": "/images/keychain.jpg",
-      "price": 2500
+      "price": 6000,
+      "bulkPricing": [
+        {
+          "minQty": 51,
+          "price": 5000
+        },
+        {
+          "minQty": 100,
+          "price": 4000
+        }
+      ]
     }
   ],
   "courses": [
@@ -335,7 +355,7 @@
     },
     {
       "q": "Do you take bulk and corporate orders?",
-      "a": "Yes. We make wedding souvenirs, staff gifts and branded items in bulk. Keychains are ₦1,700 each for orders above 50 and bookmarks are ₦1,500 each for orders above 10. Named resin pens start from ₦2,500 and keychain and pen gift boxes from ₦7,500."
+      "a": "Yes. We make wedding souvenirs, staff gifts and branded items in bulk. Keychains and bookmarks are ₦6,000 each, ₦5,000 each for orders above 50 and ₦4,000 each for 100 pieces or more. Named resin pens start from ₦2,500 and keychain and pen gift boxes from ₦7,500."
     },
     {
       "q": "Can I learn resin art at Hautezelle?",

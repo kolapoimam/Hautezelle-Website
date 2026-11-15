@@ -82,3 +82,10 @@ Hautezelle Studio is a premium web application for a leading Nigerian resin art 
 - **Responsive Design:** Mobile-first Tailwind classes (`md:`, `lg:`).
 - **Accessibility:** Semantic HTML, ARIA labels where necessary.
 - **Clean Code:** Separation of concerns (Types, Components, Pages).
+
+## Analytics (GA4, G-5K6CX06E5S)
+- gtag loads in index.html with `send_page_view: false`. `components/Analytics.tsx` sends one `page_view` per route, plus `scroll_depth` (25/50/75/90/100), `section_view` (each section once, at 50% visible), `page_time` (seconds on page and max scroll) and `exception` for JS errors.
+- Every link and button click is captured once by a delegated listener: `click_internal`, `click_outbound`, `click_social` (channel instagram, instagram_dm, tiktok, whatsapp), `click_contact` (email), `click_anchor`, `click_button`. Params: link_text, link_url, channel, ui_section (header, footer, cart or the section heading), ui_context (nearest card heading, e.g. Masterclass), page_type.
+- Ecommerce uses GA4 names with NGN "from" prices: `view_item_list`, `product_impression`, `filter_products`, `add_to_cart`, `remove_from_cart`, `view_cart`, `begin_checkout` (checkout_channel instagram or whatsapp), `generate_lead`, `order_message_copy`, `checkout_reopen_instagram`, `cart_cleared`.
+- Other: `faq_toggle`, `form_start` and `generate_lead` (lead_source contact_form).
+- Add `data-track-skip` to an element that already sends its own event, so the click is not counted twice. Helpers live in `lib/analytics.ts` (`track`, `gaItem`). Add `?ga_debug=1` to a URL to see events in GA DebugView.

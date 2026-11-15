@@ -38,14 +38,18 @@ const contactBlock = () => `
   <p>Instagram DM: <a href="${b.instagramDM}" target="_blank" rel="noopener noreferrer">${esc(b.instagramHandle)}</a> · TikTok: <a href="${b.tiktok}" target="_blank" rel="noopener noreferrer">${esc(b.tiktokHandle)}</a> · <a href="${b.whatsapp}" target="_blank" rel="noopener noreferrer">${esc(b.whatsappLabel)}</a> · Email: <a href="mailto:${b.email}">${esc(b.email)}</a></p>
 </section>`;
 
+const tiers = (p) =>
+  p.bulkPricing ? ` Bulk: ${p.bulkPricing.map((t) => `${naira(t.price)} each from ${t.minQty} pieces`).join(', ')}.` : '';
+const priceText = (p) => (p.bulkPricing ? `${naira(p.price)} each` : `from ${naira(p.price)}`);
+
 const productItems = (list) =>
   list
     .map(
       (p) => `<article id="${p.id}">
   <img src="${p.image}" alt="${esc(p.name)} handmade by Hautezelle in Ilorin, Nigeria" width="300" height="400" loading="lazy" />
   <h3>${esc(p.name)}</h3>
-  <p><strong>From ${naira(p.price)}</strong> · ${esc(p.category)}</p>
-  <p>${esc(p.description)}</p>
+  <p><strong>${esc(p.priceRange)}</strong> · ${esc(p.category)}</p>
+  <p>${esc(p.description + tiers(p))}</p>
   <p><a href="${b.instagramDM}">Order via Instagram DM</a></p>
 </article>`
     )
@@ -218,7 +222,7 @@ ${routes.map((p) => `- [${navNames[p]}](${urlFor(p)}): ${site.pages[p].descripti
 
 ## Products
 
-${site.products.map((p) => `- ${p.name}: from ${naira(p.price)}. ${p.description}`).join('\n')}
+${site.products.map((p) => `- ${p.name}: ${priceText(p)}.${tiers(p)} ${p.description}`).join('\n')}
 
 ## Academy courses
 
@@ -264,7 +268,7 @@ Values: ${site.about.values}
 ## Products and prices
 
 ${site.products
-  .map((p) => `### ${p.name}\n\n- Category: ${p.category}\n- Price: from ${naira(p.price)}\n- Image: ${BASE}${p.image}\n\n${p.description}\n`)
+  .map((p) => `### ${p.name}\n\n- Category: ${p.category}\n- Price: ${priceText(p)}${tiers(p)}\n- Image: ${BASE}${p.image}\n\n${p.description}\n`)
   .join('\n')}
 ## Hautezelle Resin Art Academy
 

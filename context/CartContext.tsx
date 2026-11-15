@@ -1,6 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { Product } from '../types';
 import site from '../data/site.json';
+import { priceFrom, naira, unitPrice } from '../lib/analytics';
+
+export { priceFrom, naira, unitPrice };
 
 export type CartLine = { id: string; qty: number };
 
@@ -21,10 +24,6 @@ type CartContextValue = {
 const STORAGE_KEY = 'hz-cart-v1';
 const products = site.products as Product[];
 const byId = new Map(products.map((p) => [p.id, p]));
-
-/** "From ₦35,000" becomes 35000. */
-export const priceFrom = (p: Product) => Number((p.priceRange.match(/[\d,]+/) || ['0'])[0].replace(/,/g, '')) || 0;
-export const naira = (n: number) => `₦${n.toLocaleString('en-NG')}`;
 
 const read = (): CartLine[] => {
   try {
@@ -59,11 +58,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const setQty = useCallback((id: string, qty: number) => {
-    setLines((cur) => (qty <= 0 ? cur.filter((l) => l.id !== id) : cur.map((l) => (l.id === id ? { ...l, qty: Math.min(qty, 99) } : l))));
+    setLines((cur) => (qty <= 0 ? cur.filter((l) => l.id !== id) : cur.map((l) => (l.id === id ? { ...l, qty: Math.min(Math.floor(qty), 9999) } : l))));
   }, []);
 
   const remove = useCallback((id: string) => setLines((cur) => cur.filter((l) => l.id !== id)), []);
   const clear = useCallback(() => setLines([]), []);
+  const open = useCallback(() => setIsOpen(true), []);
+  const close = useCallback(() => setIsOpen(false), []);
 
   const value = useMemo<CartContextValue>(() => {
     const items = lines.filter((l) => byId.has(l.id)).map((l) => ({ ...l, product: byId.get(l.id)! }));
@@ -71,16 +72,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       lines,
       items,
       count: items.reduce((n, l) => n + l.qty, 0),
-      estimate: items.reduce((n, l) => n + priceFrom(l.product) * l.qty, 0),
+      estimate: items.reduce((n, l) => n + unitPrice(l.product, l.qty) * l.qty, 0),
       isOpen,
-      open: () => setIsOpen(true),
-      close: () => setIsOpen(false),
+      open,
+      close,
       add,
       setQty,
       remove,
       clear,
     };
-  }, [lines, isOpen, add, setQty, remove, clear]);
+  }, [lines, isOpen, add, setQty, remove, clear, open, close]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

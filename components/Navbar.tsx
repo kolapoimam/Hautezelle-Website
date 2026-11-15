@@ -113,22 +113,16 @@ const Navbar: React.FC = () => {
             type="button"
             onClick={cart.open}
             aria-label={`Open cart, ${cart.count} ${cart.count === 1 ? 'item' : 'items'}`}
-            className="relative p-3 rounded-full bg-white/90 text-teal-900 shadow-md border border-slate-100 hover:text-teal-600 transition-colors"
+            className="relative bg-teal-700 backdrop-blur-md px-6 py-3 rounded-full shadow-xl border border-teal-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-teal-900 transition-colors flex items-center gap-2 hover:-translate-y-0.5 transform duration-300"
            >
-            <ShoppingCart size={20} />
+            <ShoppingCart size={16} />
+            <span>Cart</span>
             {cart.count > 0 && (
-              <span className="absolute -right-1 -top-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-teal-500 px-1 text-[11px] font-bold text-white">
+              <span className="ml-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-white px-1.5 text-[11px] font-bold tracking-normal text-teal-800">
                 {cart.count}
               </span>
             )}
            </button>
-           <Link 
-            to={PageRoutes.SHOP} 
-            className="bg-teal-700 backdrop-blur-md px-6 py-3 rounded-full shadow-xl border border-teal-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-teal-900 transition-colors flex items-center gap-2 hover:-translate-y-0.5 transform duration-300"
-           >
-            <ShoppingBag size={16} />
-            <span>Shop</span>
-          </Link>
         </div>
 
         {/* Mobile cart and menu buttons */}

@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Play, Quote } from 'lucide-react';
 import { PageRoutes } from '../types';
 import SEO from '../components/SEO';
+import { useCurtainOpened } from '../components/CurtainIntro';
 
 const Home: React.FC = () => {
+  const curtainOpen = useCurtainOpened();
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -43,8 +45,8 @@ const Home: React.FC = () => {
         <div className="relative h-full flex flex-col justify-center items-center text-center px-6 max-w-5xl mx-auto pt-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            animate={curtainOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="text-teal-200 tracking-[0.4em] text-xs md:text-sm uppercase font-medium mb-6 block border border-teal-200/30 inline-block px-4 py-2 rounded-full backdrop-blur-sm">
               Handmade Luxury from Nigeria
@@ -192,8 +194,8 @@ const Home: React.FC = () => {
             "We are positioned to become the premier provider of resin art pieces and educational programs in Nigeria."
           </h2>
           <div className="flex flex-col items-center">
-             <div className="w-20 h-20 rounded-full bg-teal-900 mb-4 shadow-lg border-2 border-white flex items-center justify-center">
-                <span className="font-serif text-2xl text-white">ZY</span>
+             <div className="w-20 h-20 rounded-full bg-slate-300 mb-4 overflow-hidden shadow-lg border-2 border-white">
+                <img src="/images/zainab-yinusa.jpg" alt="Zainab Yinusa" loading="lazy" className="w-full h-full object-cover"/>
              </div>
              <p className="text-slate-900 font-bold tracking-widest text-xs uppercase">Zainab Yinusa</p>
              <p className="text-slate-500 text-xs mt-1">Founder, Hautezelle Studio</p>

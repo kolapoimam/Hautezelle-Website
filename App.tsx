@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Analytics from './components/Analytics';
+import CurtainIntro from './components/CurtainIntro';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Services from './pages/Services';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
     <Router>
       <ScrollToTop />
       <Analytics />
+      <CurtainIntro />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">

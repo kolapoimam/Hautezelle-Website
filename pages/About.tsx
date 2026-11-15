@@ -1,6 +1,7 @@
 import React from 'react';
 import { Target, Heart, Leaf, Quote, ArrowRight, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
+import { INSTAGRAM_DM, SITE_URL } from '../constants';
 
 const About: React.FC = () => {
   const schema = {
@@ -8,7 +9,7 @@ const About: React.FC = () => {
     "@type": "Organization",
     "name": "Hautezelle Studio",
     "url": "https://hautezelle.com", // Placeholder URL
-    "logo": "https://picsum.photos/200/200",
+    "logo": `${SITE_URL}/images/studio-wall.jpg`,
     "founder": {
       "@type": "Person",
       "name": "Zainab Yinusa"
@@ -41,7 +42,7 @@ const About: React.FC = () => {
 
         <div className="w-full h-[60vh] relative overflow-hidden mb-24">
              <img 
-              src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765301208/Image_fx_1_j8i1hd.jpg" 
+              src="/images/studio-wall.jpg" 
               alt="Studio Workshop" 
               className="w-full h-full object-cover attachment-fixed"
             />
@@ -116,7 +117,7 @@ const About: React.FC = () => {
                 {/* Founder */}
                 <div className="bg-white p-12 shadow-xl border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300 rounded-[2.5rem]">
                   <div className="w-48 h-48 bg-slate-200 rounded-full mx-auto mb-10 overflow-hidden border-8 border-slate-50 shadow-inner">
-                    <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765300601/E941D90D-1434-40E9-B27C-53ED0724EB3E_bkr8uy.jpg" alt="Zainab Yinusa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-teal-800 to-teal-950" role="img" aria-label="Zainab Yinusa"><span className="font-serif text-6xl text-white">ZY</span></div>
                   </div>
                   <h3 className="text-3xl font-serif text-slate-900 mb-2">Zainab Yinusa</h3>
                   <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-8">Founder & Creative Director</p>
@@ -128,7 +129,7 @@ const About: React.FC = () => {
                  {/* Strategy */}
                  <div className="bg-white p-12 shadow-xl border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300 rounded-[2.5rem]">
                   <div className="w-48 h-48 bg-slate-200 rounded-full mx-auto mb-10 overflow-hidden border-8 border-slate-50 shadow-inner">
-                    <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1764864659/newheaderkay_ghg2vt.jpg" alt="Kolapo Imam" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-teal-800 to-teal-950" role="img" aria-label="Kolapo Imam"><span className="font-serif text-6xl text-white">KI</span></div>
                   </div>
                   <h3 className="text-3xl font-serif text-slate-900 mb-2">Kolapo Imam</h3>
                   <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-8">Consultant & Strategy Officer</p>
@@ -164,7 +165,9 @@ const About: React.FC = () => {
                  </p>
                  
                  <a 
-                   href="mailto:hautezelle@gmail.com?subject=Career Inquiry - Hautezelle Studio" 
+                   href={INSTAGRAM_DM}
+                   target="_blank"
+                   rel="noopener noreferrer"
                    className="group relative inline-flex items-center gap-3 bg-white text-teal-950 px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] overflow-hidden"
                  >
                    <span className="relative z-10">Ignite Your Potential</span>

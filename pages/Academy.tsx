@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Award, Users, Video, Star, CheckCircle, Quote, ArrowUpRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import { INSTAGRAM_DM } from '../constants';
 
 const testimonials = [
   {
@@ -38,7 +39,6 @@ const stats = [
   { label: 'Community', value: 'Active' },
 ];
 
-const WHATSAPP_LINK = "https://wa.me/2349030299342?text=Hello%20Hautezelle%20Studio,%20I'm%20interested%20in%20the%20Academy%20programs.";
 
 const Academy: React.FC = () => {
   const schema = {
@@ -84,7 +84,7 @@ const Academy: React.FC = () => {
       <section className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0">
           <img 
-            src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765301094/Image_fx_fttmr4.jpg" 
+            src="/images/resin-pens-hand.jpg" 
             alt="Art Workshop" 
             className="w-full h-full object-cover brightness-[0.4]"
           />
@@ -105,7 +105,7 @@ const Academy: React.FC = () => {
               Join the premier resin art educational program in Nigeria. From foundational techniques to the business of art, we mold enthusiasts into professionals.
             </p>
             <a 
-              href={WHATSAPP_LINK}
+              href={INSTAGRAM_DM}
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block bg-teal-500 text-teal-950 px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-colors rounded-full shadow-[0_0_20px_rgba(20,184,166,0.5)]"
@@ -162,8 +162,8 @@ const Academy: React.FC = () => {
                 ))}
               </ul>
               <div className="border-t border-slate-100 pt-8">
-                 <span className="block text-3xl font-serif text-teal-900 mb-6">₦150,000</span>
-                 <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 border border-teal-900 text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-900 hover:text-white transition-colors">
+                 <span className="block text-3xl font-serif text-teal-900 mb-6"><span className="text-sm font-sans uppercase tracking-widest opacity-60 mr-2">From</span>₦150,000</span>
+                 <a href={INSTAGRAM_DM} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 border border-teal-900 text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-900 hover:text-white transition-colors">
                     Register Now <ArrowUpRight size={16} className="ml-2" />
                  </a>
               </div>
@@ -190,8 +190,8 @@ const Academy: React.FC = () => {
                 ))}
               </ul>
               <div className="border-t border-teal-800 pt-8 relative z-10">
-                 <span className="block text-3xl font-serif text-white mb-6">₦500,000</span>
-                 <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 bg-white text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-colors">
+                 <span className="block text-3xl font-serif text-white mb-6"><span className="text-sm font-sans uppercase tracking-widest opacity-60 mr-2">From</span>₦500,000</span>
+                 <a href={INSTAGRAM_DM} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 bg-white text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-colors">
                     Register Now <ArrowUpRight size={16} className="ml-2" />
                  </a>
               </div>
@@ -217,8 +217,8 @@ const Academy: React.FC = () => {
                 ))}
               </ul>
               <div className="border-t border-slate-100 pt-8">
-                 <span className="block text-3xl font-serif text-teal-900 mb-6">₦250,000</span>
-                 <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 border border-teal-900 text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-900 hover:text-white transition-colors">
+                 <span className="block text-3xl font-serif text-teal-900 mb-6"><span className="text-sm font-sans uppercase tracking-widest opacity-60 mr-2">From</span>₦250,000</span>
+                 <a href={INSTAGRAM_DM} target="_blank" rel="noreferrer" className="flex items-center justify-center w-full text-center py-4 border border-teal-900 text-teal-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-900 hover:text-white transition-colors">
                     Register Now <ArrowUpRight size={16} className="ml-2" />
                  </a>
               </div>
@@ -233,7 +233,7 @@ const Academy: React.FC = () => {
           <div className="md:w-1/2 relative">
              <div className="absolute top-0 left-0 w-full h-full border-2 border-teal-100 rounded-[2.5rem] transform -translate-x-4 -translate-y-4"></div>
             <img 
-              src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287771/F96B2AB9-59F5-4B41-993B-A7B3774804DF_zlghuv.jpg" 
+              src="/images/journal.jpg" 
               alt="Online Learning" 
               className="rounded-[2.5rem] shadow-2xl relative z-10 w-full"
             />
@@ -267,7 +267,7 @@ const Academy: React.FC = () => {
             </div>
             <div className="mt-12">
                 <a 
-                  href={WHATSAPP_LINK}
+                  href={INSTAGRAM_DM}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-teal-900 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-teal-800 transition-colors rounded-full shadow-lg inline-flex items-center gap-2"

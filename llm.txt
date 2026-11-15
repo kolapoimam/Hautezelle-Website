@@ -72,10 +72,10 @@ Hautezelle Studio is a premium web application for a leading Nigerian resin art 
 - **Vercel:** `vercel.json` uses cleanUrls, so /shop serves shop.html.
 
 ## 6. Business Data
-- **Phone:** `0903 079 9342` (+2349030799342). All CTAs open an Instagram DM (ig.me/m/hautezelle).
+- **Phone:** never shown anywhere in the UI or page content. The number lives only inside the WhatsApp link (`WHATSAPP_CHAT` in constants.ts). All order CTAs open an Instagram DM (ig.me/m/hautezelle).
 - **Email:** `hautezelle@gmail.com`
 - **Location:** Ilorin, Kwara State, Nigeria.
-- **Social:** Instagram `@hautezelle`.
+- **Social:** Instagram `@hautezelle`, TikTok `@hautezelle`, WhatsApp chat link. All open in a new tab.
 
 ## 7. Coding Conventions
 - **Components:** Functional components with TypeScript interfaces.

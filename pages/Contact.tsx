@@ -1,8 +1,8 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
+import { Mail, MapPin, Instagram } from 'lucide-react';
 import SEO from '../components/SEO';
 import { INSTAGRAM_DM, WHATSAPP_CHAT } from '../constants';
-import { SocialLinks } from '../components/SocialIcons';
+import { SocialLinks, WhatsAppIcon } from '../components/SocialIcons';
 
 const field = 'w-full min-h-[48px] rounded-xl border border-teal-200 bg-white px-4 py-3 text-base text-ink transition-colors focus:border-teal-700 focus:outline-none';
 const label = 'mb-2 block text-xs uppercase tracking-[0.2em] text-[#4a5553]';
@@ -32,11 +32,11 @@ const Contact: React.FC = () => {
               </div>
             </li>
             <li className="flex items-start gap-4 py-6">
-              <Phone size={22} className="mt-1 shrink-0 text-teal-700" aria-hidden="true" />
+              <WhatsAppIcon size={22} className="mt-1 shrink-0 text-teal-700" />
               <div>
-                <h2 className="text-xl">Phone</h2>
-                <a href="tel:+2349030799342" className="text-[#4a5553] hover:text-teal-700">0903 079 9342</a>
-                <a href={WHATSAPP_CHAT} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-teal-700 underline-offset-4 hover:underline">Chat with us on WhatsApp</a>
+                <h2 className="text-xl">WhatsApp</h2>
+                <a href={WHATSAPP_CHAT} target="_blank" rel="noopener noreferrer" className="text-[#4a5553] underline-offset-4 hover:text-teal-700 hover:underline">Chat with us on WhatsApp</a>
+                <p className="mt-1 text-sm text-[#5b6563]">Quick replies on custom orders and classes</p>
               </div>
             </li>
             <li className="flex items-start gap-4 py-6">

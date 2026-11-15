@@ -62,16 +62,15 @@ const Navbar: React.FC = () => {
         className={`fixed w-full z-50 transition-all duration-500 pt-6 px-4 md:px-12 flex justify-between items-center pointer-events-none`}
       >
         {/* Brand Logo - Left (Standalone) */}
-        <Link to={PageRoutes.HOME} className="pointer-events-auto z-50 group" onClick={() => setIsOpen(false)}>
+        <Link to={PageRoutes.HOME} aria-label="Hautezelle Studio home" className="pointer-events-auto z-50 group" onClick={() => setIsOpen(false)}>
           <div className={`transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-2 px-4 rounded-xl shadow-sm' : ''}`}>
-            <div className="flex flex-col items-start">
-              <span className={`text-xl font-bold font-serif tracking-tighter transition-colors duration-300 ${textColorClass} drop-shadow-sm`}>
-                HAUTEZELLE
-              </span>
-              <span className={`text-[0.6rem] tracking-[0.3em] font-light transition-colors duration-300 ${subTextColorClass} drop-shadow-sm`}>
-                STUDIO
-              </span>
-            </div>
+            <img
+              src="/logo-horizontal.svg"
+              alt="Hautezelle Studio"
+              width={182}
+              height={28}
+              className="block h-7 w-auto sm:h-8 md:h-9"
+            />
           </div>
         </Link>
 

@@ -72,21 +72,21 @@ const Home: React.FC = () => {
 
       {/* Hero */}
       <section className="pt-28 sm:pt-32 lg:pt-36">
-        <div className="wrap flex flex-col items-center gap-12 pb-20 lg:gap-16 lg:pb-28">
+        <div className="wrap grid items-center gap-12 pb-20 lg:grid-cols-2 lg:gap-16 lg:pb-28">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={curtainOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex max-w-4xl flex-col items-center gap-7 text-center"
+            className="flex flex-col items-center gap-7 text-center lg:items-start lg:text-left"
           >
             <span className="eyebrow">Handmade luxury from Ilorin, Nigeria</span>
             <h1 className="display text-[3.1rem] sm:text-7xl xl:text-[6.25rem]">
               Timeless, luxurious <em className="text-teal-700">masterpieces</em>
             </h1>
-            <p className="lead max-w-[32em]">
+            <p className="lead max-w-[30em]">
               Bespoke resin art, jewellery and home décor, poured by hand in our Ilorin studio to inspire passion and celebrate global identity.
             </p>
-            <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center">
+            <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center lg:justify-start">
               <Link to={PageRoutes.SHOP} className="btn-solid w-full sm:w-auto">Shop the collection</Link>
               <Link to={PageRoutes.ACADEMY} className="btn-line w-full sm:w-auto">Visit the academy</Link>
             </div>
@@ -96,17 +96,17 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={curtainOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 1.2, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full"
+            className="relative mx-auto w-full max-w-[520px]"
           >
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-[1.75rem] bg-mist shadow-[0_30px_60px_-30px_rgba(13,122,116,0.45)] sm:aspect-[16/9] lg:aspect-[2/1] lg:rounded-[2.5rem]">
+            <div className="aspect-square w-full overflow-hidden rounded-b-[1.75rem] rounded-t-[999px] bg-mist shadow-[0_30px_60px_-30px_rgba(13,122,116,0.45)]">
               <img
                 src="/images/studio-wall.jpg"
                 alt="The Hautezelle Studio wall with our Africa resin clock and logo under studio lights"
                 fetchPriority="high"
-                className="h-full w-full object-cover object-[50%_30%]"
+                className="h-full w-full object-cover object-[50%_42%]"
               />
             </div>
-            <div className="absolute -bottom-6 left-6 hidden max-w-[220px] rounded-2xl border border-mist bg-white px-5 py-4 shadow-lg sm:block lg:left-10">
+            <div className="absolute -bottom-6 -left-2 hidden max-w-[220px] rounded-2xl border border-mist bg-white px-5 py-4 shadow-lg sm:block lg:-left-10">
               <span className="block text-[11px] uppercase tracking-[0.24em] text-teal-700">Made to order</span>
               <span className="mt-1 block text-[17px] leading-snug">No two pieces are ever alike</span>
             </div>
@@ -114,20 +114,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Category strip */}
-      <section className="border-y border-mist">
-        <div className="wrap flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-6 text-[17px] italic text-[#4a5553] sm:justify-between">
-          {['Wedding plaques', 'Wall clocks', 'Pearl bags', 'Journals', 'Gift sets'].map((c, i, a) => (
-            <React.Fragment key={c}>
-              <span>{c}</span>
-              {i < a.length - 1 && <span aria-hidden="true" className="hidden text-teal-500 sm:inline">✦</span>}
-            </React.Fragment>
-          ))}
-        </div>
-      </section>
-
       {/* Philosophy */}
-      <section className="wrap py-24 lg:py-32">
+      <section className="wrap border-t border-mist py-24 lg:py-32">
         <div className="mb-14 grid items-end gap-6 lg:mb-20 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col gap-5">
             <span className="eyebrow">Our philosophy</span>

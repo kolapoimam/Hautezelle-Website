@@ -11,9 +11,8 @@ const Footer: React.FC = () => {
       <div className="wrap pb-10 pt-20 lg:pt-24">
         <div className="grid gap-12 border-b border-teal-700 pb-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:pb-16">
           <div className="flex flex-col gap-5">
-            <Link to={PageRoutes.HOME} className="flex flex-col leading-none text-white">
-              <span className="text-[26px] tracking-[0.08em]">HAUTEZELLE</span>
-              <span className="mt-2 text-[10px] tracking-[0.55em] text-teal-300">STUDIO</span>
+            <Link to={PageRoutes.HOME} aria-label="Hautezelle Studio home" className="self-start">
+              <img src="/logo-stacked-light.svg" alt="Hautezelle Studio" width={180} height={84} className="block h-auto w-[180px]" />
             </Link>
             <p className="max-w-xs text-[15px] leading-[1.75] text-teal-100">
               Captivating art pieces that inspire passion, love and global identity. The premier provider of resin art in Nigeria.
@@ -33,7 +32,6 @@ const Footer: React.FC = () => {
             <span className="mb-2 text-xs uppercase tracking-[0.24em] text-white">Visit</span>
             <span className="text-teal-100">Ilorin, Kwara State, Nigeria</span>
             <a href="mailto:hautezelle@gmail.com" className="text-teal-100 hover:text-white">hautezelle@gmail.com</a>
-            <a href="tel:+2349030799342" className="text-teal-100 hover:text-white">0903 079 9342</a>
             <a href={WHATSAPP_CHAT} target="_blank" rel="noopener noreferrer" className="text-teal-100 hover:text-white">Chat on WhatsApp</a>
           </div>
 

@@ -16,7 +16,6 @@ export function organization(site) {
     url: b.url,
     logo: abs(b.url, b.logo),
     image: abs(b.url, b.image),
-    telephone: b.telephone,
     email: b.email,
     priceRange: b.priceRange,
     currenciesAccepted: 'NGN',
@@ -41,7 +40,6 @@ export function organization(site) {
       {
         '@type': 'ContactPoint',
         contactType: 'customer service',
-        telephone: b.telephone,
         email: b.email,
         url: b.instagramDM,
         areaServed: 'NG',

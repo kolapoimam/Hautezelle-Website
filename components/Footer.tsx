@@ -1,79 +1,60 @@
 import React from 'react';
-import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageRoutes } from '../types';
-import { INSTAGRAM_DM, INSTAGRAM_PROFILE } from '../constants';
+import { INSTAGRAM_DM, WHATSAPP_CHAT } from '../constants';
+import { SocialLinks } from './SocialIcons';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-teal-950 text-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-teal-800 pb-12 text-center md:text-left">
-        <div className="space-y-6 flex flex-col items-center md:items-start">
-           <div className="flex flex-col items-center md:items-start">
-            <span className="text-3xl font-bold font-serif tracking-tighter text-white">
-              HAUTEZELLE
-            </span>
-            <span className="text-xs tracking-[0.4em] font-light text-teal-300">
-              STUDIO
-            </span>
+    <footer className="bg-teal-800 text-teal-50">
+      <div className="wrap pb-10 pt-20 lg:pt-24">
+        <div className="grid gap-12 border-b border-teal-700 pb-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:pb-16">
+          <div className="flex flex-col gap-5">
+            <Link to={PageRoutes.HOME} className="flex flex-col leading-none text-white">
+              <span className="text-[26px] tracking-[0.08em]">HAUTEZELLE</span>
+              <span className="mt-2 text-[10px] tracking-[0.55em] text-teal-300">STUDIO</span>
+            </Link>
+            <p className="max-w-xs text-[15px] leading-[1.75] text-teal-100">
+              Captivating art pieces that inspire passion, love and global identity. The premier provider of resin art in Nigeria.
+            </p>
           </div>
-          <p className="text-teal-100/70 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
-            Creating captivating and distinctive art pieces that inspire passion, love, and global identity. The premier provider of resin art in Nigeria.
-          </p>
+
+          <div className="flex flex-col gap-3 text-[15px]">
+            <span className="mb-2 text-xs uppercase tracking-[0.24em] text-white">Explore</span>
+            <Link to={PageRoutes.SHOP} className="text-teal-100 hover:text-white">Shop collections</Link>
+            <Link to={PageRoutes.ACADEMY} className="text-teal-100 hover:text-white">The academy</Link>
+            <Link to={PageRoutes.SERVICES} className="text-teal-100 hover:text-white">Services</Link>
+            <Link to={PageRoutes.ABOUT} className="text-teal-100 hover:text-white">Our story</Link>
+            <Link to={PageRoutes.CONTACT} className="text-teal-100 hover:text-white">Contact</Link>
+          </div>
+
+          <div className="flex flex-col gap-3 text-[15px]">
+            <span className="mb-2 text-xs uppercase tracking-[0.24em] text-white">Visit</span>
+            <span className="text-teal-100">Ilorin, Kwara State, Nigeria</span>
+            <a href="mailto:hautezelle@gmail.com" className="text-teal-100 hover:text-white">hautezelle@gmail.com</a>
+            <a href="tel:+2349030799342" className="text-teal-100 hover:text-white">0903 079 9342</a>
+            <a href={WHATSAPP_CHAT} target="_blank" rel="noopener noreferrer" className="text-teal-100 hover:text-white">Chat on WhatsApp</a>
+          </div>
+
+          <div className="flex flex-col gap-4 text-[15px]">
+            <span className="mb-1 text-xs uppercase tracking-[0.24em] text-white">Stay in touch</span>
+            <p className="leading-[1.7] text-teal-100">Send us a DM for new collections and workshop dates.</p>
+            <div>
+              <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="btn-light">
+                <Instagram size={16} /> Message us
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <h4 className="text-lg font-serif mb-6 tracking-wide text-teal-200">Explore</h4>
-          <ul className="space-y-3 text-teal-100/70 text-sm">
-            <li><Link to={PageRoutes.SHOP} className="hover:text-white transition-colors">Shop Collections</Link></li>
-            <li><Link to={PageRoutes.ACADEMY} className="hover:text-white transition-colors">The Academy</Link></li>
-            <li><Link to={PageRoutes.SERVICES} className="hover:text-white transition-colors">Services</Link></li>
-            <li><Link to={PageRoutes.ABOUT} className="hover:text-white transition-colors">Our Story</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-lg font-serif mb-6 tracking-wide text-teal-200">Contact</h4>
-          <ul className="space-y-4 text-teal-100/70 text-sm flex flex-col items-center md:items-start">
-            <li className="flex items-center md:items-start">
-              <MapPin size={18} className="mr-3 mt-0.5 shrink-0 hidden md:block" />
-              <span>Ilorin, Kwara State<br />Nigeria</span>
-            </li>
-            <li className="flex items-center">
-              <Mail size={18} className="mr-3 shrink-0 hidden md:block" />
-              <a href="mailto:hautezelle@gmail.com" className="hover:text-white transition-colors">hautezelle@gmail.com</a>
-            </li>
-            <li className="flex items-center">
-              <Phone size={18} className="mr-3 shrink-0 hidden md:block" />
-              <a href="tel:+2349030799342" className="hover:text-white transition-colors">0903 079 9342</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-lg font-serif mb-6 tracking-wide text-teal-200">Stay in Touch</h4>
-          <p className="text-teal-100/70 text-sm mb-4">Send us a DM for new collections and workshop dates.</p>
-          <a
-            href={INSTAGRAM_DM}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-white text-teal-950 px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-colors rounded-sm"
-          >
-            Message us on Instagram
-          </a>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center text-teal-100/40 text-xs">
-        <div className="order-2 md:order-1 mt-4 md:mt-0 flex flex-col md:flex-row items-center gap-2">
-            <p>&copy; {new Date().getFullYear()} Hautezelle Studio. All rights reserved.</p>
-            <span className="hidden md:inline">•</span>
-            <a href="https://getmvps.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-teal-200 transition-colors">
-                Built by GetMVPs
-            </a>
-        </div>
-        <div className="flex space-x-6 order-1 md:order-2">
-          <a href={INSTAGRAM_PROFILE} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+        <div className="flex flex-col-reverse items-center justify-between gap-4 pt-8 text-[13px] text-teal-200 sm:flex-row">
+          <div className="flex flex-col items-center gap-2 text-center sm:flex-row">
+            <span>&copy; {new Date().getFullYear()} Hautezelle Studio. All rights reserved.</span>
+            <span className="hidden sm:inline" aria-hidden="true">·</span>
+            <a href="https://getmvps.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-white">Built by GetMVPs</a>
+          </div>
+          <SocialLinks itemClassName="flex h-11 w-11 items-center justify-center rounded-full border border-teal-600 text-teal-100 transition-colors hover:border-white hover:text-white" />
         </div>
       </div>
     </footer>

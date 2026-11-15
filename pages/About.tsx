@@ -1,163 +1,111 @@
 import React from 'react';
-import { Target, Heart, Leaf, Quote, ArrowRight, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
 import { INSTAGRAM_DM } from '../constants';
 
-const About: React.FC = () => {
+const pillars = [
+  {
+    label: 'Our mission',
+    text: 'To create captivating and distinctive art and craft pieces that inspire passion, love and global identity, always pushing what is possible with resin.',
+  },
+  {
+    label: 'Our vision',
+    text: 'To become the premier provider of resin art pieces and educational programmes in Nigeria, with a vibrant community of artists around us.',
+  },
+  {
+    label: 'Our values',
+    text: 'Creativity, quality, passion, community and sustainability. They guide every pour, every design and every workshop we host.',
+  },
+];
 
+const team = [
+  {
+    name: 'Zainab Yinusa',
+    role: 'Founder and Creative Director',
+    img: '/images/zainab-yinusa.jpg',
+    bio: 'With deep experience in resin art and a strong passion for enterprise, Zainab leads the creative direction of the studio. Her vision blends traditional Nigerian aesthetics with modern resin technique.',
+  },
+  {
+    name: 'Kolapo Imam',
+    role: 'Consultant and Strategy Officer',
+    img: '/images/kolapo-imam.jpg',
+    bio: 'Bringing nearly a decade of experience in marketing, business development and operations, Kolapo drives the strategic growth and global positioning of Hautezelle.',
+  },
+];
+
+const About: React.FC = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-ivory text-ink">
       <SEO page="/about" />
 
-       {/* Hero Section */}
-       <div className="pt-40 pb-20 px-6 max-w-7xl mx-auto text-center">
-          <span className="text-teal-600 tracking-widest text-xs uppercase font-bold mb-4 block">The Hautezelle Story</span>
-          <h1 className="text-5xl md:text-7xl font-serif text-slate-900 mb-8 leading-tight">
-            Crafting Elegance <br/> <span className="italic text-teal-700">Defining Artistry</span>
-          </h1>
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-light">
-            Born from a desire to blend creativity with global identity, Hautezelle Studio has grown into Nigeria's premier provider of luxury resin decor and artistic education.
+      {/* Intro */}
+      <section className="wrap flex flex-col items-center gap-7 pb-16 pt-32 text-center sm:pt-40 lg:pb-20">
+        <span className="eyebrow">The Hautezelle story</span>
+        <h1 className="display max-w-[11em] text-[3rem] sm:text-7xl lg:text-[5.75rem]">
+          Crafting elegance, defining <em className="text-teal-700">artistry</em>
+        </h1>
+        <p className="lead max-w-[36em]">
+          Born from a desire to blend creativity with global identity, Hautezelle Studio has grown into a leading name in luxury resin décor and art education in Nigeria.
+        </p>
+      </section>
+
+      <section className="wrap">
+        <div className="w-full aspect-[4/3] overflow-hidden rounded-[1.75rem] sm:aspect-[16/8] lg:rounded-[2.5rem]">
+          <img src="/images/studio-wall.jpg" alt="The Hautezelle Studio wall with our Africa resin clock" className="h-full w-full object-cover" />
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className="wrap flex justify-center py-24 lg:py-32">
+        <blockquote className="max-w-[920px] text-center text-[1.75rem] italic leading-[1.35] sm:text-4xl lg:text-[2.6rem]">
+          Resin allows a fluidity and depth that few other mediums can achieve. It captures movement in a solid state, preserving moments of colour and emotion forever.
+        </blockquote>
+      </section>
+
+      {/* Mission, vision, values */}
+      <section className="bg-teal-50">
+        <div className="wrap grid gap-12 py-20 md:grid-cols-3 md:gap-10 lg:py-28">
+          {pillars.map((p) => (
+            <div key={p.label} className="rule-card">
+              <span className="text-xs uppercase tracking-[0.24em] text-teal-700">{p.label}</span>
+              <p className="text-lg leading-[1.7]">{p.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="wrap py-24 lg:py-32">
+        <div className="mb-14 flex flex-col items-center gap-5 text-center lg:mb-20">
+          <span className="eyebrow">Leadership</span>
+          <h2 className="h2">The minds behind the art</h2>
+        </div>
+        <div className="mx-auto grid max-w-5xl gap-16 md:grid-cols-2 md:gap-12 lg:gap-16">
+          {team.map((m) => (
+            <article key={m.name} className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
+              <div className="w-full aspect-[4/5] max-w-[360px] overflow-hidden rounded-t-[999px] rounded-b-[1.75rem] bg-mist">
+                <img src={m.img} alt={m.name} loading="lazy" className="h-full w-full object-cover object-top" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-[32px]">{m.name}</h3>
+                <span className="text-xs uppercase tracking-[0.24em] text-teal-700">{m.role}</span>
+              </div>
+              <p className="max-w-[30em] text-base leading-[1.75] text-[#4a5553]">{m.bio}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Careers */}
+      <section className="bg-teal-700 text-white">
+        <div className="wrap flex flex-col items-center gap-6 py-20 text-center lg:py-24">
+          <span className="eyebrow text-teal-100">Careers</span>
+          <h2 className="h2">Join our creative legacy</h2>
+          <p className="max-w-[32em] text-[17px] leading-[1.75] text-teal-50 sm:text-lg">
+            Passionate about art or business? We are always glad to meet people who want to elevate the art of resin with us.
           </p>
+          <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="btn-light">Get in touch</a>
         </div>
-
-        <div className="w-full h-[60vh] relative overflow-hidden mb-24">
-             <img 
-              src="/images/studio-wall.jpg" 
-              alt="Studio Workshop" 
-              className="w-full h-full object-cover attachment-fixed"
-            />
-            <div className="absolute inset-0 bg-teal-900/10"></div>
-        </div>
-
-        {/* Philosophy Cards Section */}
-        <div className="max-w-7xl mx-auto px-6 mb-32">
-          {/* Quote Section */}
-          <div className="relative mb-24">
-             <div className="bg-teal-950 text-white p-12 md:p-20 relative z-10 shadow-2xl rounded-[3rem] text-center overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-teal-800 rounded-full opacity-20 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-600 rounded-full opacity-20 blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-                
-                <Quote size={48} className="text-teal-400 mb-8 opacity-50 mx-auto" />
-                <h2 className="text-3xl md:text-5xl font-serif mb-8 leading-relaxed max-w-4xl mx-auto">
-                  "Resin allows for a fluidity and depth that few other mediums can achieve. It captures movement in a solid state, preserving moments of color and emotion forever."
-                </h2>
-                <div className="w-24 h-1 bg-teal-500 mx-auto mb-6"></div>
-             </div>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Mission Card */}
-            <div className="bg-white border border-slate-100 p-12 rounded-[2.5rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] group hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:bg-teal-100 transition-colors"></div>
-              <div className="w-20 h-20 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-800 mb-8 relative z-10 group-hover:bg-teal-900 group-hover:text-white transition-colors duration-500">
-                <Target size={40} strokeWidth={1.5} />
-              </div>
-              <h3 className="text-3xl font-serif text-slate-900 mb-4 relative z-10">Our Mission</h3>
-              <p className="text-slate-500 leading-loose relative z-10 text-lg font-light">
-                To create captivating and distinctive art and craft pieces that inspire passion, love, and global identity. We strive to push the boundaries of what is possible with resin.
-              </p>
-            </div>
-
-            {/* Vision Card */}
-            <div className="bg-white border border-slate-100 p-12 rounded-[2.5rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] group hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:bg-teal-100 transition-colors"></div>
-              <div className="w-20 h-20 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-800 mb-8 relative z-10 group-hover:bg-teal-900 group-hover:text-white transition-colors duration-500">
-                <Leaf size={40} strokeWidth={1.5} />
-              </div>
-              <h3 className="text-3xl font-serif text-slate-900 mb-4 relative z-10">Our Vision</h3>
-              <p className="text-slate-500 leading-loose relative z-10 text-lg font-light">
-                 To become the premier provider of resin art pieces and educational programs in Nigeria, while cultivating a vibrant community of artists and enthusiasts.
-              </p>
-            </div>
-
-            {/* Values Card */}
-            <div className="bg-white border border-slate-100 p-12 rounded-[2.5rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] group hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:bg-teal-100 transition-colors"></div>
-              <div className="w-20 h-20 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-800 mb-8 relative z-10 group-hover:bg-teal-900 group-hover:text-white transition-colors duration-500">
-                <Heart size={40} strokeWidth={1.5} />
-              </div>
-              <h3 className="text-3xl font-serif text-slate-900 mb-4 relative z-10">Our Values</h3>
-              <p className="text-slate-500 leading-loose relative z-10 text-lg font-light">
-                Creativity, Quality, Passion, Community, Sustainability. These core values guide every pour, every design, and every workshop we host.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Leadership */}
-        <div className="bg-slate-50 py-32 rounded-t-[4rem]">
-           <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-20">
-                <span className="text-teal-600 tracking-widest text-xs uppercase font-bold mb-3 block">Leadership</span>
-                <h2 className="text-4xl font-serif text-slate-900">The Minds Behind The Art</h2>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                {/* Founder */}
-                <div className="bg-white p-12 shadow-xl border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300 rounded-[2.5rem]">
-                  <div className="w-48 h-48 bg-slate-200 rounded-full mx-auto mb-10 overflow-hidden border-8 border-slate-50 shadow-inner">
-                    <img src="/images/zainab-yinusa.jpg" alt="Zainab Yinusa" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  </div>
-                  <h3 className="text-3xl font-serif text-slate-900 mb-2">Zainab Yinusa</h3>
-                  <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-8">Founder & Creative Director</p>
-                  <p className="text-slate-500 text-sm leading-loose font-light px-4">
-                    With extensive experience in resin art and a strong passion for entrepreneurship, Zainab leads the creative direction of the studio. Her unique vision blends traditional Nigerian aesthetics with modern resin techniques.
-                  </p>
-                </div>
-
-                 {/* Strategy */}
-                 <div className="bg-white p-12 shadow-xl border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300 rounded-[2.5rem]">
-                  <div className="w-48 h-48 bg-slate-200 rounded-full mx-auto mb-10 overflow-hidden border-8 border-slate-50 shadow-inner">
-                    <img src="/images/kolapo-imam.jpg" alt="Kolapo Imam" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  </div>
-                  <h3 className="text-3xl font-serif text-slate-900 mb-2">Kolapo Imam</h3>
-                  <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-8">Consultant & Strategy Officer</p>
-                  <p className="text-slate-500 text-sm leading-loose font-light px-4">
-                    Bringing nearly a decade of experience in marketing, business development, and operations, Kolapo drives the strategic growth and global positioning of Hautezelle, ensuring operational excellence.
-                  </p>
-                </div>
-              </div>
-           </div>
-        </div>
-
-        {/* Join The Team CTA - Compact Luxury Card */}
-        <div className="bg-white pb-24 pt-12">
-           <div className="max-w-5xl mx-auto px-6">
-             {/* Reduced padding from py-24 to py-16 to make it less tall */}
-             <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-teal-950 via-teal-900 to-slate-950 px-8 py-16 text-center shadow-2xl">
-               {/* Background Decorative Elements */}
-               <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-               <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full mix-blend-overlay opacity-20 blur-[120px] transform translate-x-1/2 -translate-y-1/2"></div>
-               <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-400 rounded-full mix-blend-overlay opacity-20 blur-[100px] transform -translate-x-1/2 translate-y-1/2"></div>
-               
-               <div className="relative z-10 flex flex-col items-center">
-                 <div className="inline-flex p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-200 mb-6 shadow-inner">
-                   <Sparkles size={24} />
-                 </div>
-                 
-                 <h2 className="text-3xl md:text-5xl font-serif text-white mb-4 tracking-tight">
-                   Join Our Creative <span className="text-teal-300 italic">Legacy</span>
-                 </h2>
-                 
-                 <p className="text-teal-100/80 text-base md:text-lg font-light leading-relaxed mb-8 max-w-xl">
-                   Are you passionate about art or business management? We are always looking for visionary individuals to help us elevate the art of resin.
-                 </p>
-                 
-                 <a 
-                   href={INSTAGRAM_DM}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="group relative inline-flex items-center gap-3 bg-white text-teal-950 px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] overflow-hidden"
-                 >
-                   <span className="relative z-10">Ignite Your Potential</span>
-                   <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
-                 </a>
-               </div>
-             </div>
-           </div>
-        </div>
+      </section>
     </div>
   );
 };

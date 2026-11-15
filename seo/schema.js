@@ -36,7 +36,7 @@ export function organization(site) {
       },
     ],
     areaServed: b.areaServed.map((name) => ({ '@type': 'Place', name })),
-    sameAs: [b.instagram],
+    sameAs: [b.instagram, b.tiktok],
     contactPoint: [
       {
         '@type': 'ContactPoint',

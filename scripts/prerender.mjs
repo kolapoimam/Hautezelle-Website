@@ -35,7 +35,7 @@ const contactBlock = () => `
   <h2>Order or ask a question</h2>
   <p><strong>${esc(b.name)}</strong>, ${esc(b.address.locality)}, ${esc(b.address.region)}, ${esc(b.address.countryName)}.
   Open ${esc(b.hours.display)}.</p>
-  <p>Instagram DM: <a href="${b.instagramDM}">${esc(b.instagramHandle)}</a> · Phone: <a href="tel:${b.telephone}">${esc(b.telephoneDisplay)}</a> · Email: <a href="mailto:${b.email}">${esc(b.email)}</a></p>
+  <p>Instagram DM: <a href="${b.instagramDM}" target="_blank" rel="noopener noreferrer">${esc(b.instagramHandle)}</a> · TikTok: <a href="${b.tiktok}" target="_blank" rel="noopener noreferrer">${esc(b.tiktokHandle)}</a> · WhatsApp: <a href="${b.whatsapp}" target="_blank" rel="noopener noreferrer">${esc(b.telephoneDisplay)}</a> · Phone: <a href="tel:${b.telephone}">${esc(b.telephoneDisplay)}</a> · Email: <a href="mailto:${b.email}">${esc(b.email)}</a></p>
 </section>`;
 
 const productItems = (list) =>
@@ -102,7 +102,7 @@ ${faqBlock()}`,
   '/contact': () => '',
 };
 
-const PRERENDER_CSS = `<style>#prerender{font-family:Lato,sans-serif;color:#0f172a}#prerender h1,#prerender h2,#prerender h3{font-family:'Playfair Display',serif;color:#042f2e;line-height:1.2}#prerender h1{font-size:2.6rem;margin:1.5rem 0 1rem}#prerender h2{font-size:1.7rem;margin:2.2rem 0 .8rem}#prerender h3{font-size:1.25rem;margin:1.4rem 0 .4rem}#prerender p{margin:.4rem 0}#prerender a{color:#0f766e;text-decoration:underline}#prerender img{border-radius:12px;max-width:100%;height:auto}#prerender nav{font-size:.9rem}#prerender article{margin-bottom:1.6rem}</style>`;
+const PRERENDER_CSS = `<style>#prerender{font-family:Gambetta,Georgia,serif;color:#13201f}#prerender h1,#prerender h2,#prerender h3{font-family:Gambetta,Georgia,serif;color:#0d7a74;line-height:1.2}#prerender h1{font-size:2.6rem;margin:1.5rem 0 1rem}#prerender h2{font-size:1.7rem;margin:2.2rem 0 .8rem}#prerender h3{font-size:1.25rem;margin:1.4rem 0 .4rem}#prerender p{margin:.4rem 0}#prerender a{color:#0d7a74;text-decoration:underline}#prerender img{border-radius:12px;max-width:100%;height:auto}#prerender nav{font-size:.9rem}#prerender article{margin-bottom:1.6rem}</style>`;
 
 const staticContent = (p) => {
   const page = site.pages[p];
@@ -124,7 +124,7 @@ ${contactBlock()}
 const headFor = (p, { noindex = false } = {}) => {
   const page = site.pages[p] || site.pages['/'];
   const url = urlFor(p);
-  const img = `${BASE}${b.image}`;
+  const img = `${BASE}${b.ogImage}`;
   const tags = [
     `<title>${esc(page.title)}</title>`,
     `<meta name="description" content="${esc(page.description)}" />`,

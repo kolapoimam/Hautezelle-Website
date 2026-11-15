@@ -1,222 +1,297 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play, Quote, Plus } from 'lucide-react';
+import { ArrowRight, Plus } from 'lucide-react';
 import { PageRoutes } from '../types';
 import SEO from '../components/SEO';
 import site from '../data/site.json';
 import { INSTAGRAM_DM } from '../constants';
 import { useCurtainOpened } from '../components/CurtainIntro';
 
+const pillars = [
+  {
+    n: 'I',
+    title: 'Unique design',
+    text: 'Every piece is handcrafted with care, so no two are ever the same. You own something made only for you.',
+  },
+  {
+    n: 'II',
+    title: 'Community',
+    text: 'Through Resin N Sip events and our Academy, we bring people together to create, learn and grow as artists.',
+  },
+  {
+    n: 'III',
+    title: 'Global identity',
+    text: 'Modern resin technique meets cultural heritage, in art that speaks to the world and honours our Nigerian roots.',
+  },
+];
+
+const featured = [
+  { title: 'Wedding plaques', note: 'From ₦35,000', img: '/images/wedding-plaque-pink.jpg', alt: 'Pink resin wedding plaque with crystal border' },
+  { title: 'Luxury bags', note: 'From ₦70,000', img: '/images/pearl-bag-2.jpg', alt: 'Handmade pearl resin bag beside a mirror' },
+  { title: 'Resin clocks', note: 'From ₦60,000', img: '/images/resin-clock.jpg', alt: 'Ivory resin wall clock with Roman numerals' },
+];
+
+const testimonials = [
+  {
+    name: 'Titi',
+    place: 'Lagos',
+    item: 'Resin bookstand',
+    text: 'I recently purchased the Resin Bookstand from Hautezelle Studio, and I must say it has transformed my reading space. The intricate design and vibrant colors make each reading session feel like a journey into a magical world. Thank you, Hautezelle, for adding a touch of art to my literary escapes!',
+  },
+  {
+    name: 'Aisha',
+    place: 'Canada',
+    item: 'Resin wall clock',
+    text: "The Resin Wall Clock I ordered from Hautezelle Studio is nothing short of amazing! The attention to detail and the unique blend of colors make it a standout piece in my living room. It's more than just a clock; it's a work of art that adds character to my home. Highly recommended!",
+  },
+  {
+    name: 'Bibit',
+    place: 'Germany',
+    item: 'Resin phone case',
+    text: "I'm in love with my Resin Phone Case from Hautezelle Studio! The combination of functionality and artistic flair is impressive. It not only protects my phone but also turns heads wherever I go. The craftsmanship is top-notch, and I appreciate the uniqueness it brings to my daily life. Hautezelle Studio, you've gained a loyal customer!",
+  },
+];
+
+const services = [
+  { title: 'Resin N Sip', text: 'A relaxed creative gathering with drinks, where you pour your own piece.' },
+  { title: 'Training', text: 'Online and in studio courses for every level, with certification.' },
+  { title: 'Corporate gifts', text: 'Branded resin souvenirs and gifts for organisations and events.' },
+  { title: 'Bespoke gifting', text: 'Wedding souvenirs and personal pieces made to your exact vision.' },
+  { title: 'Interior décor', text: 'Custom resin pieces designed for your home, office or event space.' },
+];
+
 const Home: React.FC = () => {
   const curtainOpen = useCurtainOpened();
+  // Only one FAQ answer is open at a time.
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-ivory text-ink">
       <SEO page="/" />
-      
-      {/* Hero Section */}
-      <section className="relative h-screen min-h-[600px] w-full overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src="/images/studio-wall.jpg" 
-            alt="The Hautezelle Studio wall with our Africa resin clock" 
-            className="w-full h-full object-cover scale-105"
-          />
-          <div className="absolute inset-0 bg-teal-950/50 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-teal-950/90 via-transparent to-transparent"></div>
-        </div>
 
-        {/* Content */}
-        <div className="relative h-full flex flex-col justify-center items-center text-center px-6 max-w-5xl mx-auto pt-20">
+      {/* Hero */}
+      <section className="pt-28 sm:pt-32 lg:pt-36">
+        <div className="wrap flex flex-col items-center gap-12 pb-20 lg:gap-16 lg:pb-28">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={curtainOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="flex max-w-4xl flex-col items-center gap-7 text-center"
+          >
+            <span className="eyebrow">Handmade luxury from Ilorin, Nigeria</span>
+            <h1 className="display text-[3.1rem] sm:text-7xl xl:text-[6.25rem]">
+              Timeless, luxurious <em className="text-teal-700">masterpieces</em>
+            </h1>
+            <p className="lead max-w-[32em]">
+              Bespoke resin art, jewellery and home décor, poured by hand in our Ilorin studio to inspire passion and celebrate global identity.
+            </p>
+            <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center">
+              <Link to={PageRoutes.SHOP} className="btn-solid w-full sm:w-auto">Shop the collection</Link>
+              <Link to={PageRoutes.ACADEMY} className="btn-line w-full sm:w-auto">Visit the academy</Link>
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={curtainOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.2, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full"
           >
-            <span className="text-teal-200 tracking-[0.4em] text-xs md:text-sm uppercase font-medium mb-6 block border border-teal-200/30 inline-block px-4 py-2 rounded-full backdrop-blur-sm">
-              Handmade Resin Art · Ilorin, Nigeria
-            </span>
-            <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-white mb-8 leading-tight">
-              Timeless <br className="hidden md:block"/> Luxurious <span className="italic text-teal-100 font-light">Masterpieces</span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-              Discover bespoke resin art pieces, jewelry, and home décor crafted to inspire passion and celebrate global identity.
-            </p>
-            <div className="flex flex-col md:flex-row gap-5 items-center justify-center">
-              <Link 
-                to={PageRoutes.SHOP} 
-                className="bg-white text-teal-950 px-8 py-4 min-w-[180px] text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-colors shadow-lg rounded-full"
-              >
-                Shop Collection
-              </Link>
-              <Link 
-                to={PageRoutes.ACADEMY} 
-                className="bg-transparent border border-white text-white px-8 py-4 min-w-[180px] text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors rounded-full flex items-center justify-center gap-2"
-              >
-                <Play size={14} fill="currentColor" /> Visit Academy
-              </Link>
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-[1.75rem] bg-mist shadow-[0_30px_60px_-30px_rgba(13,122,116,0.45)] sm:aspect-[16/9] lg:aspect-[2/1] lg:rounded-[2.5rem]">
+              <img
+                src="/images/studio-wall.jpg"
+                alt="The Hautezelle Studio wall with our Africa resin clock and logo under studio lights"
+                fetchPriority="high"
+                className="h-full w-full object-cover object-[50%_30%]"
+              />
+            </div>
+            <div className="absolute -bottom-6 left-6 hidden max-w-[220px] rounded-2xl border border-mist bg-white px-5 py-4 shadow-lg sm:block lg:left-10">
+              <span className="block text-[11px] uppercase tracking-[0.24em] text-teal-700">Made to order</span>
+              <span className="mt-1 block text-[17px] leading-snug">No two pieces are ever alike</span>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Refined Mission Section */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-           <div className="text-center mb-24 max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-6xl font-serif text-slate-900 mb-8">Curating Elegance & Passion</h2>
-              <p className="text-slate-600 text-lg md:text-xl leading-loose font-light">
-                At Hautezelle Studio, our mission is to create captivating and distinctive art and craft pieces that inspire passion, love, and global identity. We are more than an art studio; we are a movement.
-              </p>
-           </div>
-
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Card 1 */}
-              <div className="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl">
-                 <img src="/images/wedding-plaque-green.jpg" alt="Unique Design" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                 <div className="absolute bottom-0 left-0 p-10">
-                    <h3 className="text-3xl font-serif text-white mb-3">Unique Design</h3>
-                    <div className="w-12 h-1 bg-teal-500 mb-4 transform scale-0 group-hover:scale-100 transition-transform origin-left duration-500"></div>
-                    <p className="text-white/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
-                      Each piece is handcrafted with attention to detail, ensuring no two items are exactly alike, offering you exclusive ownership of art.
-                    </p>
-                 </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer md:-mt-12 shadow-2xl">
-                 <img src="/images/wedding-favour-keychains.jpg" alt="Community" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                 <div className="absolute bottom-0 left-0 p-10">
-                    <h3 className="text-3xl font-serif text-white mb-3">Community</h3>
-                    <div className="w-12 h-1 bg-teal-500 mb-4 transform scale-0 group-hover:scale-100 transition-transform origin-left duration-500"></div>
-                     <p className="text-white/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
-                      From wedding favours to "Resin N Sip" events and our Academy, our pieces bring people together and mark the moments they share.
-                    </p>
-                 </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="group relative h-[500px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl">
-                 <img src="/images/mini-wedding-plaque-2.jpg" alt="Global Identity" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                 <div className="absolute bottom-0 left-0 p-10">
-                    <h3 className="text-3xl font-serif text-white mb-3">Global Identity</h3>
-                    <div className="w-12 h-1 bg-teal-500 mb-4 transform scale-0 group-hover:scale-100 transition-transform origin-left duration-500"></div>
-                     <p className="text-white/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
-                      Blending modern resin techniques with cultural elements to create art that resonates globally while celebrating our Nigerian roots.
-                    </p>
-                 </div>
-              </div>
-           </div>
+      {/* Category strip */}
+      <section className="border-y border-mist">
+        <div className="wrap flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-6 text-[17px] italic text-[#4a5553] sm:justify-between">
+          {['Wedding plaques', 'Wall clocks', 'Pearl bags', 'Journals', 'Gift sets'].map((c, i, a) => (
+            <React.Fragment key={c}>
+              <span>{c}</span>
+              {i < a.length - 1 && <span aria-hidden="true" className="hidden text-teal-500 sm:inline">✦</span>}
+            </React.Fragment>
+          ))}
         </div>
       </section>
 
-      {/* Featured Collection Preview */}
-      <section className="py-32 bg-teal-950 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-teal-900/30 skew-x-12 transform origin-top-right"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20">
-            <div>
-              <span className="text-teal-400 tracking-widest text-xs uppercase font-bold mb-3 block">Our Masterpieces</span>
-              <h2 className="text-4xl md:text-6xl font-serif">Featured Collections</h2>
+      {/* Philosophy */}
+      <section className="wrap py-24 lg:py-32">
+        <div className="mb-14 grid items-end gap-6 lg:mb-20 lg:grid-cols-2 lg:gap-16">
+          <div className="flex flex-col gap-5">
+            <span className="eyebrow">Our philosophy</span>
+            <h2 className="h2">Curating elegance and passion</h2>
+          </div>
+          <p className="lead">
+            Our mission is to create captivating and distinctive art and craft pieces that inspire passion, love and global identity. We are more than an art studio. We are a movement.
+          </p>
+        </div>
+        <div className="grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-12">
+          {pillars.map((p) => (
+            <div key={p.n} className="rule-card">
+              <span className="text-sm tracking-[0.1em] text-teal-700">{p.n}</span>
+              <h3 className="text-[28px]">{p.title}</h3>
+              <p className="text-base leading-[1.75] text-[#4a5553]">{p.text}</p>
             </div>
-            <Link to={PageRoutes.SHOP} className="hidden md:flex items-center text-teal-200 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest mt-6 md:mt-0 border-b border-teal-200/30 pb-1 hover:border-white">
-              View All Products <ArrowRight size={16} className="ml-2" />
-            </Link>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Feature 1 */}
-            <Link to={PageRoutes.SHOP} className="group cursor-pointer">
-              <div className="relative overflow-hidden aspect-[4/5] mb-6 shadow-2xl rounded-[2.5rem]">
-                <img src="/images/wedding-plaque-pink.jpg" alt="Wedding Plaque" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                <div className="absolute bottom-8 left-8">
-                  <h3 className="text-2xl font-serif mb-1 group-hover:text-teal-200 transition-colors">Wedding Plaques</h3>
-                  <p className="text-white/70 text-sm">From ₦35,000</p>
-                </div>
-              </div>
-            </Link>
-            {/* Feature 2 */}
-            <Link to={PageRoutes.SHOP} className="group cursor-pointer md:-mt-16">
-              <div className="relative overflow-hidden aspect-[4/5] mb-6 shadow-2xl rounded-[2.5rem]">
-                <img src="/images/pearl-bag-2.jpg" alt="Luxury Pearl Bag" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                 <div className="absolute bottom-8 left-8">
-                  <h3 className="text-2xl font-serif mb-1 group-hover:text-teal-200 transition-colors">Luxury Bags</h3>
-                  <p className="text-white/70 text-sm">From ₦70,000</p>
-                </div>
-              </div>
-            </Link>
-            {/* Feature 3 */}
-            <Link to={PageRoutes.SHOP} className="group cursor-pointer">
-              <div className="relative overflow-hidden aspect-[4/5] mb-6 shadow-2xl rounded-[2.5rem]">
-                <img src="/images/resin-clock.jpg" alt="Wall Clock" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                 <div className="absolute bottom-8 left-8">
-                  <h3 className="text-2xl font-serif mb-1 group-hover:text-teal-200 transition-colors">Resin Clocks</h3>
-                  <p className="text-white/70 text-sm">From ₦60,000</p>
-                </div>
-              </div>
+      {/* Featured collections */}
+      <section className="bg-teal-700 text-white">
+        <div className="wrap py-24 lg:py-32">
+          <div className="mb-12 flex flex-wrap items-end justify-between gap-6 lg:mb-16">
+            <div className="flex flex-col gap-4">
+              <span className="eyebrow text-teal-100">Our masterpieces</span>
+              <h2 className="h2">Featured collections</h2>
+            </div>
+            <Link to={PageRoutes.SHOP} className="text-link text-teal-50 hover:text-white">
+              View all pieces <ArrowRight size={14} />
             </Link>
           </div>
-          
-           <div className="mt-16 text-center md:hidden">
-            <Link to={PageRoutes.SHOP} className="inline-flex items-center text-teal-200 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest border-b border-teal-200/30 pb-1">
-              View All Products <ArrowRight size={16} className="ml-2" />
-            </Link>
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {featured.map((f, i) => (
+              <Link
+                key={f.title}
+                to={PageRoutes.SHOP}
+                className={`group flex flex-col gap-5 ${i === 1 ? 'lg:mt-14' : ''} ${i === 2 ? 'sm:col-span-2 lg:col-span-1' : ''}`}
+              >
+                <div className={`overflow-hidden rounded-[1.75rem] bg-teal-800 ${i === 2 ? 'aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]' : 'aspect-[4/5]'}`}>
+                  <img src={f.img} alt={f.alt} loading="lazy" className="ph-zoom h-full w-full object-cover" />
+                </div>
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="text-[26px]">{f.title}</span>
+                  <span className="text-sm italic text-teal-100">{f.note}</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Quote / Vision */}
-      <section className="py-40 bg-slate-50 flex items-center justify-center">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <Quote size={48} className="text-teal-200 mx-auto mb-10" />
-          <h2 className="text-3xl md:text-6xl font-serif italic text-slate-800 leading-tight mb-10">
-            "We are positioned to become the premier provider of resin art pieces and educational programs in Nigeria."
-          </h2>
-          <div className="flex flex-col items-center">
-             <div className="w-20 h-20 rounded-full bg-slate-300 mb-4 overflow-hidden shadow-lg border-2 border-white">
-                <img src="/images/zainab-yinusa.jpg" alt="Zainab Yinusa" loading="lazy" className="w-full h-full object-cover"/>
-             </div>
-             <p className="text-slate-900 font-bold tracking-widest text-xs uppercase">Zainab Yinusa</p>
-             <p className="text-slate-500 text-xs mt-1">Founder, Hautezelle Studio</p>
+      {/* Founder quote */}
+      <section className="wrap flex flex-col items-center gap-10 py-24 text-center lg:py-36">
+        <span aria-hidden="true" className="text-7xl leading-[0.5] text-teal-500">“</span>
+        <blockquote className="max-w-[900px] text-[1.85rem] italic leading-[1.3] sm:text-4xl lg:text-5xl">
+          We are positioned to become the premier provider of resin art pieces and educational programs in Nigeria.
+        </blockquote>
+        <div className="flex flex-col items-center gap-3">
+          <img src="/images/zainab-yinusa.jpg" alt="Zainab Yinusa" loading="lazy" className="h-16 w-16 rounded-full object-cover" />
+          <span className="text-[13px] uppercase tracking-[0.24em]">Zainab Yinusa</span>
+          <span className="text-[15px] text-[#5b6563]">Founder, Hautezelle Studio</span>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="border-t border-mist bg-white/60">
+        <div className="wrap py-24 lg:py-32">
+          <div className="mb-14 flex flex-col items-center gap-5 text-center lg:mb-20">
+            <span className="eyebrow">Testimonials</span>
+            <h2 className="h2">Loved from Lagos to the world</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {testimonials.map((t, i) => (
+              <figure
+                key={t.name}
+                className={`flex flex-col gap-6 rounded-[1.75rem] p-8 sm:p-10 ${i === 1 ? 'bg-teal-700 text-white' : 'border border-mist bg-white'} ${i === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              >
+                <span aria-hidden="true" className={`text-6xl leading-[0.5] ${i === 1 ? 'text-teal-200' : 'text-teal-500'}`}>“</span>
+                <blockquote className="text-[17px] italic leading-[1.7] sm:text-lg">{t.text}</blockquote>
+                <figcaption className={`mt-auto flex flex-col gap-1 border-t pt-5 ${i === 1 ? 'border-teal-600' : 'border-mist'}`}>
+                  <span className="text-xs uppercase tracking-[0.22em]">{t.name}</span>
+                  <span className={`text-sm ${i === 1 ? 'text-teal-50' : 'text-[#5b6563]'}`}>{t.place} · {t.item}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Frequently asked questions */}
-      <section className="py-28 bg-white" aria-labelledby="faq-heading">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <span className="text-teal-600 tracking-widest text-xs uppercase font-bold mb-4 block">Good to know</span>
-            <h2 id="faq-heading" className="text-4xl md:text-5xl font-serif text-slate-900">Frequently Asked Questions</h2>
+      {/* Academy teaser */}
+      <section className="bg-teal-50">
+        <div className="wrap grid items-center gap-12 py-24 lg:grid-cols-2 lg:gap-16 lg:py-28">
+          <div className="w-full aspect-[4/5] overflow-hidden rounded-[1.75rem] sm:aspect-[16/11] lg:aspect-[4/5]">
+            <img src="/images/resin-pens-hand.jpg" alt="Hand holding personalised resin pens with silver flakes" loading="lazy" className="h-full w-full object-cover" />
           </div>
-          <div className="divide-y divide-slate-200 border-y border-slate-200">
-            {site.faqs.map((f) => (
-              <details key={f.q} className="group py-6">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left">
-                  <h3 className="text-lg md:text-xl font-serif text-slate-900 group-open:text-teal-700 transition-colors">{f.q}</h3>
-                  <Plus size={20} className="shrink-0 text-teal-600 transition-transform duration-300 group-open:rotate-45" />
+          <div className="flex flex-col gap-6">
+            <span className="eyebrow">Hautezelle Academy</span>
+            <h2 className="h2">Learn the art of resin</h2>
+            <p className="lead">
+              From your very first pour to running a business, our courses take you from enthusiast to professional. Study online at your own pace or join us in the Ilorin studio.
+            </p>
+            <div className="flex flex-wrap gap-8 border-y border-teal-200 py-6 sm:gap-10">
+              {[['50+', 'Students trained'], ['15', 'Course modules'], ['3', 'Programmes']].map(([v, l]) => (
+                <div key={l} className="flex flex-col gap-1">
+                  <span className="text-4xl">{v}</span>
+                  <span className="text-[13px] text-[#5b6563]">{l}</span>
+                </div>
+              ))}
+            </div>
+            <div>
+              <Link to={PageRoutes.ACADEMY} className="btn-solid">Explore the curriculum</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="wrap py-24 lg:py-32">
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-6 lg:mb-14">
+          <div className="flex flex-col gap-4">
+            <span className="eyebrow">What we do</span>
+            <h2 className="h2">Experiences in resin</h2>
+          </div>
+          <Link to={PageRoutes.SERVICES} className="text-link text-teal-700 hover:text-teal-900">
+            All services <ArrowRight size={14} />
+          </Link>
+        </div>
+        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+          {services.map((s) => (
+            <Link key={s.title} to={PageRoutes.SERVICES} className="group flex flex-col gap-3 border-t border-teal-200 pt-6">
+              <span className="text-2xl transition-colors group-hover:text-teal-700">{s.title}</span>
+              <span className="text-[15px] leading-[1.7] text-[#4a5553]">{s.text}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-mist bg-white/60" aria-labelledby="faq-heading">
+        <div className="mx-auto max-w-3xl px-5 py-24 sm:px-8 lg:py-28">
+          <div className="mb-12 flex flex-col items-center gap-4 text-center">
+            <span className="eyebrow">Good to know</span>
+            <h2 id="faq-heading" className="h2">Frequently asked questions</h2>
+          </div>
+          <div className="divide-y divide-mist border-y border-mist">
+            {site.faqs.map((f, i) => (
+              <details key={f.q} name="faq" open={openFaq === i} className="group py-6">
+                <summary
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenFaq((cur) => (cur === i ? null : i));
+                  }}
+                  className="flex cursor-pointer list-none items-center justify-between gap-6 text-left [&::-webkit-details-marker]:hidden"
+                >
+                  <h3 className="text-lg transition-colors group-open:text-teal-700 sm:text-xl">{f.q}</h3>
+                  <Plus size={20} className="shrink-0 text-teal-700 transition-transform duration-300 group-open:rotate-45" />
                 </summary>
-                <p className="mt-4 text-slate-600 leading-relaxed font-light">{f.a}</p>
+                <p className="mt-4 leading-[1.75] text-[#4a5553]">{f.a}</p>
               </details>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <a
-              href={INSTAGRAM_DM}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-teal-900 text-white px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-teal-700 transition-colors"
-            >
-              Ask us on Instagram
-            </a>
+          <div className="mt-12 text-center">
+            <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="btn-solid">Ask us on Instagram</a>
           </div>
         </div>
       </section>

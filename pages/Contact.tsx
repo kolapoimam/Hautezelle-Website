@@ -1,9 +1,10 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
 import SEO from '../components/SEO';
-import { INSTAGRAM_DM } from '../constants';
+import { INSTAGRAM_DM, WHATSAPP_CHAT } from '../constants';
+import { SocialLinks } from '../components/SocialIcons';
 
-const field = 'w-full min-h-[48px] border border-teal-200 bg-white px-4 py-3 text-base text-ink transition-colors focus:border-teal-700 focus:outline-none';
+const field = 'w-full min-h-[48px] rounded-xl border border-teal-200 bg-white px-4 py-3 text-base text-ink transition-colors focus:border-teal-700 focus:outline-none';
 const label = 'mb-2 block text-xs uppercase tracking-[0.2em] text-[#4a5553]';
 
 const Contact: React.FC = () => {
@@ -35,7 +36,7 @@ const Contact: React.FC = () => {
               <div>
                 <h2 className="text-xl">Phone</h2>
                 <a href="tel:+2349030799342" className="text-[#4a5553] hover:text-teal-700">0903 079 9342</a>
-                <p className="mt-1 text-sm text-[#5b6563]">Available for WhatsApp support</p>
+                <a href={WHATSAPP_CHAT} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-teal-700 underline-offset-4 hover:underline">Chat with us on WhatsApp</a>
               </div>
             </li>
             <li className="flex items-start gap-4 py-6">
@@ -47,12 +48,17 @@ const Contact: React.FC = () => {
             </li>
           </ul>
 
-          <div className="hidden aspect-[16/10] overflow-hidden lg:block">
-            <img src="/images/resin-clutch.jpg" alt="Red resin clutch with a gold chain" loading="lazy" className="h-full w-full object-cover" />
+          <div className="flex flex-col gap-4">
+            <span className="eyebrow">Follow the studio</span>
+            <SocialLinks itemClassName="flex h-12 w-12 items-center justify-center rounded-full border border-teal-200 text-teal-800 transition-colors hover:border-teal-700 hover:bg-teal-700 hover:text-white" />
+          </div>
+
+          <div className="hidden aspect-[16/10] overflow-hidden rounded-[1.75rem] lg:block">
+            <img src="/images/wedding-plaque-green.jpg" alt="Green and gold personalised resin wedding plaque" loading="lazy" className="h-full w-full object-cover" />
           </div>
         </div>
 
-        <div className="self-start border border-mist bg-white p-6 sm:p-10">
+        <div className="self-start rounded-[1.75rem] border border-mist bg-white p-6 sm:p-10">
           <h2 className="mb-2 text-3xl">Send us a message</h2>
           <p className="mb-8 text-[15px] text-[#5b6563]">Your message opens in an Instagram DM with us.</p>
           <form

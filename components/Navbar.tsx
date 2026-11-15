@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag, Instagram } from 'lucide-react';
 import { PageRoutes } from '../types';
-import { INSTAGRAM_PROFILE } from '../constants';
+import { INSTAGRAM_PROFILE, TIKTOK_PROFILE, WHATSAPP_CHAT } from '../constants';
+import { TikTokIcon, WhatsAppIcon } from './SocialIcons';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -144,8 +145,10 @@ const Navbar: React.FC = () => {
             Contact Us
          </Link>
          
-         <div className="flex gap-6 mt-8">
-            <a href={INSTAGRAM_PROFILE} target="_blank" rel="noreferrer" className="p-3 bg-white rounded-full text-teal-900 shadow-md"><Instagram size={24} /></a>
+         <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <a href={INSTAGRAM_PROFILE} target="_blank" rel="noopener noreferrer" aria-label="Hautezelle on Instagram" className="p-3 bg-white rounded-full text-teal-900 shadow-md"><Instagram size={24} /></a>
+            <a href={TIKTOK_PROFILE} target="_blank" rel="noopener noreferrer" aria-label="Hautezelle on TikTok" className="p-3 bg-white rounded-full text-teal-900 shadow-md"><TikTokIcon size={24} /></a>
+            <a href={WHATSAPP_CHAT} target="_blank" rel="noopener noreferrer" aria-label="Chat with Hautezelle on WhatsApp" className="p-3 bg-white rounded-full text-teal-900 shadow-md"><WhatsAppIcon size={24} /></a>
             <Link to={PageRoutes.SHOP} onClick={() => setIsOpen(false)} className="p-3 bg-teal-700 rounded-full text-white shadow-md"><ShoppingBag size={24} /></Link>
          </div>
       </div>

@@ -27,7 +27,7 @@ const SEO: React.FC<SEOProps> = ({ page }) => {
     const meta = site.pages[page];
     const base = site.business.url;
     const url = page === '/' ? `${base}/` : `${base}${page}`;
-    const image = `${base}${site.business.image}`;
+    const image = `${base}${site.business.ogImage}`;
 
     document.title = meta.title;
     setMeta('name', 'description', meta.description);

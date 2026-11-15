@@ -35,7 +35,7 @@ const contactBlock = () => `
   <h2>Order or ask a question</h2>
   <p><strong>${esc(b.name)}</strong>, ${esc(b.address.locality)}, ${esc(b.address.region)}, ${esc(b.address.countryName)}.
   Open ${esc(b.hours.display)}.</p>
-  <p>Instagram DM: <a href="${b.instagramDM}">${esc(b.instagramHandle)}</a> · Phone: <a href="tel:${b.telephone}">${esc(b.telephoneDisplay)}</a> · Email: <a href="mailto:${b.email}">${esc(b.email)}</a></p>
+  <p>Instagram DM: <a href="${b.instagramDM}" target="_blank" rel="noopener noreferrer">${esc(b.instagramHandle)}</a> · TikTok: <a href="${b.tiktok}" target="_blank" rel="noopener noreferrer">${esc(b.tiktokHandle)}</a> · WhatsApp: <a href="${b.whatsapp}" target="_blank" rel="noopener noreferrer">${esc(b.telephoneDisplay)}</a> · Phone: <a href="tel:${b.telephone}">${esc(b.telephoneDisplay)}</a> · Email: <a href="mailto:${b.email}">${esc(b.email)}</a></p>
 </section>`;
 
 const productItems = (list) =>
@@ -124,7 +124,7 @@ ${contactBlock()}
 const headFor = (p, { noindex = false } = {}) => {
   const page = site.pages[p] || site.pages['/'];
   const url = urlFor(p);
-  const img = `${BASE}${b.image}`;
+  const img = `${BASE}${b.ogImage}`;
   const tags = [
     `<title>${esc(page.title)}</title>`,
     `<meta name="description" content="${esc(page.description)}" />`,

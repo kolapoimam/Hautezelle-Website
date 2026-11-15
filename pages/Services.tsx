@@ -86,7 +86,7 @@ const Services: React.FC = () => {
         return (
           <section key={b.num} className={`${toneClass[b.tone]} ${b.tone === 'light' ? 'border-t border-mist' : ''}`}>
             <div className="wrap grid items-center gap-10 py-20 lg:grid-cols-2 lg:gap-16 lg:py-24">
-              <div className={`w-full aspect-[4/5] overflow-hidden sm:aspect-[16/11] lg:aspect-[4/5] ${flip ? 'lg:order-2' : ''}`}>
+              <div className={`w-full aspect-[4/5] overflow-hidden rounded-[1.75rem] sm:aspect-[16/11] lg:aspect-[4/5] ${flip ? 'lg:order-2' : ''}`}>
                 <img src={b.img} alt={b.alt} loading="lazy" className="h-full w-full object-cover" />
               </div>
               <div className="flex flex-col gap-6">

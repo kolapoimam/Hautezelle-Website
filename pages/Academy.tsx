@@ -69,7 +69,7 @@ const Academy: React.FC = () => {
               <a href="#curriculum" className="btn-line w-full sm:w-auto">See the curriculum</a>
             </div>
           </motion.div>
-          <div className="mx-auto aspect-[4/5] w-full max-w-[460px] overflow-hidden rounded-b-[999px] bg-mist">
+          <div className="mx-auto aspect-[4/5] w-full max-w-[460px] overflow-hidden rounded-b-[999px] rounded-t-[1.75rem] bg-mist">
             <img src="/images/journal-gift-set.jpg" alt="Teal resin journal, keychain, pen and bookmark set" className="h-full w-full object-cover" />
           </div>
         </div>
@@ -98,7 +98,7 @@ const Academy: React.FC = () => {
           {programmes.map((p) => (
             <article
               key={p.title}
-              className={`flex flex-col gap-6 p-8 sm:p-10 ${p.featured ? 'bg-teal-700 text-white md:order-first md:col-span-2 lg:order-none lg:col-span-1' : 'border border-mist bg-white'}`}
+              className={`flex flex-col gap-6 rounded-[1.75rem] p-8 sm:p-10 ${p.featured ? 'bg-teal-700 text-white md:order-first md:col-span-2 lg:order-none lg:col-span-1' : 'border border-mist bg-white'}`}
             >
               <span className={`text-xs uppercase tracking-[0.24em] ${p.featured ? 'text-teal-100' : 'text-teal-700'}`}>{p.level}</span>
               <h3 className="text-[32px]">{p.title}</h3>
@@ -132,7 +132,7 @@ const Academy: React.FC = () => {
           </div>
           <div className="grid gap-12 md:grid-cols-2 lg:gap-12">
             <div className="flex flex-col gap-5">
-              <div className="w-full aspect-[4/3] overflow-hidden">
+              <div className="w-full aspect-[4/3] overflow-hidden rounded-[1.75rem]">
                 <img src="/images/bookmark.jpg" alt="Teal glitter resin bookmark with a butterfly topper" loading="lazy" className="h-full w-full object-cover" />
               </div>
               <h3 className="text-[30px]">Online academy</h3>
@@ -141,7 +141,7 @@ const Academy: React.FC = () => {
               </p>
             </div>
             <div className="flex flex-col gap-5">
-              <div className="w-full aspect-[4/3] overflow-hidden">
+              <div className="w-full aspect-[4/3] overflow-hidden rounded-[1.75rem]">
                 <img src="/images/studio-wall.jpg" alt="The Hautezelle Studio wall in Ilorin" loading="lazy" className="h-full w-full object-cover" />
               </div>
               <h3 className="text-[30px]">In studio workshops</h3>

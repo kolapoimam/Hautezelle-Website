@@ -5,6 +5,7 @@
     "url": "https://hautezelle.vercel.app",
     "logo": "/icon-512.png",
     "image": "/images/studio-wall.jpg",
+    "ogImage": "/og-image.jpg",
     "tagline": "Handmade luxury resin art from Ilorin, Nigeria",
     "description": "Hautezelle Studio is a luxury resin art studio in Ilorin, Kwara State, Nigeria. We handcraft personalised resin wedding plaques, acrylic and mini wedding plaques, resin clocks, pearl bags, clutches, journals, pens, keychains and corporate gifts, and we teach resin art through the Hautezelle Academy and Resin N Sip workshops.",
     "telephone": "+2349030799342",
@@ -13,6 +14,9 @@
     "instagram": "https://instagram.com/hautezelle",
     "instagramDM": "https://ig.me/m/hautezelle",
     "instagramHandle": "@hautezelle",
+    "tiktok": "https://www.tiktok.com/@hautezelle",
+    "tiktokHandle": "@hautezelle",
+    "whatsapp": "https://wa.me/2349030799342",
     "address": {
       "locality": "Ilorin",
       "region": "Kwara State",

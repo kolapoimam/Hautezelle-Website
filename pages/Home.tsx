@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Plus } from 'lucide-react';
@@ -63,6 +63,8 @@ const services = [
 
 const Home: React.FC = () => {
   const curtainOpen = useCurtainOpened();
+  // Only one FAQ answer is open at a time.
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <div className="w-full bg-ivory text-ink">
@@ -70,21 +72,21 @@ const Home: React.FC = () => {
 
       {/* Hero */}
       <section className="pt-28 sm:pt-32 lg:pt-36">
-        <div className="wrap grid items-center gap-12 pb-20 lg:grid-cols-2 lg:gap-16 lg:pb-28">
+        <div className="wrap flex flex-col items-center gap-12 pb-20 lg:gap-16 lg:pb-28">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={curtainOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-7 text-center lg:text-left"
+            className="flex max-w-4xl flex-col items-center gap-7 text-center"
           >
             <span className="eyebrow">Handmade luxury from Ilorin, Nigeria</span>
             <h1 className="display text-[3.1rem] sm:text-7xl xl:text-[6.25rem]">
               Timeless, luxurious <em className="text-teal-700">masterpieces</em>
             </h1>
-            <p className="lead mx-auto max-w-[30em] lg:mx-0">
+            <p className="lead max-w-[32em]">
               Bespoke resin art, jewellery and home décor, poured by hand in our Ilorin studio to inspire passion and celebrate global identity.
             </p>
-            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center">
               <Link to={PageRoutes.SHOP} className="btn-solid w-full sm:w-auto">Shop the collection</Link>
               <Link to={PageRoutes.ACADEMY} className="btn-line w-full sm:w-auto">Visit the academy</Link>
             </div>
@@ -94,19 +96,17 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={curtainOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 1.2, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto w-full max-w-[460px]"
+            className="relative w-full"
           >
-            <div className="w-full aspect-[4/5] overflow-hidden rounded-t-[999px] bg-mist">
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-[1.75rem] bg-mist shadow-[0_30px_60px_-30px_rgba(13,122,116,0.45)] sm:aspect-[16/9] lg:aspect-[2/1] lg:rounded-[2.5rem]">
               <img
-                src="/images/wedding-plaque.jpg"
-                alt="Personalised resin wedding plaque with pearls and pressed flowers"
-                className="h-full w-full object-cover"
+                src="/images/studio-wall.jpg"
+                alt="The Hautezelle Studio wall with our Africa resin clock and logo under studio lights"
+                fetchPriority="high"
+                className="h-full w-full object-cover object-[50%_30%]"
               />
             </div>
-            <div className="absolute -bottom-6 -left-2 hidden h-36 w-28 overflow-hidden rounded-t-full border-4 border-ivory shadow-xl sm:block sm:-left-10 sm:h-44 sm:w-36">
-              <img src="/images/journal.jpg" alt="Teal resin journal with glitter edges" className="h-full w-full object-cover" />
-            </div>
-            <div className="absolute -right-2 bottom-10 max-w-[200px] border border-mist bg-white px-5 py-4 shadow-lg sm:-right-8">
+            <div className="absolute -bottom-6 left-6 hidden max-w-[220px] rounded-2xl border border-mist bg-white px-5 py-4 shadow-lg sm:block lg:left-10">
               <span className="block text-[11px] uppercase tracking-[0.24em] text-teal-700">Made to order</span>
               <span className="mt-1 block text-[17px] leading-snug">No two pieces are ever alike</span>
             </div>
@@ -167,7 +167,7 @@ const Home: React.FC = () => {
                 to={PageRoutes.SHOP}
                 className={`group flex flex-col gap-5 ${i === 1 ? 'lg:mt-14' : ''} ${i === 2 ? 'sm:col-span-2 lg:col-span-1' : ''}`}
               >
-                <div className={`overflow-hidden bg-teal-800 ${i === 2 ? 'aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]' : 'aspect-[4/5]'}`}>
+                <div className={`overflow-hidden rounded-[1.75rem] bg-teal-800 ${i === 2 ? 'aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]' : 'aspect-[4/5]'}`}>
                   <img src={f.img} alt={f.alt} loading="lazy" className="ph-zoom h-full w-full object-cover" />
                 </div>
                 <div className="flex items-baseline justify-between gap-3">
@@ -204,7 +204,7 @@ const Home: React.FC = () => {
             {testimonials.map((t, i) => (
               <figure
                 key={t.name}
-                className={`flex flex-col gap-6 p-8 sm:p-10 ${i === 1 ? 'bg-teal-700 text-white' : 'border border-mist bg-white'} ${i === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                className={`flex flex-col gap-6 rounded-[1.75rem] p-8 sm:p-10 ${i === 1 ? 'bg-teal-700 text-white' : 'border border-mist bg-white'} ${i === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
                 <span aria-hidden="true" className={`text-6xl leading-[0.5] ${i === 1 ? 'text-teal-200' : 'text-teal-500'}`}>“</span>
                 <blockquote className="text-[17px] italic leading-[1.7] sm:text-lg">{t.text}</blockquote>
@@ -221,7 +221,7 @@ const Home: React.FC = () => {
       {/* Academy teaser */}
       <section className="bg-teal-50">
         <div className="wrap grid items-center gap-12 py-24 lg:grid-cols-2 lg:gap-16 lg:py-28">
-          <div className="w-full aspect-[4/5] overflow-hidden sm:aspect-[16/11] lg:aspect-[4/5]">
+          <div className="w-full aspect-[4/5] overflow-hidden rounded-[1.75rem] sm:aspect-[16/11] lg:aspect-[4/5]">
             <img src="/images/resin-pens-hand.jpg" alt="Hand holding personalised resin pens with silver flakes" loading="lazy" className="h-full w-full object-cover" />
           </div>
           <div className="flex flex-col gap-6">
@@ -274,9 +274,15 @@ const Home: React.FC = () => {
             <h2 id="faq-heading" className="h2">Frequently asked questions</h2>
           </div>
           <div className="divide-y divide-mist border-y border-mist">
-            {site.faqs.map((f) => (
-              <details key={f.q} className="group py-6">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left">
+            {site.faqs.map((f, i) => (
+              <details key={f.q} name="faq" open={openFaq === i} className="group py-6">
+                <summary
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenFaq((cur) => (cur === i ? null : i));
+                  }}
+                  className="flex cursor-pointer list-none items-center justify-between gap-6 text-left [&::-webkit-details-marker]:hidden"
+                >
                   <h3 className="text-lg transition-colors group-open:text-teal-700 sm:text-xl">{f.q}</h3>
                   <Plus size={20} className="shrink-0 text-teal-700 transition-transform duration-300 group-open:rotate-45" />
                 </summary>

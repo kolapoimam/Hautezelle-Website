@@ -60,10 +60,10 @@ const Shop: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Order ${product.name} on Instagram`}
-                className="relative block aspect-[4/5] overflow-hidden bg-mist"
+                className="relative block aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-mist"
               >
                 <img src={product.image} alt={product.name} loading="lazy" className="ph-zoom h-full w-full object-cover" />
-                <span className="absolute bottom-4 left-4 bg-white/95 px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-teal-800">
+                <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.2em] text-teal-800">
                   {product.category}
                 </span>
               </a>
@@ -83,7 +83,7 @@ const Shop: React.FC = () => {
       {/* Bespoke */}
       <section className="bg-teal-700 text-white">
         <div className="wrap grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-24">
-          <div className="w-full aspect-[4/5] overflow-hidden sm:aspect-[16/11] lg:aspect-[5/4]">
+          <div className="w-full aspect-[4/5] overflow-hidden rounded-[1.75rem] sm:aspect-[16/11] lg:aspect-[5/4]">
             <img src="/images/wedding-platter.jpg" alt="Personalised resin wedding platter with flowers" loading="lazy" className="h-full w-full object-cover" />
           </div>
           <div className="flex flex-col items-start gap-6">

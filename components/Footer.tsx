@@ -2,13 +2,14 @@ import React from 'react';
 import { Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageRoutes } from '../types';
-import { INSTAGRAM_DM, INSTAGRAM_PROFILE } from '../constants';
+import { INSTAGRAM_DM, WHATSAPP_CHAT } from '../constants';
+import { SocialLinks } from './SocialIcons';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-teal-900 text-teal-50">
+    <footer className="bg-teal-800 text-teal-50">
       <div className="wrap pb-10 pt-20 lg:pt-24">
-        <div className="grid gap-12 border-b border-teal-800 pb-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:pb-16">
+        <div className="grid gap-12 border-b border-teal-700 pb-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:pb-16">
           <div className="flex flex-col gap-5">
             <Link to={PageRoutes.HOME} className="flex flex-col leading-none text-white">
               <span className="text-[26px] tracking-[0.08em]">HAUTEZELLE</span>
@@ -33,6 +34,7 @@ const Footer: React.FC = () => {
             <span className="text-teal-100">Ilorin, Kwara State, Nigeria</span>
             <a href="mailto:hautezelle@gmail.com" className="text-teal-100 hover:text-white">hautezelle@gmail.com</a>
             <a href="tel:+2349030799342" className="text-teal-100 hover:text-white">0903 079 9342</a>
+            <a href={WHATSAPP_CHAT} target="_blank" rel="noopener noreferrer" className="text-teal-100 hover:text-white">Chat on WhatsApp</a>
           </div>
 
           <div className="flex flex-col gap-4 text-[15px]">
@@ -52,9 +54,7 @@ const Footer: React.FC = () => {
             <span className="hidden sm:inline" aria-hidden="true">·</span>
             <a href="https://getmvps.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-white">Built by GetMVPs</a>
           </div>
-          <a href={INSTAGRAM_PROFILE} target="_blank" rel="noopener noreferrer" aria-label="Hautezelle on Instagram" className="flex h-11 w-11 items-center justify-center rounded-full border border-teal-700 hover:border-white hover:text-white">
-            <Instagram size={18} />
-          </a>
+          <SocialLinks itemClassName="flex h-11 w-11 items-center justify-center rounded-full border border-teal-600 text-teal-100 transition-colors hover:border-white hover:text-white" />
         </div>
       </div>
     </footer>

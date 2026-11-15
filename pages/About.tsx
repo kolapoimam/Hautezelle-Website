@@ -32,12 +32,6 @@ const team = [
   },
 ];
 
-const gallery = [
-  { img: '/images/wedding-plaque-green.jpg', alt: 'Green and gold resin wedding plaque' },
-  { img: '/images/acrylic-wedding-plaque.jpg', alt: 'Acrylic wedding plaque with pearls' },
-  { img: '/images/tabletop-plaque.jpg', alt: 'Gold resin graduation plaque' },
-];
-
 const About: React.FC = () => {
   return (
     <div className="w-full bg-ivory text-ink">
@@ -55,7 +49,7 @@ const About: React.FC = () => {
       </section>
 
       <section className="wrap">
-        <div className="w-full aspect-[4/3] overflow-hidden sm:aspect-[16/8]">
+        <div className="w-full aspect-[4/3] overflow-hidden rounded-[1.75rem] sm:aspect-[16/8] lg:rounded-[2.5rem]">
           <img src="/images/studio-wall.jpg" alt="The Hautezelle Studio wall with our Africa resin clock" className="h-full w-full object-cover" />
         </div>
       </section>
@@ -79,17 +73,8 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="wrap grid grid-cols-3 gap-3 py-20 sm:gap-6 lg:py-24">
-        {gallery.map((g, i) => (
-          <div key={g.img} className={`w-full aspect-[3/4] overflow-hidden ${i === 1 ? 'lg:mt-12' : ''}`}>
-            <img src={g.img} alt={g.alt} loading="lazy" className="h-full w-full object-cover" />
-          </div>
-        ))}
-      </section>
-
       {/* Leadership */}
-      <section className="wrap pb-24 lg:pb-32">
+      <section className="wrap py-24 lg:py-32">
         <div className="mb-14 flex flex-col items-center gap-5 text-center lg:mb-20">
           <span className="eyebrow">Leadership</span>
           <h2 className="h2">The minds behind the art</h2>
@@ -97,7 +82,7 @@ const About: React.FC = () => {
         <div className="mx-auto grid max-w-5xl gap-16 md:grid-cols-2 md:gap-12 lg:gap-16">
           {team.map((m) => (
             <article key={m.name} className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
-              <div className="w-full aspect-[4/5] w-full max-w-[360px] overflow-hidden rounded-t-[999px] bg-mist">
+              <div className="w-full aspect-[4/5] max-w-[360px] overflow-hidden rounded-t-[999px] rounded-b-[1.75rem] bg-mist">
                 <img src={m.img} alt={m.name} loading="lazy" className="h-full w-full object-cover object-top" />
               </div>
               <div className="flex flex-col gap-2">

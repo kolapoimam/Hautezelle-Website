@@ -5,6 +5,7 @@ import { useCart, naira, priceFrom } from '../context/CartContext';
 import { INSTAGRAM_DM, WHATSAPP_NUMBER } from '../constants';
 import { WhatsAppIcon } from './SocialIcons';
 import { PageRoutes } from '../types';
+import { track, gaItem, CURRENCY } from '../lib/analytics';
 
 /** Copies text inside the click itself so it works even where the async clipboard API is blocked. */
 const copyNow = (text: string): boolean => {
@@ -50,6 +51,12 @@ const CartDrawer: React.FC = () => {
     };
   }, [isOpen, close]);
 
+  // One view_cart each time the drawer opens, with what is in it at that moment.
+  useEffect(() => {
+    if (isOpen) track('view_cart', { currency: CURRENCY, value: estimate, cart_lines: items.length, cart_quantity: count, items: cartItems() });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   const message = [
     'Hello Hautezelle, I would like to order:',
     '',
@@ -60,10 +67,38 @@ const CartDrawer: React.FC = () => {
     'Please confirm the final price, personalisation and delivery. Thank you!',
   ].join('\n');
 
+  const cartItems = () => items.map((l, i) => gaItem(l.product, { quantity: l.qty, index: i }));
+  const checkout = (channel: 'instagram' | 'whatsapp') => {
+    const payload = { currency: CURRENCY, value: estimate, items: cartItems(), checkout_channel: channel, cart_lines: items.length, cart_quantity: count };
+    track('begin_checkout', payload);
+    track('generate_lead', { currency: CURRENCY, value: estimate, lead_source: 'cart_checkout', method: channel === 'instagram' ? 'instagram_dm' : 'whatsapp' });
+  };
+
   const buyOnInstagram = () => {
     const copied = copyNow(message);
     window.open(INSTAGRAM_DM, '_blank', 'noopener,noreferrer');
+    checkout('instagram');
+    track('order_message_copy', { success: copied, attempt: 'first', value: estimate });
     setSent({ copied, message });
+  };
+
+  const changeQty = (id: string, qty: number, next: number) => {
+    const line = items.find((l) => l.id === id);
+    if (!line) return;
+    const diff = next - qty;
+    const product = line.product;
+    if (diff > 0) {
+      track('add_to_cart', { currency: CURRENCY, value: gaItem(product).price * diff, add_source: 'cart_quantity', items: [gaItem(product, { quantity: diff })] });
+    } else if (diff < 0) {
+      track('remove_from_cart', { currency: CURRENCY, value: gaItem(product).price * -diff, remove_source: next <= 0 ? 'cart_quantity_zero' : 'cart_quantity', items: [gaItem(product, { quantity: -diff })] });
+    }
+    setQty(id, next);
+  };
+
+  const removeLine = (id: string, qty: number) => {
+    const line = items.find((l) => l.id === id);
+    if (line) track('remove_from_cart', { currency: CURRENCY, value: gaItem(line.product).price * qty, remove_source: 'cart_remove_button', items: [gaItem(line.product, { quantity: qty })] });
+    remove(id);
   };
 
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -111,15 +146,33 @@ const CartDrawer: React.FC = () => {
             </div>
             <pre className="whitespace-pre-wrap rounded-2xl border border-mist bg-white p-5 font-serif text-[14px] leading-[1.65] text-ink">{sent.message}</pre>
             <div className="flex flex-col gap-3">
-              <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="btn-solid w-full">
+              <a
+                href={INSTAGRAM_DM}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track-skip
+                onClick={() => track('checkout_reopen_instagram', { value: estimate })}
+                className="btn-solid w-full"
+              >
                 <Instagram size={16} /> Open Instagram again
               </a>
-              <button type="button" onClick={() => setSent({ copied: copyNow(sent.message), message: sent.message })} className="btn-line w-full">
+              <button
+                type="button"
+                data-track-skip
+                onClick={() => {
+                  const copied = copyNow(sent.message);
+                  track('order_message_copy', { success: copied, attempt: 'again', value: estimate });
+                  setSent({ copied, message: sent.message });
+                }}
+                className="btn-line w-full"
+              >
                 Copy message again
               </button>
               <button
                 type="button"
+                data-track-skip
                 onClick={() => {
+                  track('cart_cleared', { reason: 'order_sent', currency: CURRENCY, value: estimate, cart_quantity: count });
                   clear();
                   close();
                 }}
@@ -149,7 +202,8 @@ const CartDrawer: React.FC = () => {
                       <h3 className="text-lg leading-snug">{product.name}</h3>
                       <button
                         type="button"
-                        onClick={() => remove(id)}
+                        onClick={() => removeLine(id, qty)}
+                        data-track-skip
                         aria-label={`Remove ${product.name}`}
                         className="-mr-2 -mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#5b6563] hover:bg-teal-50 hover:text-teal-700"
                       >
@@ -160,7 +214,8 @@ const CartDrawer: React.FC = () => {
                     <div className="mt-auto flex items-center gap-1">
                       <button
                         type="button"
-                        onClick={() => setQty(id, qty - 1)}
+                        onClick={() => changeQty(id, qty, qty - 1)}
+                        data-track-skip
                         aria-label={`One less ${product.name}`}
                         className="flex h-9 w-9 items-center justify-center rounded-full border border-teal-200 hover:border-teal-700"
                       >
@@ -169,7 +224,8 @@ const CartDrawer: React.FC = () => {
                       <span className="w-9 text-center text-[15px]" aria-live="polite">{qty}</span>
                       <button
                         type="button"
-                        onClick={() => setQty(id, qty + 1)}
+                        onClick={() => changeQty(id, qty, qty + 1)}
+                        data-track-skip
                         aria-label={`One more ${product.name}`}
                         className="flex h-9 w-9 items-center justify-center rounded-full border border-teal-200 hover:border-teal-700"
                       >
@@ -189,10 +245,10 @@ const CartDrawer: React.FC = () => {
               <p className="text-[13px] leading-[1.6] text-[#5b6563]">
                 Every piece is handmade to order. We confirm the final price, personalisation and delivery with you in the chat.
               </p>
-              <button type="button" onClick={buyOnInstagram} className="btn-solid w-full">
+              <button type="button" onClick={buyOnInstagram} data-track-skip className="btn-solid w-full">
                 <Instagram size={16} /> Buy now
               </button>
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-line w-full">
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" data-track-skip onClick={() => checkout('whatsapp')} className="btn-line w-full">
                 <WhatsAppIcon size={16} /> Order on WhatsApp instead
               </a>
             </footer>

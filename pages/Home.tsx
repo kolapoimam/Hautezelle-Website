@@ -7,6 +7,7 @@ import SEO from '../components/SEO';
 import site from '../data/site.json';
 import { INSTAGRAM_DM } from '../constants';
 import { useCurtainOpened } from '../components/CurtainIntro';
+import { track } from '../lib/analytics';
 
 const pillars = [
   {
@@ -265,9 +266,12 @@ const Home: React.FC = () => {
             {site.faqs.map((f, i) => (
               <details key={f.q} name="faq" open={openFaq === i} className="group py-6">
                 <summary
+                  data-track-skip
                   onClick={(e) => {
                     e.preventDefault();
-                    setOpenFaq((cur) => (cur === i ? null : i));
+                    const opening = openFaq !== i;
+                    track('faq_toggle', { faq_question: f.q, faq_index: i + 1, faq_action: opening ? 'open' : 'close' });
+                    setOpenFaq(opening ? i : null);
                   }}
                   className="flex cursor-pointer list-none items-center justify-between gap-6 text-left [&::-webkit-details-marker]:hidden"
                 >

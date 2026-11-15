@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Mail, MapPin, Instagram } from 'lucide-react';
 import SEO from '../components/SEO';
 import { INSTAGRAM_DM, WHATSAPP_CHAT } from '../constants';
+import { track } from '../lib/analytics';
 import { SocialLinks, WhatsAppIcon } from '../components/SocialIcons';
 
 const field = 'w-full min-h-[48px] rounded-xl border border-teal-200 bg-white px-4 py-3 text-base text-ink transition-colors focus:border-teal-700 focus:outline-none';
 const label = 'mb-2 block text-xs uppercase tracking-[0.2em] text-[#4a5553]';
 
 const Contact: React.FC = () => {
+  const formStarted = useRef(false);
   return (
     <div className="w-full bg-ivory text-ink">
       <SEO page="/contact" />
@@ -63,8 +65,18 @@ const Contact: React.FC = () => {
           <p className="mb-8 text-[15px] text-[#5b6563]">Your message opens in an Instagram DM with us.</p>
           <form
             className="flex flex-col gap-6"
+            onFocus={() => {
+              if (!formStarted.current) {
+                formStarted.current = true;
+                track('form_start', { form_name: 'contact' });
+              }
+            }}
             onSubmit={(e) => {
               e.preventDefault();
+              const form = e.currentTarget;
+              const subject = (form.querySelector('#c-subject') as HTMLSelectElement | null)?.value;
+              const filled = ['c-first', 'c-last', 'c-email', 'c-message'].filter((id) => (form.querySelector(`#${id}`) as HTMLInputElement | null)?.value.trim()).length;
+              track('generate_lead', { lead_source: 'contact_form', method: 'instagram_dm', form_subject: subject, fields_filled: filled });
               window.open(INSTAGRAM_DM, '_blank', 'noopener');
             }}
           >
@@ -96,7 +108,7 @@ const Contact: React.FC = () => {
               <label htmlFor="c-message" className={label}>Message</label>
               <textarea id="c-message" rows={5} className={field} />
             </div>
-            <button type="submit" className="btn-solid w-full">
+            <button type="submit" data-track-skip className="btn-solid w-full">
               <Instagram size={16} /> Send via Instagram DM
             </button>
           </form>

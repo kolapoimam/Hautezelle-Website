@@ -36,7 +36,8 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-5K6CX06E5S');
+      // Page views are sent by components/Analytics.tsx on every route change, so the first page is not counted twice.
+      gtag('config', 'G-5K6CX06E5S', { send_page_view: false, currency: 'NGN' });
     </script>
 
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>

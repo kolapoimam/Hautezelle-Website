@@ -79,7 +79,7 @@ const Home: React.FC = () => {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center gap-7 text-center lg:items-start lg:text-left"
           >
-            <span className="eyebrow">Handmade luxury from Ilorin, Nigeria</span>
+            <span className="eyebrow">Handmade luxury from Nigeria</span>
             <h1 className="display text-[3.1rem] sm:text-7xl xl:text-[6.25rem]">
               Timeless, luxurious <em className="text-teal-700">masterpieces</em>
             </h1>

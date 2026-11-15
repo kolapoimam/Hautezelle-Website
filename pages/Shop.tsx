@@ -1,108 +1,137 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Product } from '../types';
 import { Instagram } from 'lucide-react';
 import SEO from '../components/SEO';
+import { INSTAGRAM_DM, SITE_URL, img } from '../constants';
 
 const products: Product[] = [
   {
-    id: '1',
-    name: 'Luxury Wedding Plaque',
-    description: 'Personalized resin plaques perfect for commemorating special unions. Customizable with names and dates.',
-    priceRange: '₦40,000 - ₦50,000',
-    category: 'Decor',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287799/IMG_0978_gsa9fj.jpg'
+    id: 'resin-wedding-plaque',
+    name: 'Resin Wedding Plaque',
+    description: 'A keepsake for your union, finished with pressed flowers, pearls and gold flakes. Personalised with your names, date and a verse of your choice.',
+    priceRange: 'From ₦65,000',
+    category: 'Weddings',
+    image: img('wedding-plaque.jpg')
   },
   {
-    id: '2',
-    name: 'Elegant Quran Stand',
-    description: 'A spiritual masterpiece. Heavy duty resin stand with gold leaf detailing and Arabic calligraphy.',
-    priceRange: '₦45,000',
-    category: 'Religious',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287776/597F0139-85A7-4A82-8172-F88A8D7303B9_qu7klr.jpg'
+    id: 'acrylic-wedding-plaque',
+    name: 'Acrylic Wedding Plaque',
+    description: 'A clear arched plaque framed with pearls, crystals and floral sprays. Printed with your names, wedding date and Arabic calligraphy.',
+    priceRange: 'From ₦45,000',
+    category: 'Weddings',
+    image: img('acrylic-wedding-plaque.jpg')
   },
   {
-    id: '3',
-    name: 'Oversized Wall Clock',
-    description: '15 inches+ statement piece for your living room or office. Silent mechanism and durable finish.',
-    priceRange: '₦45,000+',
-    category: 'Decor',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287717/IMG_1086_r2xglo.jpg'
+    id: 'mini-wedding-plaque',
+    name: 'Mini Wedding Plaque',
+    description: 'A glowing resin disc hung in a floral ring stand, with gold leaf and soft fairy lights. A lovely gift for the couple.',
+    priceRange: 'From ₦35,000',
+    category: 'Weddings',
+    image: img('mini-wedding-plaque.jpg')
   },
   {
-    id: '4',
-    name: 'A6 Artisan Journal',
-    description: 'Handmade resin-covered journal for your thoughts and dreams. Refillable pages.',
-    priceRange: '₦10,000',
+    id: 'resin-wedding-platter',
+    name: 'Resin Wedding Platter',
+    description: 'A full wedding set with a floral moon plaque and a matching resin platter, finished with gold edging and crystal clusters.',
+    priceRange: 'From ₦130,000',
+    category: 'Weddings',
+    image: img('wedding-platter.jpg')
+  },
+  {
+    id: 'resin-clock',
+    name: 'Table Top / Wall Clock',
+    description: 'A handmade resin clock with Roman numerals and silver flakes. Add a message to mark a promotion, a graduation or a new home.',
+    priceRange: 'From ₦60,000',
+    category: 'Home Decor',
+    image: img('resin-clock.jpg')
+  },
+  {
+    id: 'tabletop-plaque',
+    name: 'Table Top Plaque',
+    description: 'A standing resin plaque with gold leaf, made for graduations, awards and special thank yous.',
+    priceRange: 'From ₦12,000',
+    category: 'Home Decor',
+    image: img('tabletop-plaque.jpg')
+  },
+  {
+    id: 'luxury-pearl-bag',
+    name: 'Luxury Pearl Bag',
+    description: 'A statement bag of pearl filled resin swirls with a satin pouch inside. Made for weddings and evening events.',
+    priceRange: 'From ₦120,000',
+    category: 'Accessories',
+    image: img('pearl-bag.jpg')
+  },
+  {
+    id: 'resin-clutch',
+    name: 'Resin Clutch',
+    description: 'A round glitter resin clutch with gold marbling, a bangle handle and a gold chain strap.',
+    priceRange: 'From ₦70,000',
+    category: 'Accessories',
+    image: img('resin-clutch.jpg')
+  },
+  {
+    id: 'journal-gift-set',
+    name: 'Journal Gift Set',
+    description: 'A matching set of journal, keychain, pen and bookmark, all personalised with a name or a word you love.',
+    priceRange: 'From ₦30,000',
     category: 'Stationery',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765286883/IMG_7880_floeih.jpg'
+    image: img('journal-gift-set.jpg')
   },
   {
-    id: '5',
-    name: 'Charcuterie Board',
-    description: 'Elegant serving board for appetizers and cheeses. Food safe and heat resistant.',
-    priceRange: '₦15,000',
-    category: 'Homeware',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287717/IMG_4663_oidm7n.jpg'
+    id: 'resin-journal',
+    name: 'Resin Journal',
+    description: 'A refillable ring journal with a hand poured resin cover, glitter edges and your custom text.',
+    priceRange: 'From ₦16,000',
+    category: 'Stationery',
+    image: img('journal.jpg')
   },
   {
-    id: '6',
-    name: 'Luxury Resin Bag',
-    description: 'A stunning handmade bag encased in resin designs. The perfect accessory for special occasions.',
-    priceRange: '₦35,000 - ₦55,000',
-    category: 'Accessories',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287706/IMG_9407_znnhxv.jpg'
+    id: 'resin-pen',
+    name: 'Personalised Resin Pen',
+    description: 'A refillable pen with a resin barrel, silver flakes and a printed name. Great for doctors, teams and graduates.',
+    priceRange: 'From ₦2,500',
+    category: 'Stationery',
+    image: img('resin-pens.jpg')
   },
   {
-    id: '7',
-    name: 'Custom Keychains',
-    description: 'Personalized initials and designs with floral or gold flake inclusions. Perfect for gifts.',
-    priceRange: '₦2,500 - ₦5,000',
-    category: 'Accessories',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287611/IMG_6399_iil20x.jpg'
-  },
-  {
-    id: '8',
-    name: 'Coaster',
-    description: 'Large decorative tray with handles. Perfect for serving guests or as a centerpiece.',
-    priceRange: '₦25,000 - ₦35,000',
-    category: 'Homeware',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765313779/IMG_2121_e0nvzo.jpg'
-  },
-  {
-    id: '9',
-    name: 'Geode Art Canvas',
-    description: 'Textured wall art mimicking natural geode formations with crystals and glass.',
-    priceRange: '₦60,000+',
-    category: 'Decor',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287097/IMG_1023_dmxj5q.jpg'
-  },
-  {
-    id: '10',
+    id: 'resin-bookmark',
     name: 'Resin Bookmark',
-    description: 'Elegant bookmark with real pressed flowers and gold leaf. A beautiful companion for your reading.',
-    priceRange: '₦3,000 - ₦5,000',
+    description: 'A glitter resin bookmark with a butterfly topper and your custom text. ₦1,500 each for orders above 10.',
+    priceRange: 'From ₦2,000',
     category: 'Stationery',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765286657/IMG_2454_gstsrx.jpg'
+    image: img('bookmark.jpg')
   },
   {
-    id: '11',
-    name: 'Custom Phone Case',
-    description: 'Protective case with a unique resin back art. Available for various phone models.',
-    priceRange: '₦12,000 - ₦18,000',
-    category: 'Accessories',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765286842/98835547-B853-4C3D-9395-B7AA594880D4_clynng.jpg'
+    id: 'couples-keychain-box',
+    name: 'Couples Keychain Box',
+    description: 'A two piece heart keychain that fits together, presented in a gift box. Personalised for the two of you.',
+    priceRange: 'From ₦10,000',
+    category: 'Gifts',
+    image: img('couples-keychain-box.jpg')
   },
   {
-    id: '12',
-    name: 'Bespoke Resin Pen',
-    description: 'Refillable ballpoint pen with custom resin barrel. Smooth writing with a touch of luxury.',
-    priceRange: '₦4,000 - ₦6,000',
-    category: 'Stationery',
-    image: 'https://res.cloudinary.com/dfribrcrt/image/upload/v1765287769/E13CF2D7-66DA-417E-92D9-93EFADF1335F_mxpurw.jpg'
+    id: 'keychain-pen-gift-box',
+    name: 'Keychain & Pen Gift Box',
+    description: 'A named keychain and matching pen in a window gift box. A neat choice for staff and corporate gifts.',
+    priceRange: 'From ₦7,500',
+    category: 'Gifts',
+    image: img('keychain-pen-gift-box.jpg')
+  },
+  {
+    id: 'custom-keychain',
+    name: 'Custom Keychain',
+    description: 'A resin keychain with a pressed flower charm and your name or initials. ₦1,700 each for orders above 50.',
+    priceRange: 'From ₦2,500',
+    category: 'Gifts',
+    image: img('keychain.jpg')
   }
 ];
 
+const categories = ['All', 'Weddings', 'Home Decor', 'Accessories', 'Stationery', 'Gifts'];
+
 const Shop: React.FC = () => {
+  const [active, setActive] = useState('All');
+  const visible = active === 'All' ? products : products.filter(p => p.category === active);
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -116,10 +145,11 @@ const Shop: React.FC = () => {
         "position": i + 1,
         "name": p.name,
         "description": p.description,
-        "image": p.image,
+        "image": `${SITE_URL}${p.image}`,
         "offers": {
           "@type": "Offer",
           "priceCurrency": "NGN",
+          "price": p.priceRange.replace(/[^0-9]/g, ''),
           "availability": "https://schema.org/InStock"
         }
       }))
@@ -139,16 +169,17 @@ const Shop: React.FC = () => {
           <span className="text-teal-600 tracking-widest text-xs uppercase font-bold mb-3 block">The Catalogue</span>
           <h1 className="text-5xl md:text-7xl font-serif text-slate-900 mb-6">Curated Collections</h1>
           <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed text-lg font-light">
-            Explore our curated selection of handmade resin masterpieces. Each piece is unique, crafted with passion and precision in our Ilorin studio.
+            Explore our curated selection of handmade resin masterpieces. Each piece is unique, crafted with passion and precision in our Ilorin studio. Prices start from the amounts shown and vary with size and personalisation.
           </p>
         </div>
 
-        {/* Filter Categories (Visual only for now) */}
+        {/* Filter Categories */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-20 border-b border-slate-100 pb-8">
-          {['All', 'Decor', 'Homeware', 'Accessories', 'Religious', 'Stationery'].map((cat, idx) => (
+          {categories.map((cat) => (
             <button 
               key={cat}
-              className={`text-xs uppercase tracking-[0.2em] px-4 py-2 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-teal-900 text-white' : 'bg-transparent text-slate-400 hover:text-teal-900 hover:bg-slate-50'}`}
+              onClick={() => setActive(cat)}
+              className={`text-xs uppercase tracking-[0.2em] px-4 py-2 rounded-full transition-all duration-300 ${active === cat ? 'bg-teal-900 text-white' : 'bg-transparent text-slate-400 hover:text-teal-900 hover:bg-slate-50'}`}
             >
               {cat}
             </button>
@@ -156,12 +187,13 @@ const Shop: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
-          {products.map((product) => (
+          {visible.map((product) => (
             <div key={product.id} className="group flex flex-col h-full">
               <div className="relative overflow-hidden aspect-[4/5] bg-slate-100 mb-8 rounded-[2.5rem] shadow-lg">
                 <img 
                   src={product.image} 
                   alt={product.name} 
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500"></div>
@@ -169,25 +201,25 @@ const Shop: React.FC = () => {
                 {/* Overlay Button */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <a 
-                      href="https://instagram.com/hautezelle"
+                      href={INSTAGRAM_DM}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-white/90 backdrop-blur-md text-teal-900 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex items-center gap-2 shadow-xl hover:bg-white"
                     >
-                      <Instagram size={16} /> Buy on Instagram
+                      <Instagram size={16} /> Order via DM
                     </a>
                 </div>
               </div>
 
               <div className="flex flex-col flex-grow px-2">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-2xl font-serif text-slate-900 group-hover:text-teal-700 transition-colors">{product.name}</h3>
-                  {/* Price tag removed as requested */}
+                  <h3 className="text-2xl font-serif text-slate-900 group-hover:text-teal-700 transition-colors pr-4">{product.name}</h3>
+                  <p className="text-teal-700 font-semibold whitespace-nowrap pt-1">{product.priceRange}</p>
                 </div>
                 <p className="text-slate-500 mb-6 flex-grow leading-relaxed font-light">{product.description}</p>
                 <div className="flex justify-between items-center border-t border-slate-100 pt-4">
                    <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">{product.category}</p>
-                   <a href="https://instagram.com/hautezelle" target="_blank" rel="noreferrer" className="text-teal-600 text-xs uppercase tracking-widest font-bold hover:text-teal-900">Details</a>
+                   <a href={INSTAGRAM_DM} target="_blank" rel="noreferrer" className="text-teal-600 text-xs uppercase tracking-widest font-bold hover:text-teal-900">Order via DM</a>
                 </div>
               </div>
             </div>
@@ -202,7 +234,7 @@ const Shop: React.FC = () => {
               We specialize in custom orders for weddings, corporate gifts, and personal milestones. Let us bring your vision to life.
             </p>
             <a 
-              href="https://instagram.com/hautezelle"
+              href={INSTAGRAM_DM}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-white text-teal-950 px-12 py-5 text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-colors rounded-full shadow-2xl"

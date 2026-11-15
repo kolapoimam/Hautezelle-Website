@@ -3,9 +3,9 @@ import { Brush, Briefcase, Gift, Wine } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageRoutes } from '../types';
 import SEO from '../components/SEO';
+import { INSTAGRAM_DM } from '../constants';
 
 const Services: React.FC = () => {
-  const MAIL_LINK = "mailto:hautezelle@gmail.com";
 
   return (
     <div className="w-full bg-white">
@@ -31,7 +31,7 @@ const Services: React.FC = () => {
           <div className="md:w-1/2 order-2 md:order-1">
              <div className="relative">
                 <div className="absolute top-0 right-0 w-full h-full bg-teal-50 rounded-[2.5rem] transform translate-x-4 -translate-y-4"></div>
-                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765300330/IMG_8664_tjuign.jpg" alt="Resin N Sip" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
+                <img src="/images/keychain.jpg" alt="Resin N Sip" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
              </div>
           </div>
           <div className="md:w-1/2 order-1 md:order-2">
@@ -47,7 +47,7 @@ const Services: React.FC = () => {
               <li className="flex items-center"><span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span> All materials provided</li>
               <li className="flex items-center"><span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span> Take home your art</li>
             </ul>
-             <a href={MAIL_LINK} className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
+             <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
               Book a Session
             </a>
           </div>
@@ -75,7 +75,7 @@ const Services: React.FC = () => {
           <div className="md:w-1/2">
              <div className="relative">
                 <div className="absolute top-0 left-0 w-full h-full bg-slate-100 rounded-[2.5rem] transform -translate-x-4 translate-y-4"></div>
-                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287641/F534EEA6-49B8-4E74-807F-3295D70B25E8_2_ukfdh7.jpg" alt="Academy" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
+                <img src="/images/bookmark.jpg" alt="Academy" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
              </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ const Services: React.FC = () => {
           <div className="md:w-1/2 order-2 md:order-1">
              <div className="relative">
                 <div className="absolute top-0 right-0 w-full h-full bg-teal-900 rounded-[2.5rem] transform translate-x-4 -translate-y-4 opacity-10"></div>
-                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287611/IMG_6399_iil20x.jpg" alt="Corporate" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
+                <img src="/images/resin-pens.jpg" alt="Corporate" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
              </div>
           </div>
           <div className="md:w-1/2 order-1 md:order-2">
@@ -96,7 +96,7 @@ const Services: React.FC = () => {
             <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
               We collaborate with brands, associations, and organizations to create custom resin souvenirs and promotional items. Elevate your corporate gifting with handmade, branded excellence.
             </p>
-            <a href={MAIL_LINK} className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
+            <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
               Contact for Inquiry
             </a>
           </div>
@@ -112,14 +112,14 @@ const Services: React.FC = () => {
             <p className="text-slate-600 leading-relaxed mb-8 text-lg font-light">
               From wedding souvenirs to personalized home decor, we bring your specific ideas to life. Our custom order process ensures your vision is perfectly translated into resin.
             </p>
-            <a href={MAIL_LINK} className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
+            <a href={INSTAGRAM_DM} target="_blank" rel="noopener noreferrer" className="text-teal-900 font-bold text-xs uppercase tracking-widest border-b border-teal-900 pb-1 hover:text-teal-600 hover:border-teal-600 transition-colors">
               Start a Project
             </a>
           </div>
           <div className="md:w-1/2">
              <div className="relative">
                 <div className="absolute top-0 left-0 w-full h-full bg-pink-50 rounded-[2.5rem] transform -translate-x-4 translate-y-4"></div>
-                <img src="https://res.cloudinary.com/dfribrcrt/image/upload/v1765287614/IMG_7587_d9ndes.jpg" alt="Gifting" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
+                <img src="/images/couples-keychain-box.jpg" alt="Gifting" className="w-full rounded-[2.5rem] shadow-2xl relative z-10" />
              </div>
           </div>
         </div>

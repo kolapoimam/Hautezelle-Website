@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag, Instagram } from 'lucide-react';
 import { PageRoutes } from '../types';
+import { INSTAGRAM_PROFILE } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,7 +98,7 @@ const Navbar: React.FC = () => {
         {/* Desktop Actions - Right (Standalone Elements) */}
         <div className="hidden md:flex pointer-events-auto items-center gap-4">
            <a 
-            href="https://instagram.com/hautezelle" 
+            href={INSTAGRAM_PROFILE} 
             target="_blank" 
             rel="noopener noreferrer"
             className={`p-3 rounded-full transition-all duration-300 ${isScrolled || !isDarkHeroPage ? 'bg-white/90 text-teal-900 shadow-md hover:text-teal-600 border border-slate-100' : 'bg-black/20 text-white hover:bg-white/20 backdrop-blur-sm'}`}
@@ -144,7 +145,7 @@ const Navbar: React.FC = () => {
          </Link>
          
          <div className="flex gap-6 mt-8">
-            <a href="https://instagram.com/hautezelle" target="_blank" rel="noreferrer" className="p-3 bg-white rounded-full text-teal-900 shadow-md"><Instagram size={24} /></a>
+            <a href={INSTAGRAM_PROFILE} target="_blank" rel="noreferrer" className="p-3 bg-white rounded-full text-teal-900 shadow-md"><Instagram size={24} /></a>
             <Link to={PageRoutes.SHOP} onClick={() => setIsOpen(false)} className="p-3 bg-teal-900 rounded-full text-white shadow-md"><ShoppingBag size={24} /></Link>
          </div>
       </div>

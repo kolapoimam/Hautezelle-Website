@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import SEO from '../components/SEO';
+import { INSTAGRAM_DM } from '../constants';
 
 const Contact: React.FC = () => {
   return (
@@ -58,7 +59,7 @@ const Contact: React.FC = () => {
         {/* Form */}
         <div className="bg-slate-50 p-8 md:p-12 shadow-sm border border-slate-100">
           <h2 className="text-2xl font-serif text-slate-900 mb-6">Send us a message</h2>
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); window.open(INSTAGRAM_DM, '_blank', 'noopener'); }}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-bold uppercase text-slate-500 mb-2">First Name</label>
@@ -91,7 +92,7 @@ const Contact: React.FC = () => {
             </div>
 
             <button type="submit" className="w-full bg-teal-900 text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-teal-800 transition-colors">
-              SendMessage
+              Send via Instagram DM
             </button>
           </form>
         </div>

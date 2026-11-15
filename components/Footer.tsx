@@ -2,6 +2,7 @@ import React from 'react';
 import { Instagram, Mail, MapPin, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageRoutes } from '../types';
+import { INSTAGRAM_DM, INSTAGRAM_PROFILE } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -46,18 +47,16 @@ const Footer: React.FC = () => {
         </div>
 
         <div>
-          <h4 className="text-lg font-serif mb-6 tracking-wide text-teal-200">Newsletter</h4>
-          <p className="text-teal-100/70 text-sm mb-4">Subscribe for luxury updates and workshop announcements.</p>
-          <div className="flex flex-col space-y-3 max-w-xs mx-auto md:mx-0">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="bg-teal-900/50 border border-teal-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-teal-500 placeholder-teal-600/50 rounded-sm"
-            />
-            <button className="bg-white text-teal-950 px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-colors rounded-sm">
-              Subscribe
-            </button>
-          </div>
+          <h4 className="text-lg font-serif mb-6 tracking-wide text-teal-200">Stay in Touch</h4>
+          <p className="text-teal-100/70 text-sm mb-4">Send us a DM for new collections and workshop dates.</p>
+          <a
+            href={INSTAGRAM_DM}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-teal-950 px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-teal-50 transition-colors rounded-sm"
+          >
+            Message us on Instagram
+          </a>
         </div>
       </div>
 
@@ -70,7 +69,7 @@ const Footer: React.FC = () => {
             </a>
         </div>
         <div className="flex space-x-6 order-1 md:order-2">
-          <a href="https://instagram.com/hautezelle" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+          <a href={INSTAGRAM_PROFILE} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
           <a href="#" className="hover:text-white transition-colors"><Twitter size={20} /></a>
         </div>
       </div>

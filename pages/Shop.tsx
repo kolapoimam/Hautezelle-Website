@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 import SEO from '../components/SEO';
 import { INSTAGRAM_DM } from '../constants';
 import site from '../data/site.json';
-import { track, gaItem, priceFrom, slug, CURRENCY } from '../lib/analytics';
+import { track, gaItem, priceFrom, naira, slug, CURRENCY } from '../lib/analytics';
 
 const products: Product[] = site.products;
 
@@ -137,6 +137,18 @@ const Shop: React.FC = () => {
                 <span className="whitespace-nowrap text-[15px] text-teal-700">{product.priceRange}</span>
               </div>
               <p className="flex-grow text-[15px] leading-[1.7] text-[#4a5553]">{product.description}</p>
+              {product.bulkPricing && (
+                <ul aria-label="Bulk prices" className="flex flex-wrap gap-2 text-[13px]">
+                  {product.bulkPricing
+                    .slice()
+                    .sort((a, b) => a.minQty - b.minQty)
+                    .map((t) => (
+                      <li key={t.minQty} className="rounded-full bg-teal-50 px-3 py-1.5 text-teal-800">
+                        {t.minQty}+ pieces · {naira(t.price)} each
+                      </li>
+                    ))}
+                </ul>
+              )}
               <button
                 type="button"
                 onClick={() => addToCart(product, index)}

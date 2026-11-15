@@ -44,13 +44,27 @@ export function track(name: string, params: Params = {}): void {
 export const priceFrom = (p: Product) => Number((p.priceRange.match(/[\d,]+/) || ['0'])[0].replace(/,/g, '')) || 0;
 export const naira = (n: number) => `₦${n.toLocaleString('en-NG')}`;
 
+/** The price of one piece at a given quantity, using bulk tiers where the product has them. */
+export const unitPrice = (p: Product, qty = 1) => {
+  const tier = [...(p.bulkPricing || [])].sort((a, b) => b.minQty - a.minQty).find((t) => qty >= t.minQty);
+  return tier ? tier.price : priceFrom(p);
+};
+
+/** Short text for a product's bulk tiers, e.g. "51+ pieces ₦5,000 each · 100+ pieces ₦4,000 each". */
+export const bulkSummary = (p: Product) =>
+  (p.bulkPricing || [])
+    .slice()
+    .sort((a, b) => a.minQty - b.minQty)
+    .map((t) => `${t.minQty}+ pieces ${naira(t.price)} each`)
+    .join(' · ');
+
 /** A product in the GA4 item shape. */
 export const gaItem = (p: Product, extra: { quantity?: number; index?: number; item_list_name?: string; item_list_id?: string } = {}) => ({
   item_id: p.id,
   item_name: p.name,
   item_brand: 'Hautezelle',
   item_category: p.category,
-  price: priceFrom(p),
+  price: unitPrice(p, extra.quantity ?? 1),
   quantity: extra.quantity ?? 1,
   ...(extra.index !== undefined ? { index: extra.index } : {}),
   ...(extra.item_list_name ? { item_list_name: extra.item_list_name } : {}),

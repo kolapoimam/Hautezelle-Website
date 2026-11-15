@@ -7,6 +7,8 @@ export interface Product {
   priceRange: string;
   category: string;
   image: string;
+  /** Lower unit prices for larger orders, e.g. [{ minQty: 51, price: 5000 }, { minQty: 100, price: 4000 }]. */
+  bulkPricing?: { minQty: number; price: number }[];
 }
 
 export interface Service {

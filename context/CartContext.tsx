@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { Product } from '../types';
 import site from '../data/site.json';
-import { priceFrom, naira } from '../lib/analytics';
+import { priceFrom, naira, unitPrice } from '../lib/analytics';
 
-export { priceFrom, naira };
+export { priceFrom, naira, unitPrice };
 
 export type CartLine = { id: string; qty: number };
 
@@ -58,7 +58,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const setQty = useCallback((id: string, qty: number) => {
-    setLines((cur) => (qty <= 0 ? cur.filter((l) => l.id !== id) : cur.map((l) => (l.id === id ? { ...l, qty: Math.min(qty, 99) } : l))));
+    setLines((cur) => (qty <= 0 ? cur.filter((l) => l.id !== id) : cur.map((l) => (l.id === id ? { ...l, qty: Math.min(Math.floor(qty), 9999) } : l))));
   }, []);
 
   const remove = useCallback((id: string) => setLines((cur) => cur.filter((l) => l.id !== id)), []);
@@ -72,7 +72,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       lines,
       items,
       count: items.reduce((n, l) => n + l.qty, 0),
-      estimate: items.reduce((n, l) => n + priceFrom(l.product) * l.qty, 0),
+      estimate: items.reduce((n, l) => n + unitPrice(l.product, l.qty) * l.qty, 0),
       isOpen,
       open,
       close,

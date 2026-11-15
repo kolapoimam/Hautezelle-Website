@@ -1,11 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Minus, Plus, X, Trash2, ShoppingBag, Instagram, Check } from 'lucide-react';
-import { useCart, naira, priceFrom } from '../context/CartContext';
+import { useCart, naira, priceFrom, unitPrice } from '../context/CartContext';
 import { INSTAGRAM_DM, WHATSAPP_NUMBER } from '../constants';
 import { WhatsAppIcon } from './SocialIcons';
 import { PageRoutes } from '../types';
 import { track, gaItem, CURRENCY } from '../lib/analytics';
+import { Product } from '../types';
+
+/** Bulk tier hint for a line, e.g. "Add 3 more for ₦5,000 each". */
+const nextTier = (p: Product, qty: number) =>
+  (p.bulkPricing || []).slice().sort((a, b) => a.minQty - b.minQty).find((t) => qty < t.minQty);
 
 /** Copies text inside the click itself so it works even where the async clipboard API is blocked. */
 const copyNow = (text: string): boolean => {
@@ -28,6 +33,29 @@ const copyNow = (text: string): boolean => {
     ok = true;
   }
   return ok;
+};
+
+/** Typeable quantity box. Lets the field be empty while typing and commits whole numbers from 1 to 9999. */
+const QtyInput: React.FC<{ label: string; qty: number; onCommit: (n: number) => void }> = ({ label, qty, onCommit }) => {
+  const [draft, setDraft] = useState(String(qty));
+  useEffect(() => setDraft(String(qty)), [qty]);
+  return (
+    <input
+      type="text"
+      inputMode="numeric"
+      pattern="[0-9]*"
+      value={draft}
+      aria-label={label}
+      onChange={(e) => {
+        const v = e.target.value.replace(/\D/g, '').slice(0, 4);
+        setDraft(v);
+        const n = parseInt(v, 10);
+        if (n >= 1) onCommit(n);
+      }}
+      onBlur={() => setDraft(String(qty))}
+      className="h-9 w-14 rounded-full border border-transparent bg-transparent text-center text-[15px] focus:border-teal-300 focus:outline-none"
+    />
+  );
 };
 
 const CartDrawer: React.FC = () => {
@@ -60,9 +88,13 @@ const CartDrawer: React.FC = () => {
   const message = [
     'Hello Hautezelle, I would like to order:',
     '',
-    ...items.map((l, i) => `${i + 1}. ${l.product.name} × ${l.qty} (from ${naira(priceFrom(l.product))} each)`),
+    ...items.map((l, i) =>
+      l.product.bulkPricing
+        ? `${i + 1}. ${l.product.name} × ${l.qty} at ${naira(unitPrice(l.product, l.qty))} each = ${naira(unitPrice(l.product, l.qty) * l.qty)}`
+        : `${i + 1}. ${l.product.name} × ${l.qty} (from ${naira(priceFrom(l.product))} each)`,
+    ),
     '',
-    `Estimated total: from ${naira(estimate)}`,
+    `Estimated total: ${items.every((l) => l.product.bulkPricing) ? '' : 'from '}${naira(estimate)}`,
     '',
     'Please confirm the final price, personalisation and delivery. Thank you!',
   ].join('\n');
@@ -84,20 +116,22 @@ const CartDrawer: React.FC = () => {
 
   const changeQty = (id: string, qty: number, next: number) => {
     const line = items.find((l) => l.id === id);
-    if (!line) return;
-    const diff = next - qty;
+    if (!line || next === qty) return;
     const product = line.product;
-    if (diff > 0) {
-      track('add_to_cart', { currency: CURRENCY, value: gaItem(product).price * diff, add_source: 'cart_quantity', items: [gaItem(product, { quantity: diff })] });
-    } else if (diff < 0) {
-      track('remove_from_cart', { currency: CURRENCY, value: gaItem(product).price * -diff, remove_source: next <= 0 ? 'cart_quantity_zero' : 'cart_quantity', items: [gaItem(product, { quantity: -diff })] });
+    const lineTotal = (n: number) => (n > 0 ? unitPrice(product, n) * n : 0);
+    const value = Math.abs(lineTotal(next) - lineTotal(qty));
+    const diff = Math.abs(next - qty);
+    if (next > qty) {
+      track('add_to_cart', { currency: CURRENCY, value, add_source: 'cart_quantity', items: [{ ...gaItem(product, { quantity: diff }), price: unitPrice(product, next) }] });
+    } else {
+      track('remove_from_cart', { currency: CURRENCY, value, remove_source: next <= 0 ? 'cart_quantity_zero' : 'cart_quantity', items: [{ ...gaItem(product, { quantity: diff }), price: unitPrice(product, qty) }] });
     }
     setQty(id, next);
   };
 
   const removeLine = (id: string, qty: number) => {
     const line = items.find((l) => l.id === id);
-    if (line) track('remove_from_cart', { currency: CURRENCY, value: gaItem(line.product).price * qty, remove_source: 'cart_remove_button', items: [gaItem(line.product, { quantity: qty })] });
+    if (line) track('remove_from_cart', { currency: CURRENCY, value: unitPrice(line.product, qty) * qty, remove_source: 'cart_remove_button', items: [gaItem(line.product, { quantity: qty })] });
     remove(id);
   };
 
@@ -210,7 +244,17 @@ const CartDrawer: React.FC = () => {
                         <Trash2 size={16} />
                       </button>
                     </div>
-                    <span className="text-sm text-teal-700">{product.priceRange}</span>
+                    <span className="text-sm text-teal-700">
+                      {product.bulkPricing ? `${naira(unitPrice(product, qty))} each` : product.priceRange}
+                      {product.bulkPricing && unitPrice(product, qty) < priceFrom(product) && (
+                        <span className="ml-2 rounded-full bg-teal-50 px-2 py-0.5 text-[11px] uppercase tracking-[0.14em] text-teal-800">Bulk price</span>
+                      )}
+                    </span>
+                    {product.bulkPricing && nextTier(product, qty) && (
+                      <span className="text-[12px] leading-snug text-[#5b6563]">
+                        Order {nextTier(product, qty)!.minQty}+ for {naira(nextTier(product, qty)!.price)} each
+                      </span>
+                    )}
                     <div className="mt-auto flex items-center gap-1">
                       <button
                         type="button"
@@ -221,7 +265,7 @@ const CartDrawer: React.FC = () => {
                       >
                         <Minus size={14} />
                       </button>
-                      <span className="w-9 text-center text-[15px]" aria-live="polite">{qty}</span>
+                      <QtyInput label={`Quantity of ${product.name}`} qty={qty} onCommit={(n) => changeQty(id, qty, n)} />
                       <button
                         type="button"
                         onClick={() => changeQty(id, qty, qty + 1)}
@@ -240,7 +284,7 @@ const CartDrawer: React.FC = () => {
             <footer className="flex flex-col gap-4 border-t border-mist bg-white/70 px-6 pb-6 pt-5">
               <div className="flex items-baseline justify-between">
                 <span className="text-[15px] text-[#4a5553]">Estimated total</span>
-                <span className="text-2xl">from {naira(estimate)}</span>
+                <span className="text-2xl">{items.every((l) => l.product.bulkPricing) ? '' : 'from '}{naira(estimate)}</span>
               </div>
               <p className="text-[13px] leading-[1.6] text-[#5b6563]">
                 Every piece is handmade to order. We confirm the final price, personalisation and delivery with you in the chat.
